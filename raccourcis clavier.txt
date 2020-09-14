@@ -1,0 +1,4 @@
+Win + E = Explorateur de fichiers
+Win + Fleche = mettre la fenetre comme on veut
+Win + R = cmd
+Win + Shift + N = création de dossier

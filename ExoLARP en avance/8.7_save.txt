@@ -1,0 +1,73 @@
+\\ Module principal
+
+\\  0 = En haut a gauche  /// 1 = en haut a droite /// 2 = bas a gauche /// 3 = en bas a droite 
+DÉBUT
+ECRIRE "ou se trouve votre position ? Entrez la colonne."
+LIRE col
+ECRIRE "Entrez la ligne cette fois ci"
+LIRE line
+mouvflag = "false"
+SI col <=10 OU col >=1 ALORS
+    Pour i = 1 jusqu'a col faire
+        SI line <=10 OU line >=1 ALORS
+            Pour j = 1 jusqu'a line faire
+                 Tb[i][j] = " "
+                 Tb[col][line] = "X"
+                 flag = "postrue"
+                 colprec = col
+                 lineprec = line
+                 col = 0
+                 line = 0
+                 mouvflag = "true"
+            finpour
+        FINSI
+    finpour
+SINON 
+    flag = "posfalse"
+    TANTQUE flag = "posfalse" FAIRE
+        ECRIRE "saisie invalide écrivez une position valide."
+        ECRIRE " "
+        ECRIRE "ou se trouve votre position ? Entrez la colonne."
+        LIRE col
+        ECRIRE "Entrez la ligne cette fois ci"
+        LIRE line
+        SI col <=10 ET line <= 10 ALORS
+            flag = "postrue"
+            mouvflag = "true"
+            colprec = col
+            lineprec = line
+            col = 0
+            line = 0
+        FINSI
+    FINTANTQUE
+FINSI
+Si mouvflag = "true" ALORS
+    ECRIRE "Ou voulez vous aller ? En haut a gauche ? = 0"
+    ECRIRE "Ou voulez vous aller ? En haut a droite ? = 1"
+    ECRIRE "Ou voulez vous aller ? En bas a gauche ? = 2"
+    ECRIRE "Ou voulez vous aller ? En bas a droite ? = 3"
+    Lire Mouv
+    Si Mouv = 0 ALORS
+        line = lineprec - 1
+        col = colprec + 1
+        mouvflag = "false"
+    SINON si Mouv = 1 ALORS
+        line = lineprec + 1
+        col = colprec + 1
+        mouvflag = "false"
+    SINON si  Mouv = 2 ALORS
+        line = lineprec - 1
+        col = colprec - 1
+        mouvflag = "false" 
+    SINON si  Mouv = 3 ALORS
+        line = lineprec - 1
+        col = colprec - 1
+        mouvflag = "false"
+    SINON SI Mouv < 0 OU Mouv > 3 ALORS
+        TANTQUE Mouv < 0 OU Mouv > 3 FAIRE
+            mouvflag = "true"
+        FINTANTQUE
+    FINSI 
+FINSI     
+ECRIRE Tb    
+FIN

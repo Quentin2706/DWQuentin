@@ -1,0 +1,117 @@
+############    Exercice 1   ############
+
+A = 3 ; B = 4
+
+1.2
+A = 7 ; B = 3 ; C = 3
+
+1.3
+A = 6 ; B = 2
+
+1.4
+A = 13 ; B = 13 ; C = 13
+
+1.5
+A = 2 ; B = 2
+
+1.6
+A = 21 
+B = 42 
+C <- A
+A <- B
+B <- C
+Ecrire A 
+Ecrire B
+A = 42
+B =21
+
+1.7
+A = 4
+B = 12
+C = 8
+D <- B
+B <- A
+A <- C
+C <- D
+Ecrire A
+Ecrire B
+Ecrire C
+A = 8
+B = 4 
+C = 12
+
+1.8
+a = "423"
+b = "12"
+c = a + b
+Ecrire c
+c = 42312
+
+1.9
+a = "423"
+b = "12"
+c = a & b
+Ecrire c
+c = 42312
+
+############    Exercice 2    ############
+
+2.1
+Voir LARP
+
+2.2
+Voir LARP
+
+2.3
+Voir LARP
+
+2.4
+Voir LARP
+
+############    Exercice 3    ############
+
+3.1
+Voir LARP
+
+3.2
+Voir LARP
+
+3.3
+Voir LARP
+
+3.4
+Voir LARP
+
+3.5
+Voir LARP
+
+3.6
+Voir LARP
+
+############    Exercice 4    ############
+
+4.1
+VOIR LARP
+
+4.2
+VOIR LARP
+
+4.3
+VOIR LARP
+
+4.4 
+VOIR LARP
+
+4.5
+VOIR LARP
+
+4.6
+VOIR LARP
+
+4.7
+VOIR LARP
+
+4.8
+VOIR LARP
+
+ET AINSI DE SUITE... 
