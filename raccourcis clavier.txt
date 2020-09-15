@@ -2,3 +2,6 @@ Win + E = Explorateur de fichiers
 Win + Fleche = mettre la fenetre comme on veut
 Win + R = cmd
 Win + Shift + N = création de dossier
+CTRL + : = mettre en commentaire les lignes selectionnées
+CTRL + D = remplacer un mot par un autre
+CTRL + H = pour trouver et remplacer un mot

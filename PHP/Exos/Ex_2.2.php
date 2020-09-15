@@ -1,4 +1,3 @@
 <?php
     $nb=readline("Entrez un nombre.");
-    $nb*=$nb;
-    Echo $nb;
+    Echo "le carré de".$nb."est :".pow($nb, 2);
