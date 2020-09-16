@@ -1,34 +1,81 @@
 <?php
 
 // ========= REQUETES de nombres de votes total et par candidat et Vérification des données =========
-do {
-$c[0]= readline("Combien de personnes ont voté J.charal ?\n");
-$c[1]= readline("Combien de personnes ont voté E.Roblochon ?\n");
-$c[2]= readline("Combien de personnes ont voté T.Balcon ?\n");
-$c[3]= readline("Combien de personnes ont voté H.Castagne ?\n");
-    if (!ctype_digit($c[0]) xor !ctype_digit($c[1]) xor !ctype_digit($c[2]) xor !ctype_digit($c[3])) {
-        echo "Saisie invalide." . "\n";
-    }
-} while (!ctype_digit($c[0]) xor !ctype_digit($c[1]) xor !ctype_digit($c[2]) xor !ctype_digit($c[3]) && (($c[0] < 0) && ($c[1] < 0) && ($c[2] < 0) && ($c[3] < 0)));
+$c0 = readline("Combien de personnes ont voté J.charal ?\n");
+$c1 = readline("Combien de personnes ont voté E.Roblochon ?\n");
+$c2 = readline("Combien de personnes ont voté T.Balcon ?\n");
+$c3 = readline("Combien de personnes ont voté H.Castagne ?\n");
+
+while (!ctype_digit($c0) or !ctype_digit($c1) or !ctype_digit($c2) or !ctype_digit($c3) && (($c0 < 0) or ($c1 < 0) or ($c2 < 0) or ($c3 < 0))){
+    echo "Saisie invalide." . "\n";
+    echo " \n";
+    $c0 = readline("Combien de personnes ont voté J.charal ?\n");
+    $c1 = readline("Combien de personnes ont voté E.Roblochon ?\n");
+    $c2 = readline("Combien de personnes ont voté T.Balcon ?\n");
+    $c3 = readline("Combien de personnes ont voté H.Castagne ?\n");
+}
 
 
 // ========= calculs des pourcentages =========
-$TOTAL_DES_VOTES = $c[0]+$c[1]+$c[2]+$c[3];
-$c[0] = ($c[0]/$Total_des_votes)*100;
-$c[1] = ($c[1]/$Total_des_votes)*100;
-$c[2] = ($c[2]/$Total_des_votes)*100;
-$c[3] = ($c[3]/$Total_des_votes)*100;
+$Total_des_votes = $c0 + $c1 + $c2 + $c3;
+$c0 = ($c0 / $Total_des_votes) * 100;
+$c1 = ($c1 / $Total_des_votes) * 100;
+$c2 = ($c2 / $Total_des_votes) * 100;
+$c3 = ($c3 / $Total_des_votes) * 100;
 
-// ========= pour l'instant je sais pas =========
-
-switch ($c[0]) {
-    case $c[0] > 50 :
+// ========= Les conditions pour les résultats =========
+switch ($c0) {
+    case $c0 > 50:
         echo "J.charal est élu dés le premier tour.";
         break;
-    case $c[0] > 12.5 :
-        echo "J.charal est favorable dés le premier tour.";
+    case $c0 > $c1 && $c0 > $c2 && $c0 > $c3:
+        echo "J.charal est favorable pour le deuxième tour.";
+        break;
+    case $c0 < $c1 && $c0 < $c2 && $c0 < $c3 && $c1 < 50 && $c2 < 50 && $c3 < 50:
+        echo "J.charal est défavorable pour le deuxième tour.";
+        break;
+    case $c0 == $c1 && $c0 == $c2 && $c0 == $c3:
+        echo "J.charal n'est ni favorable ou défavorable pour le deuxième tour.";
         break;
     default:
-        # code...
+        echo "J.charal est éliminé.";
         break;
 }
+
+/* ========= LES TESTS =========
+C0 = 51
+C1 = 10    C0 est élu au premier tour.
+C2 = 30
+C3 = 9
+
+C0 = 31
+C1 = 20    C0 est favorable pour le deuxieme tour.
+C2 = 14
+C3 = 25
+
+C0 = 15
+C1 = 45    C0 est défavorable au deuxieme tour.
+C2 = 20
+C3 = 20
+
+C0 = 25
+C1 = 25    C0 n'est ni favorable ou défavorable pour le deuxième tour.
+C2 = 25
+C3 = 25
+
+C0 = 25
+C1 = 9     C0 est battu dés le premier tour.
+C2 = 51
+C3 = 15
+
+C0 = fzefz
+C1 = fzefz
+C2 = 10     Saisie invalide.
+C3 = 10
+
+C0 = -1
+C1 = 10
+C2 = 10      Saisie invalide.
+C2 = 10
+C3 = 10
+ */

@@ -1,3 +1,3 @@
 <?php
-    $nb=readline("Entrez un nombre.");
-    Echo "le carré de".$nb."est :".pow($nb, 2);
+$nb = readline("Entrez un nombre.");
+echo "le carré de" . $nb . "est :" . pow($nb, 2);
