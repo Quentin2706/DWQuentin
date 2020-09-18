@@ -1,6 +1,5 @@
 <?php
-// Initialisation de la fonction.
-include "../../function.php";
+
 // Initialisation du tableau contenant les saisies des notes.
 $somme = 0;
 for($i = 1; $i <= 9; $i++){
@@ -13,7 +12,9 @@ for($i = 1; $i <= 9; $i++){
 }
 
 // Affichage du tableau et des calculs + résultats.
-affichageTableauforeach($note);
+foreach ($note as $elt) {
+    echo "[" . $elt . "]" . "\t";
+}
 
 echo "\n";
 echo "Moyenne = (".$note[1]. " + ".$note[2]." + ".$note[3]." + ".$note[4]." + ".$note[5]." + ".$note[6]." + ".$note[7]." + ".$note[8]." + ".$note[9].") / 9 = ".$moyenne = $somme / 9 ."\n";
