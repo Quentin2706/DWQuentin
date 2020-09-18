@@ -12,7 +12,7 @@ for($i = 1; $i <= 9; $i++){
     }
     $somme += $note[$i];
 }
-return $notes
+return $notes;
 }
 // la fonction qui donne la moyenne des valeurs saisies.
 function moyenne6_7($note){
@@ -21,7 +21,7 @@ echo "Moyenne = (".$note[1]. " + ".$note[2]." + ".$note[3]." + ".$note[4]." + ".
 echo " Soit ".$array_sum($note)."/9 = ".$moyenne = $array_sum($note) / 9 ."\n";
 echo "La moyenne de la classe est de :".$moyenne = $array_sum($note) / 9 ."\n";
 }
-}
+
 
 // Initialisation du tableau contenant les saisies des notes.
 creationtableau6_7();
