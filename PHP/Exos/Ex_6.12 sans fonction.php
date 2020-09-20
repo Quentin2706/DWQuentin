@@ -1,5 +1,4 @@
 <?php 
-include "../../function.php";
 
 
 $val = readline("Entrez le nombre de valeurs que vous voulez saisir :");
@@ -20,3 +19,4 @@ for ($i = 1; $i <= $val; $i++) {
 foreach ($tab as $elt) {
     echo "[" . $elt . "]" . "\t";
 }
+echo "\nLes valeurs du tableau ont été incrémentées de 1.";

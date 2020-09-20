@@ -16,8 +16,8 @@ foreach ($note as $elt) {
     echo "[" . $elt . "]" . "\t";
 }
 
-echo "\n";
-echo "Moyenne = (".$note[1]. " + ".$note[2]." + ".$note[3]." + ".$note[4]." + ".$note[5]." + ".$note[6]." + ".$note[7]." + ".$note[8]." + ".$note[9].") / 9 = ".$moyenne = $somme / 9 ."\n";
-echo " Soit ".$somme."/9 = ".$moyenne = $somme / 9 ."\n";
+
+echo "\nMoyenne = (".$note[1]. " + ".$note[2]." + ".$note[3]." + ".$note[4]." + ".$note[5]." + ".$note[6]." + ".$note[7]." + ".$note[8]." + ".$note[9].") / 9 \n";
+echo " Soit ".$somme."/9 \n";
 echo "La moyenne de la classe est de :".$moyenne = $somme / 9 ."\n";
 

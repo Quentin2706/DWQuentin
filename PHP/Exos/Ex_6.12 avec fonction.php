@@ -1,20 +1,34 @@
 <?php 
-include "../../function.php";
-function creationtableau6_12($tab){
-    for ($i = 1; $i <= $tab; $i++){
-        $temp[$i] = readline("Saisissez la valeur n°" . $i . ":");
-        while ($temp < 0 xor !ctype_digit($temp[$i])) {
-            echo ($temp < 0 xor !ctype_digit($temp[$i])) ? "Saisie invalide.\n" : "";
-            $temp[$i] = readline("Saisissez la valeur n°" . $i . ":");
+// On demande a l'utilisateur la taille du tableau
+function tailletableau(){
+$val = readline("Entrez le nombre de valeurs que vous voulez saisir :");
+    while (!ctype_digit($val)) {
+        echo (!ctype_digit($val) xor $val < 0) ? "Saisie invalide.\n" : "";
+        $val = readline("Entrez le nombre de valeurs que vous voulez saisir :");
+    }
+    return $val;
+}
+// On créer le tableau avec les données que l'utilisateur a donné et on incrémente de 1.
+function creationtableau($val){
+    for ($i = 1; $i <= $val; $i++) {
+        $tab[$i] = readline("Saisissez la valeur n°" . $i . ":");
+        while ($tab < 0 xor !ctype_digit($tab[$i])) {
+            echo ($tab < 0 xor !ctype_digit($tab[$i])) ? "Saisie invalide.\n" : "";
+            $tab[$i] = readline("Saisissez la valeur n°" . $i . ":");
         }
-        $temp[$i] += 1;
-        return $temp;
+        $tab[$i] += 1;
     }
+    return $tab;
+}
+// On affiche le tableau avec cette fonction
+function affichagetableau6_12($tab){
+    foreach ($tab as $elt) {
+        echo "[" . $elt . "]" . "\t";
     }
-    function affichagetableau6_12($temp){
-        echo "Voici le nouveaux tableau avec les valeurs qui ont été incrémentées de 1.";
-    affichageTableauforeach($temp);
-    }
-$tab=nbValeursTableau();
-creationtableau6_12($tab);
-affichagetableau6_12($temp);
+    echo "\nLes valeurs du tableau ont été incrémentées de 1.";
+}
+
+// On execute les 3 fonctions 
+$val=tailletableau();
+$tab=creationtableau($val);
+affichagetableau6_12($tab);
