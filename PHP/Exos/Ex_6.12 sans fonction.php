@@ -1,11 +1,10 @@
-<?php 
-
+<?php
 
 $val = readline("Entrez le nombre de valeurs que vous voulez saisir :");
-    while (!ctype_digit($val)) {
-        echo (!ctype_digit($val) xor $val < 0) ? "Saisie invalide.\n" : "";
-        $val = readline("Entrez le nombre de valeurs que vous voulez saisir :");
-    }
+while (!ctype_digit($val)) {
+    echo (!ctype_digit($val) xor $val < 0) ? "Saisie invalide.\n" : "";
+    $val = readline("Entrez le nombre de valeurs que vous voulez saisir :");
+}
 
 for ($i = 1; $i <= $val; $i++) {
     $tab[$i] = readline("Saisissez la valeur n°" . $i . ":");
