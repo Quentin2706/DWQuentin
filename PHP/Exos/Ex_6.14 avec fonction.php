@@ -26,31 +26,38 @@ function affichagetableau($note)
         echo "[" . $elt . "]" . "\t";
     }
 }
+function resultats($tableau,$val){
+    echo "\nMoyenne = (" . $tableau[1];
+    for($i=2;$i<$val;$i++){
+        echo $tableau[$i];
+    }
+}
 
 // Probleme avec cette fonction "undefined offset"
-function calculsmoyenne($tab, $val)
-{
-    echo "\nMoyenne = (" . $tab[1];
-    $compteur = 2;
-    foreach ($tab as $elt) {
-        echo " + " . $tab[$compteur];
-        $compteur += 1;
-    }
-    echo ") / " . $val;
+// function calculsmoyenne($tab, $val)
+// {
+//     echo "\nMoyenne = (" . $tab[1];
+//     $compteur = 2;
+//     foreach ($tab as $elt) {
+//         echo " + " . $tab[$compteur];
+//         $compteur += 1;
+//     }
+//     echo ") / " . $val;
 
-    echo ", soit " . array_sum($tab) . " / " . $val . "\n";
-    echo "La moyenne de la classe est de :" . $moyenne = array_sum($tab) / $val . "\n";
-    $nbsup = 0;
-    foreach ($tab as $elt) {
-        if ($elt > $moyenne) {
-            $nbsup += 1;
-        }
-    }
-    echo "\n Il y a " . $nbsup . " notes supérieures à la moyenne de la classe.";
+//     echo ", soit " . array_sum($tab) . " / " . $val . "\n";
+//     echo "La moyenne de la classe est de :" . $moyenne = array_sum($tab) / $val . "\n";
+//     $nbsup = 0;
+//     foreach ($tab as $elt) {
+//         if ($elt > $moyenne) {
+//             $nbsup += 1;
+//         }
+//     }
+//     echo "\n Il y a " . $nbsup . " notes supérieures à la moyenne de la classe.";
 
-}
+// }
+
 
 $val = tailletableau();
 $note = creationtableau($val);
-$notetab = affichagetableau($note);
-calculsmoyenne($note, $val);
+affichagetableau($note);
+resultats($note,$val);
