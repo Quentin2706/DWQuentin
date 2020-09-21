@@ -21,7 +21,7 @@ function moyenne6_7($tab)
     echo "La moyenne de la classe est de : " . $moyenne = array_sum($tab) / 9 . "\n";
     return $moyenne;
 }
-
+// on affiche le tableau
 function affichagetableau6_7($tab)
 {
     foreach ($tab as $elt) {

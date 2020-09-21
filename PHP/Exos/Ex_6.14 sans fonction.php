@@ -1,11 +1,11 @@
 <?php
-
+// on demande le nombre de valeurs a saisir en vérifiant les données
 $val = readline("Entrez le nombre de valeurs que vous voulez saisir :");
 while (!ctype_digit($val)) {
     echo (!ctype_digit($val) xor $val < 0) ? "Saisie invalide.\n" : "";
     $val = readline("Entrez le nombre de valeurs que vous voulez saisir :");
 }
-
+// création du tableau avec enrengistrement de la somme totale.
 $somme = 0;
 
 for ($i = 1; $i <= $val; $i++) {
