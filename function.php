@@ -53,7 +53,7 @@ function affichageTableauforeach($tableau)
 
 // ====================  SAISIE DE VALEURS NUMERIQUE AVEC VERIF  ====================
 /* on demande de saisir des valeurs et on vérifie la validité de celle-ci */
-function nbValeursTableau()
+function nbValeursTableautaille()
 {
     $val = readline("Entrez le nombre de valeurs que vous voulez saisir :");
     while (!ctype_digit($val)) {
@@ -65,14 +65,16 @@ function nbValeursTableau()
 
 // ====================   CREATION DE TABLEAU    ====================
 /* tableau permettant de se créer avec une valeur définie. */
-function creationTableau($tab)
+function creationTableauinconnu()
 {
+    $tab=nbValeursTableautaille();
     for ($i = 1; $i <= $tab; $i++) {
         $temp[$i] = readline("Saisissez la valeur n°" . $i . ":");
         while ($temp < 0 xor !ctype_digit($temp[$i])) {
             echo ($temp < 0 xor !ctype_digit($temp[$i])) ? "Saisie invalide.\n" : "";
             $temp[$i] = readline("Saisissez la valeur n°" . $i . ":");
         }
+        $temp[$i]= $temp[$i]*1;
     }
     return $temp;
 }
