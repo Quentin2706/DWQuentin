@@ -86,3 +86,16 @@ function verifEntierctype($temp)
         $temp[$i] = readline("Saisissez la valeur n°" . $i . ":");
     }
 }
+
+function creationTableau($tailletab)
+{
+    for ($i = 1; $i <= $tailletab; $i++) {
+        $temp[$i] = readline("Saisissez la valeur n°" . $i . ":");
+        while ($temp < 0 xor !ctype_digit($temp[$i])) {
+            echo ($temp < 0 xor !ctype_digit($temp[$i])) ? "Saisie invalide.\n" : "";
+            $temp[$i] = readline("Saisissez la valeur n°" . $i . ":");
+        }
+        $temp[$i]= $temp[$i]*1;
+    }
+    return $temp;
+}

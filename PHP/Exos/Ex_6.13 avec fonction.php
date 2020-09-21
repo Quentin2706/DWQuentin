@@ -18,11 +18,11 @@ function creationTableauinconnu($tab)
             echo ($temp < 0 xor !ctype_digit($temp[$i])) ? "Saisie invalide.\n" : "";
             $temp[$i] = readline("Saisissez la valeur n°" . $i . ":");
         }
-        $temp[$i]= $temp[$i]*1;
+        $temp[$i] = $temp[$i] * 1;
     }
     return $temp;
 }
 
-$nb=nbValeursTableautaille();
-$tab=creationTableauinconnu($nb);
-echo "la valeur la plus haute est :".max($tab).", elle se trouve à la position : ".array_search(max($tab),$tab);
+$nb = nbValeursTableautaille();
+$tab = creationTableauinconnu($nb);
+echo "la valeur la plus haute est :" . max($tab) . ", elle se trouve à la position : " . array_search(max($tab), $tab);

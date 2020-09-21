@@ -24,4 +24,4 @@ foreach ($note as $elt) {
     echo "[" . $elt . "]" . "\t";
 }
 
-echo "\nla valeur la plus haute est :" . $grand . ", elle se trouve à la position : " . $pos." du tableau" ;
+echo "\nla valeur la plus haute est :" . $grand . ", elle se trouve à la position : " . $pos . " du tableau";

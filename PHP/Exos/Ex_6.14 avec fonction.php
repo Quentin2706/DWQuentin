@@ -39,7 +39,7 @@ function calculsmoyenne($tab, $val)
             $nbsup += 1;
         }
     }
-    echo "\n moyenne = (".$tab[1];
+    echo "\n moyenne = (" . $tab[1];
     for ($i = 2; $i < $val; $i++) {
         echo " + " . $tab[$i];
     }
