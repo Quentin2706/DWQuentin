@@ -68,7 +68,7 @@ function nbValeursTableautaille()
 function creationTableauinconnu()
 {
     $tab=nbValeursTableautaille();
-    for ($i = 1; $i <= $tab; $i++) {
+    for ($i = 0; $i < $tab; $i++) {
         $temp[$i] = readline("Saisissez la valeur n°" . $i . ":");
         while ($temp < 0 xor !ctype_digit($temp[$i])) {
             echo ($temp < 0 xor !ctype_digit($temp[$i])) ? "Saisie invalide.\n" : "";
