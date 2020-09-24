@@ -1,180 +1,185 @@
 <?php
-require "../../function.php";
-// $tab = array( 'B', 'O', 'N', 'J', 'O', 'U', 'R' );
-// Echo "Cette méthode doit donner B O N J O U R et ca donne : ";
-
-function afficherTableau($tableau)
+/**
+ * Affiche le tableau et sépare les lettres par des espaces.
+ * @param array $t Tableau contenant une lettre par case.
+ */
+function afficherTableau($tab)
 {
-    foreach ($tableau as $elt) {
-        echo $elt . " ";
+    foreach ($tab as $elt) {
+        echo "$elt ";
     }
+    return $elt;
 }
-
-// affichertableau($tab);
-
-// $test = "bonjour";
-
-function coderMot($t)
+/*-----------------------------------*/
+/**
+ * Remplace les les lettres du tableau par des underscore
+ * @param array $t tableau contenant un underscore par case.
+ */
+function coderMot($mot)
 {
-    $t = str_split($t);
-    for ($i = 0; $i < count($t); $i++) {
-        $t[$i] = "_";
+    $tab = str_split($mot);
+    for ($i = 0; $i < count($tab); $i++) {
+        $tab[$i] = "_";
     }
-    return $t;
+    return $tab;
 }
-
-$t = array('B', 'O', 'N', 'J', 'O', 'U', 'R');
-
+/*-----------------------------------*/
+/**Cherche les occurrences d'une lettre dans un tableau, cette méthode retourne les positions dans un tableau
+ *
+ */
 function testerLettre($lettre, $tab, $depart)
 {
-
     $tabRecherche = array_slice($tab, $depart);
     $res = array_search($lettre, $tabRecherche);
-    if (!$res) {
+    if ($res === false) {
         return [];
+        $nbErreur++;
     } else {
         $reponse[] = $res + $depart;
         return array_merge($reponse, testerLettre($lettre, $tab, $res + $depart + 1));
     }
 }
-
-// echo "Cette méthode doit donner \n 1 \n 4 et ca donne \n";
-
-// affichertableau(testerLettre('O', $t, 0));
-
-function ajouterUneLettre($ajoutlettre, $tableau, $indice)
+/*-----------------------------------*/
+/**méthode qui modifie le tableau passé en paramètre en affectant la lettre à la position passée en paramètre
+ *
+ */
+function ajouterUneLettre($lettre, $tab, $position)
 {
-    $tableau[$indice] = $ajoutlettre;
-    return $tableau;
+    $tab[$position] = $lettre;
+    return $tab;
 }
 
-// echo "Cette méthode doit donner B O N K O U R et ca donne ";
-// $t = array('B', 'O', 'N', 'J', 'O', 'U', 'R');
-// afficherTableau(ajouterUneLettre('K', $t, 3));
+/*-----------------------------------*/
+/**méthode qui appelle la méthode ajouterUneLettre pour toutes les valeurs contenues dans la liste en paramètre
+ *
+ */
 
-// $motATrouver = "BONJOUR";
-// $t = array('B', '_', 'N', 'J', '_', 'U', '_');
-// echo "Cette méthode doit donner B O N J O U _ et ca donne ";
-function ajouterLesLettres($lettre, $tableau, $indice)
+function ajouterLesLettres($lettre, $tab, $listePosition)
 {
-    foreach ($indice as $elt) {
-        $tableau = ajouterUneLettre($lettre, $tableau, $elt);
+    foreach ($listePosition as $elt) {
+        $tab=ajouterUneLettre($lettre,$tab,$elt);
     }
-    return $tableau;
+    return $tab;
 }
 
-// afficherTableau(ajouterLesLettres('O', $t, testerLettre('O', str_split($motATrouver), 0)));
-
-// méthode qui permet d'afficher les caractères contenus dans la liste passée en paramètre à l'écran
-function afficherMauvaisesLettres($liste)
-{
-    foreach ($liste as $elt) {
-        echo $elt . " ";
+/*-----------------------------------*/
+/**méthode qui permet d'afficher les caractères contenus dans la liste passée en paramètre à l'écran
+ * 
+ */
+function afficherMauvaisesLettres($listeLettres) {
+    foreach ($listeLettres as $elt) {
+        echo $elt."\t";
     }
 }
-// $liste = array('A', 'B', 'C');
-// echo "Cette méthode doit donner :\n Les lettres non présentes sont A,B,C \n et ca donne \n";
-// afficherMauvaisesLettres($liste);
 
+/*-----------------------------------*/
+/**\\méthode qui permet de dessiner le pendu en fonction du nombre d’erreur
+ * 
+ */
 function DessinerPendu($nbErreur)
 {
-    switch ($nbErreur) {
-        case 0:
-            echo "                      " . "\n";
-            echo "                      " . "\n";
-            echo "                      " . "\n";
-            echo "                      " . "\n";
-            echo "                      " . "\n";
-            echo "                      " . "\n";
-            echo "                      " . "\n";
-            echo "                      " . "\n";
-            break;
-        case 1:
-            echo "                      " . "\n";
-            echo "                      " . "\n";
-            echo "                      " . "\n";
-            echo "                      " . "\n";
-            echo "                      " . "\n";
-            echo "                      " . "\n";
-            echo "                      " . "\n";
-            echo "     ________         " . "\n";
-            break;
-        case 2:
-            echo "                      " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "     _|_______        " . "\n";
-            break;
-        case 3:
-            echo "     ________         " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "     _|_______        " . "\n";
-            break;
-        case 4:
-            echo "     ________         " . "\n";
-            echo "      |     |         " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "     _|_______        " . "\n";
-            break;
-        case 5:
-            echo "     ________         " . "\n";
-            echo "      |     |         " . "\n";
-            echo "      |     O         " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "     _|_______        " . "\n";
-            break;
-        case 6:
-            echo "     ________         " . "\n";
-            echo "      |     |         " . "\n";
-            echo "      |     O         " . "\n";
-            echo "      |     |         " . "\n";
-            echo "      |     |         " . "\n";
-            echo "      |               " . "\n";
-            echo "      |               " . "\n";
-            echo "     _|_______        " . "\n";
-            break;
-        case 7:
-            echo "     ________          " . "\n";
-            echo "      |     |          " . "\n";
-            echo "      |     O          " . "\n";
-            echo "      |    /|\\        " . "\n";
-            echo "      |     |          " . "\n";
-            echo "      |                " . "\n";
-            echo "      |                " . "\n";
-            echo "     _|_______         " . "\n";
-            break;
-        case 8:
-            echo "     ________          " . "\n";
-            echo "      |     |          " . "\n";
-            echo "      |     O          " . "\n";
-            echo "      |    /|\         " . "\n";
-            echo "      |     |          " . "\n";
-            echo "      |    / \         " . "\n";
-            echo "      |                " . "\n";
-            echo "     _|_______         " . "\n";
-            break;
-        default:
-            break;
-    }
+	switch ($nbErreur)
+            {
+                case 0:
+                    Echo "                      "."\n";
+                    Echo "                      "."\n";
+                    Echo "                      "."\n";
+                    Echo "                      "."\n";
+                    Echo "                      "."\n";
+                    Echo "                      "."\n";
+                    Echo "                      "."\n";
+                    Echo "                      "."\n";
+                    break;
+                case 1:
+                    Echo "                      "."\n";
+                    Echo "                      "."\n";
+                    Echo "                      "."\n";
+                    Echo "                      "."\n";
+                    Echo "                      "."\n";
+                    Echo "                      "."\n";
+                    Echo "                      "."\n";
+                    Echo "     ________         "."\n";
+                    break;
+                case 2:
+                    Echo "                      "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "     _|_______        "."\n";
+                    break;
+                case 3:
+                    Echo "     ________         "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "     _|_______        "."\n";
+                    break;
+                case 4:
+                    Echo "     ________         "."\n";
+                    Echo "      |     |         "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "     _|_______        "."\n";
+                    break;
+                case 5:
+                    Echo "     ________         "."\n";
+                    Echo "      |     |         "."\n";
+                    Echo "      |     O         "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "     _|_______        "."\n";
+                    break;
+                case 6:
+                    Echo "     ________         "."\n";
+                    Echo "      |     |         "."\n";
+                    Echo "      |     O         "."\n";
+                    Echo "      |     |         "."\n";
+                    Echo "      |     |         "."\n";
+                    Echo "      |               "."\n";
+                    Echo "      |               "."\n";
+                    Echo "     _|_______        "."\n";
+                    break;
+                case 7:
+                    Echo "     ________          "."\n";
+                    Echo "      |     |          "."\n";
+                    Echo "      |     O          "."\n";
+                    Echo "      |    /|\\        "."\n";
+                    Echo "      |     |          "."\n";
+                    Echo "      |                "."\n";
+                    Echo "      |                "."\n";
+                    Echo "     _|_______         "."\n";
+                    break;
+                case 8:
+                    Echo "     ________          "."\n";
+                    Echo "      |     |          "."\n";
+                    Echo "      |     O          "."\n";
+                    Echo "      |    /|\\        "."\n";
+                    Echo "      |     |          "."\n";
+                    Echo "      |    / \\        "."\n";
+                    Echo "      |                "."\n";
+                    Echo "     _|_______         "."\n";
+                    break;
+                default:
+                    break;
+			}
 }
 
-function creer_dico()
+/*-----------------------------------*/
+/** méthode qui renvoi un mot en le choisissant au hasard parmi une liste de mots 
+ * 
+ */
+function dico()
 {
     //Cree le dictionnaire de mots
     $tabMots[] = "AEROPORT";
@@ -917,17 +922,26 @@ function creer_dico()
     return $tabMots;
 }
 
-function DemanderLettre()
-{
+function choisirMot(){
+    $dico=rand(dico);
+    $nombre=rand(0,count(dico-1));
+    return dico[$nombre];
+}
+/*-----------------------------------*/
+/**méthode qui demande une lettre à l’utilisateur, elle vérifie que le caractère saisi est une lettre et le renvoi en majuscule.
+ * 
+ */
+function demanderLettre() {
     do {
-        echo "\n";
-        $lettre = strtoupper(readline("entrez une lettre"));
-    } while ((!ctype_alpha($lettre)) || (strlen($lettre) > 1));
+        $lettre=strtoupper(readline("Entrez une lettre :"));
+    } while (!ctype_alpha($lettre) ||(strlen($lettre)>1) );
     return $lettre;
 }
-$c = DemanderLettre();
-echo $c."\n";
 
+/*-----------------------------------*/
+/**
+ * méthode qui renvoi 1 si la partie est gagné, -1 si la partie est perdu, 0 si la partie continue. Elle reçoit en paramètre le nombre d’erreurs et le tableau contenant le mot composé
+ */
 function testerGagner($nberreur,$tab) {
     if (!in_array("_",$tab)) {
         return 1;
@@ -941,13 +955,19 @@ function testerGagner($nberreur,$tab) {
         }
     }
 }
-
-
-$t = array( 'B', '_', 'N', 'J', 'O', 'U', 'R' );
-Echo "Cette méthode doit donner -1 et ca donne " . testerGagner(9, $t)."\n";
-Echo "Cette méthode doit donner 0 et ca donne " . testerGagner(3, $t)."\n";
-$t[1] =  'O' ;
-Echo "Cette méthode doit donner 1 et ca donne " . testerGagner(2, $t)."\n";
-
-
-function 
+/*-----------------------------------*/
+/**
+ * méthode qui lance et gère une partie
+ */
+function lancerPartie() {
+    $mot=choisirMot();
+    coderMot($mot);
+    afficherTableau($mot);
+    $lettre=demanderLettre();
+    $position=testerLettre($lettre);
+    ajouterLesLettres($lettre,$mot,0);
+    $liste=afficherMauvaisesLettres();
+    testerGagner($nbErreur,$mot);
+    DessinerPendu($nbErreur);
+    }while ($nbErreur<9);
+}
