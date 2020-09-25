@@ -962,12 +962,14 @@ function testerGagner($nberreur,$tab) {
 function lancerPartie() {
     $mot=choisirMot();
     coderMot($mot);
+    $nberreur= 0;
+    $motcode=str_split($mot);
     afficherTableau($mot);
-    $lettre=demanderLettre();
-    $position=testerLettre($lettre);
-    ajouterLesLettres($lettre,$mot,0);
-    $liste=afficherMauvaisesLettres();
-    testerGagner($nbErreur,$mot);
-    DessinerPendu($nbErreur);
-    }while ($nbErreur<9);
+    // $lettre=demanderLettre();
+    // $position=testerLettre($lettre);
+    // ajouterLesLettres($lettre,$mot,0);
+    // $liste=afficherMauvaisesLettres();
+    // testerGagner($nbErreur,$mot);
+    // DessinerPendu($nbErreur);
+
 }

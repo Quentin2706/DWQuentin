@@ -30,7 +30,7 @@ function testerLettre($lettre, $tab, $depart)
 
     $tabRecherche = array_slice($tab, $depart);
     $res = array_search($lettre, $tabRecherche);
-    if (!$res) {
+    if ($res===false) {
         return [];
     } else {
         $reponse[] = $res + $depart;
@@ -917,7 +917,14 @@ function creer_dico()
     return $tabMots;
 }
 
-function DemanderLettre()
+function choisirMot()
+{
+    $dico = creer_dico();
+    $nombre = rand(0, count($dico) - 1);
+    return $dico[$nombre];
+}
+
+function demanderLettre()
 {
     do {
         echo "\n";
@@ -925,29 +932,60 @@ function DemanderLettre()
     } while ((!ctype_alpha($lettre)) || (strlen($lettre) > 1));
     return $lettre;
 }
-$c = DemanderLettre();
-echo $c."\n";
+// $c = DemanderLettre();
+// echo $c."\n";
 
-function testerGagner($nberreur,$tab) {
-    if (!in_array("_",$tab)) {
-        return 1;
-    }
-    else  {
-        if ($nberreur<9) {
+function testerGagner($nberreur, $tab)
+{
+    if ($nberreur >=8) {
+        return -1;
+    } else {
+        if (in_array("_",$tab)===false) {
+            return 1;
+        } else {
             return 0;
-        }
-        else {
-            return -1;
         }
     }
 }
 
+// $t = array( 'B', '_', 'N', 'J', 'O', 'U', 'R' );
+// Echo "Cette méthode doit donner -1 et ca donne " . testerGagner(9, $t)."\n";
+// Echo "Cette méthode doit donner 0 et ca donne " . testerGagner(3, $t)."\n";
+// $t[1] =  'O' ;
+// Echo "Cette méthode doit donner 1 et ca donne " . testerGagner(2, $t)."\n";
 
-$t = array( 'B', '_', 'N', 'J', 'O', 'U', 'R' );
-Echo "Cette méthode doit donner -1 et ca donne " . testerGagner(9, $t)."\n";
-Echo "Cette méthode doit donner 0 et ca donne " . testerGagner(3, $t)."\n";
-$t[1] =  'O' ;
-Echo "Cette méthode doit donner 1 et ca donne " . testerGagner(2, $t)."\n";
+function lancerPartie()
+{
+    $mot = choisirMot();
+    echo $mot;
+    $motCode = coderMot($mot);
+    $nberreur = 0;
+    $listeMauvaisesLettres=[];
+    $result=0;
+    $motTableau = str_split($mot);
+    do {
+    afficherTableau($motCode);
+    if (!empty($listeMauvaisesLettres)){
+    echo "\nListes de mauvaises lettres : \n";
+    afficherMauvaisesLettres($listeMauvaisesLettres);
+    }
+    $lettre = demanderLettre();
+    $liste=testerLettre($lettre, $motTableau,0);
+    if (empty($liste)){
+        $nberreur++;
+        $listeMauvaisesLettres[]= $lettre;
+    }
+    $motCode=ajouterLesLettres($lettre, $motCode, $liste);
+    dessinerPendu($nberreur);
+    $result=testerGagner($nberreur,$motTableau);
+}while($result==0);
+if ($result==1){
+    echo "Vous avez gagné !";
+    echo "Le mot était :".$mot; 
+}else {
+    echo "Vous avez perdu !";
+    echo "Le mot était :".$mot;   
+}
+}
 
-
-function 
+lancerPartie();
