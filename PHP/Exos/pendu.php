@@ -30,7 +30,7 @@ function testerLettre($lettre, $tab, $depart)
 
     $tabRecherche = array_slice($tab, $depart);
     $res = array_search($lettre, $tabRecherche);
-    if ($res===false) {
+    if ($res === false) {
         return [];
     } else {
         $reponse[] = $res + $depart;
@@ -55,6 +55,7 @@ function ajouterUneLettre($ajoutlettre, $tableau, $indice)
 // $motATrouver = "BONJOUR";
 // $t = array('B', '_', 'N', 'J', '_', 'U', '_');
 // echo "Cette méthode doit donner B O N J O U _ et ca donne ";
+
 function ajouterLesLettres($lettre, $tableau, $indice)
 {
     foreach ($indice as $elt) {
@@ -927,7 +928,6 @@ function choisirMot()
 function demanderLettre()
 {
     do {
-        echo "\n";
         $lettre = strtoupper(readline("entrez une lettre"));
     } while ((!ctype_alpha($lettre)) || (strlen($lettre) > 1));
     return $lettre;
@@ -937,10 +937,10 @@ function demanderLettre()
 
 function testerGagner($nberreur, $tab)
 {
-    if ($nberreur >=8) {
+    if ($nberreur > 8) {
         return -1;
     } else {
-        if (in_array("_",$tab)===false) {
+        if (in_array("_", $tab) === false) {
             return 1;
         } else {
             return 0;
@@ -957,35 +957,41 @@ function testerGagner($nberreur, $tab)
 function lancerPartie()
 {
     $mot = choisirMot();
-    echo $mot;
     $motCode = coderMot($mot);
     $nberreur = 0;
-    $listeMauvaisesLettres=[];
-    $result=0;
+    $listeMauvaisesLettres = [];
+    $result = 0;
     $motTableau = str_split($mot);
     do {
-    afficherTableau($motCode);
-    if (!empty($listeMauvaisesLettres)){
-    echo "\nListes de mauvaises lettres : \n";
-    afficherMauvaisesLettres($listeMauvaisesLettres);
+        afficherTableau($motCode);
+        if (!empty($listeMauvaisesLettres)) {
+            echo "\t Listes de mauvaises lettres : ";
+            afficherMauvaisesLettres($listeMauvaisesLettres);
+        }
+        echo $nberreur == 6 ? "\n\nAttention il vous reste 3 chances de trouver le mot !" : "";
+        echo "\n";
+        $lettre = demanderLettre();
+        while (in_array($lettre, $motCode) || in_array($lettre, $listeMauvaisesLettres) || !ctype_alpha($lettre)) {
+            echo "\nCette lettre à déjà été utilisée. Choisissez en une autre\n";
+            $lettre = demanderLettre();
+        }
+        $position = testerLettre($lettre, $motTableau, 0);
+        if (empty($position)) {
+            $nberreur++;
+            $listeMauvaisesLettres[] = $lettre;
+        }
+        $motCode = ajouterLesLettres($lettre, $motCode, $position);
+        dessinerPendu($nberreur);
+        echo "\n";
+        $result = testerGagner($nberreur, $motCode);
+    } while ($result == 0);
+    if ($result == 1) {
+        echo "Vous avez gagné !";
+        echo "Le mot était :" . $mot;
+    } else {
+        echo "Vous avez perdu ! \t" . afficherMauvaisesLettres($listeMauvaisesLettres);
+        echo "\nLe mot était :" . $mot;
     }
-    $lettre = demanderLettre();
-    $liste=testerLettre($lettre, $motTableau,0);
-    if (empty($liste)){
-        $nberreur++;
-        $listeMauvaisesLettres[]= $lettre;
-    }
-    $motCode=ajouterLesLettres($lettre, $motCode, $liste);
-    dessinerPendu($nberreur);
-    $result=testerGagner($nberreur,$motTableau);
-}while($result==0);
-if ($result==1){
-    echo "Vous avez gagné !";
-    echo "Le mot était :".$mot; 
-}else {
-    echo "Vous avez perdu !";
-    echo "Le mot était :".$mot;   
-}
 }
 
 lancerPartie();
