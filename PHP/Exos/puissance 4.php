@@ -180,7 +180,7 @@ function conversionPosition($coordonnee, $jeu)
     if ($jeu == "P") { // ==============   PUISSANCE 4 =============
         $coordonnee = strtoupper($coordonnee); // ON CONVERTI LA LETTRE EN COORDONNEES
         $alpha = $coordonnee[0];
-        $numCol = ord($alpha) - ord("A"); //TAG CONVPOSITION
+        $numCol = ord($alpha) - ord("A"); 
         $tabCord[0] = $numCol;
         return $tabCord;
     } else { // =============   MORPION   =======================
@@ -228,7 +228,7 @@ function selectionPosition($plateau, $jeu)
             {
 
                 $chaine = readline("veuillez saisir la colonne : ");
-            } while (strlen($chaine) > 1 || !ctype_alpha($chaine)); // on check si il y a 1 lettre ou 1 chiffre.  TAG MODIFSELECPOS
+            } while (strlen($chaine) > 1 || !ctype_alpha($chaine)); // on check si il y a 1 lettre ou 1 chiffre.  
             $positions = conversionPosition($chaine, $jeu);
             $positions = trouverCase($plateau, $positions[0]);
         } while ($positions == -1); //  On a enlevé ligne ça sert a rien
@@ -265,10 +265,10 @@ function selectionPosition($plateau, $jeu)
  */
 function trouverCase($plateau, $numCol)
 {
-    for ($i = (count($plateau) - 1); $i >= 0; $i--) {
+    for ($i = (count($plateau) - 1); $i >= 0; $i--) {        // Une boucle qui boucle autant de fois qu'il y a de ligne dans le tableau 
         if ($plateau[$i][$numCol] == ".") {
-            $tabPositions[0] = $i;
-            $tabPositions[1] = $numCol;
+            $tabPositions[0] = $i;                // On initialise simplement si on peut mettre le symbole dans une cas de la colonne, un tableau avec la ligne et la colonne
+            $tabPositions[1] = $numCol;           // sinon on renvoie -1
             return $tabPositions;
         }
     }
@@ -284,7 +284,7 @@ function trouverCase($plateau, $numCol)
  */
 function remplirTableau($plateau, $symbole, $positions)
 {
-    $plateau[$positions[0]][$positions[1]] = $symbole; // SUREMENT FAIRE LE CHECK DES POSITION ICI pour faire plus ou moins descendre la position ! TAG : VERIFGRAVITE
+    $plateau[$positions[0]][$positions[1]] = $symbole;  
     return $plateau;
 }
 
@@ -351,7 +351,10 @@ function testerGagne($plateau, $alignementPourGagner, $positions, $symbole, $jeu
  */
 function lancerPartie()
 {
-    $jeu = strtoupper(readline("Voulez-vous jouer au Morpion ou au Puissance 4 ? Entrez \"M\" ou \"P\" :"));
+    // Choix du jeu Puissance 4 ou Morpion.
+    do {
+        $jeu = strtoupper(readline("Voulez-vous jouer au Morpion ou au Puissance 4 ? Entrez \"M\" ou \"P\" :"));
+    } while ($jeu != "P" && $jeu != "M");
     //msg de bienvenue
     echo $jeu == "P" ? "\n\n\t\t*****\t  BIENVENUE AU JEU DU PUISSANCE 4 ! \t*****\t\t\n\n" : "\n\n\t\t*****\t  BIENVENUE AU JEU DU MORPION ! \t*****\t\t\n\n";
     //initialisation
