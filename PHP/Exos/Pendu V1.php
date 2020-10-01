@@ -9,7 +9,8 @@
  */
 function afficherTableau($tab)
 {
-    foreach ($tab as $ele) {
+    foreach ($tab as $ele)
+    {
         echo $ele . " ";
     }
     echo "\n";
@@ -26,12 +27,17 @@ function afficherTableau($tab)
 function coderMot($mot, $niveau)
 {
     $tab = str_split($mot);
-    if ($niveau == 1) {
-        for ($i = 1; $i < (count($tab) - 1); $i++) {
+    if ($niveau == 1)
+    {
+        for ($i = 1; $i < (count($tab) - 1); $i++)
+        {
             $tab[$i] = "_";
         }
-    } else {
-        for ($i = 0; $i < count($tab); $i++) {
+    }
+    else
+    {
+        for ($i = 0; $i < count($tab); $i++)
+        {
             $tab[$i] = "_";
         }
     }
@@ -782,7 +788,8 @@ function creer_dico()
 
 function dessinerPendu($nbErreur)
 {
-    switch ($nbErreur) {
+    switch ($nbErreur)
+    {
         case 0:
             echo "                      " . "\n";
             echo "                      " . "\n";
@@ -884,7 +891,7 @@ function dessinerPendu($nbErreur)
  * @param char $lettre
  * @param array $tab
  * @param int $depart  represente le point de depart de la recherche
- * @return void
+ * @return array tableau des positions
  */
 function testerLettre($lettre, $tab, $depart)
 {
@@ -895,7 +902,9 @@ function testerLettre($lettre, $tab, $depart)
     if ($res === false) // === false pour eviter la confusion entre 0 et false
     {
         return [];
-    } else {
+    }
+    else
+    {
         $reponse[] = $res + $depart;
         $tabPos = array_merge($reponse, testerLettre($lettre, $tab, $res + $depart + 1)); // array_merge permet de fusionner le tableau résultat avec le tableau de l'appel recursif
         // array_merge de [1,2] et [4] donne [1,2,4]
@@ -927,10 +936,11 @@ function ajouterUneLettre($lettre, $tab, $pos)
  */
 function ajouterLesLettres($val, $tab, $tabpos, $niveau)
 {
-    switch ($niveau) {
+    switch ($niveau)
+    {
         case 1:
             for ($i = 0; $i < count($tabpos); $i++) //boucle permettant de parcourir le tableau des positions
-            {
+                {
                 $tab = ajouterUneLettre($val, $tab, $tabpos[$i]);
             }
             return $tab;
@@ -938,21 +948,30 @@ function ajouterLesLettres($val, $tab, $tabpos, $niveau)
         case 4:
             //on place les lettres une à une de gauche à droite
             for ($i = 0; $i < count($tabpos); $i++) //on parcours les positions
-            {
+                {
                 $posEtudiee = $tabpos[$i];
                 //on verifie que la position n'est pas occupée
-                if ($tab[$posEtudiee] != $val) {
+                if ($tab[$posEtudiee] != $val)
+                {
                     $tab = ajouterUneLettre($val, $tab, $posEtudiee);
                     return $tab;
                 }
             }
             return -1; // plus de place pour la lettre
         case 3:
-            do {
-                $posRandom = $tabpos[rand(0, count($tabpos) - 1)];
-            } while ($tab[$posRandom] == $val);
-            $tab = ajouterUneLettre($val, $tab, $posRandom);
-            return $tab;
+            // on place les lettres aléatoirement
+            $test=testerLettre($val,$tab,0);    //on cherche les lettres déjà placées dans le mot code
+            $pos=array_diff($tabpos,$test);     //différence entre les tableaux
+            if(!empty($pos))        //s'il reste des lettres à placer
+            {
+                $posetudie=array_rand($pos);    //on choisit une position au hasard
+                $tab = ajouterUneLettre($val, $tab, $pos[$posetudie]);
+                return $tab;
+            }
+            else    //il n'y a plus de lettre à placer
+            {
+                return -1;
+            }
     }
     return -1;
 }
@@ -966,11 +985,14 @@ function afficherMauvaisesLettres($listeLettres)
 {
     echo "\n Les lettres non présentes sont ";
     $taille = count($listeLettres);
-    for ($i = 0; $i < $taille; $i++) {
+    for ($i = 0; $i < $taille; $i++)
+    {
         if ($i == $taille - 1) // evite la , après la dernière lettre
         {
             echo $listeLettres[$i] . "\n";
-        } else {
+        }
+        else
+        {
             echo $listeLettres[$i] . ",";
         }
     }
@@ -997,11 +1019,14 @@ function choisirMot($niv)
     $dico = creer_dico();
     if ($niv == 4) // mot <= à 4 lettres
     {
-        do {
+        do
+        {
             $nb = rand(0, count($dico) - 1);
         } while (strlen($dico[$nb]) > 4);
         return $dico[$nb];
-    } else { //mot au hasard dans tout le dico
+    }
+    else
+    { //mot au hasard dans tout le dico
         return $dico[array_rand($dico)];
     }
 }
@@ -1010,7 +1035,8 @@ function choisirMot($niv)
  */
 function demanderLettre()
 {
-    do {
+    do
+    {
         echo "\n";
         $lettre = strtoupper(readline("entrez une lettre : "));
     } while ((!ctype_alpha($lettre)) || (strlen($lettre) > 1)); // ou utilisation de  while (!IntlChar::isalpha($lettre))
@@ -1029,10 +1055,13 @@ function testerGagner($nberreur, $tab)
     if ($nberreur == 9) // si nb erreur =9, partie perdue
     {
         return -1;
-    } else if (in_array("_", $tab) === false) // s'il y a un _ dans le tableau, la partie est en cours
+    }
+    else if (in_array("_", $tab) === false) // s'il y a un _ dans le tableau, la partie est en cours
     {
         return 1;
-    } else {
+    }
+    else
+    {
         return 0;
     }
 
@@ -1044,16 +1073,19 @@ function testerGagner($nberreur, $tab)
  */
 function choisirNiveau()
 {
-    do {
+    do
+    {
         echo ("\t\tNiveau de difficulé :\n");
         echo ("\tFacile (1)\t Normal (2)\t Difficile (3)\t Court(4)");
         $niveau = readline(" : ");
 
-        if ($niveau > 4 || $niveau < 1) {
+        if ($niveau > 4 || $niveau < 1)
+        {
             echo ("\nSaisie invalide ! Recommencer (rappel : 1 ou 2 ou 3 ou 4) \n");
         }
     } while ($niveau > 4 || $niveau < 1);
-    switch ($niveau) {
+    switch ($niveau)
+    {
         case "1":
             echo "\nNiveau Facile ! C'est parti ! \n";
             break;
@@ -1084,25 +1116,32 @@ function lancerPartie($niveau)
     $nbErreur = 0; // compte le nombre d'erreur
     $gagne = false;
     $mauvaisesLettres = []; // tableau contenant les mauvaises lettres
-    do {
+    do
+    {
         echo "\n\n\t";
         afficherTableau($motCode); // on affiche le mot contenant les _
         dessinerPendu($nbErreur);
-        if (!empty($mauvaisesLettres)) { //s'il y a des mauvaises lettres, on les affiche
+        if (!empty($mauvaisesLettres))
+        { //s'il y a des mauvaises lettres, on les affiche
             afficherMauvaisesLettres($mauvaisesLettres);
         }
         $lettre = demanderLettre();
         $lesPositions = testerLettre($lettre, $tabMotATrouver, 0); //on recupere toutes les positions de cette lettre dans le mot
-        if (empty($lesPositions)) { //la lettre n'est pas dans le mot
+        if (empty($lesPositions))
+        { //la lettre n'est pas dans le mot
             $nbErreur++;
             $mauvaisesLettres[] = $lettre;
-        } else {
+        }
+        else
+        {
             $reponse = ajouterLesLettres($lettre, $motCode, $lesPositions, $niveau); //motCode = pour récuperer le tableau mis à jour
             if ($reponse == -1) // la lettre ne peut plus etre placée
             {
                 $nbErreur++;
                 $mauvaisesLettres[] = $lettre;
-            } else {
+            }
+            else
+            {
                 $motCode = $reponse;
             }
         }
@@ -1110,9 +1149,12 @@ function lancerPartie($niveau)
         $gagne = testerGagner($nbErreur, $motCode); // on teste l'état de la partie
         echo chr(27) . chr(91) . 'H' . chr(27) . chr(91) . 'J'; //permet de vider l'écran
     } while ($gagne == 0);
-    if ($gagne == 1) {
+    if ($gagne == 1)
+    {
         echo "Bravo!! vous avez gagné. Le mot été $motATrouver\n";
-    } else {
+    }
+    else
+    {
         echo "Vous avez perdu. Le mot été $motATrouver\n";
     }
 }
