@@ -8,7 +8,7 @@ class Voiture
     private $_km;
 
     // Constructeur
-    public function __construct($marque, $modele, $km)
+    public function __construct(string $marque,string $modele,int $km)
     {
         $this->setMarque($marque);
         $this->setModele($modele);
