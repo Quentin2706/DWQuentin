@@ -123,7 +123,6 @@ class Produit
     public function estPerime()
     {
         $aujd = new DateTime('NOW');
-        $dateobj = $audj->diff($this->getDateValidite());
         $datePeremption = $dateobj->format('d-m-Y');
         $datePeremption > $aujd ? true : false;
     }
