@@ -1,6 +1,6 @@
 <?php
 
-class Fille1 implements fille2
+class Fille1 implements Fille2,Fille3
 {
 
 	/*****************Attributs***************** */
@@ -30,8 +30,16 @@ class Fille1 implements fille2
 	}
 
 	/*****************Autres Méthodes***************** */
-	public function toString()
-	{
+	// public function toString()
+	// {
 
+	// }
+	public function test()
+	{
+		return ;
 	}
+	// public function toString()
+	// {
+	// 	return ;
+	// }
 }
