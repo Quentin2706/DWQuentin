@@ -1,0 +1,14 @@
+{
+	"recherche les class dans le dossier": {
+		"prefix": "autoload",
+		"body": [
+		  "function ChargerClasse($$classe)",
+		  "{",
+		  "    require $$classe.\".Class.php\";",
+		  "}",
+		  "spl_autoload_register(\"ChargerClasse\");",
+		  ""
+		],
+		"description": "recherche les class dans le dossier"
+	  }
+}

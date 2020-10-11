@@ -8,14 +8,16 @@ class Personne
     private $_nom;
     private $_prenom;
     private $_age;
+    private $_voiture;
 
     // ==Constructeur==
-    public function __construct(string $genre, string $nom, string $prenom, string $age)
+    public function __construct($genre, $nom, $prenom, $age, $voiture)
     {
-        $this->setGenre( $genre);
-        $this->setNom( $nom);
-        $this->setPrenom( $prenom);
-        $this->setAge( $age);
+        $this->setGenre($genre);
+        $this->setNom($nom);
+        $this->setPrenom($prenom);
+        $this->setAge($age);
+        $this->setVoiture($voiture);
     }
 
     // ===========  Assesseurs  ===========
@@ -36,30 +38,39 @@ class Personne
     {
         return $this->_age;
     }
+    public function getVoiture()
+    {
+        return $this->_voiture;
+    }
 
     //    ==SETTER==
-    public function setGenre(string $genre)
+    public function setGenre($genre)
     {
         $this->_genre = ctype_alpha($genre) && ("homme" || "femme") ? strtoupper($genre) : null;
     }
-    public function setNom(string $nom)
+    public function setNom($nom)
     {
         $this->_nom = ctype_alpha($nom) ? strtoupper($nom) : null;
     }
-    public function setPrenom(string $prenom)
+    public function setPrenom($prenom)
     {
-        $this->_prenom = ctype_alpha($prenom) ? ucfirst(strtolower($prenom)) : null;
+        return $this->_prenom = ctype_alpha($prenom) ? ucfirst(strtolower($prenom)) : null;
     }
-    public function setAge(string $age)
+    public function setAge($age)
     {
-        $this->_age = ctype_digit($age) ? $age : null;
+        return $this->_age = ctype_digit($age) ? $age : null;
     }
+    public function setVoiture($voiture)
+    {
+        $this->_voiture = $voiture;
+    }
+
     // =======================================
 
     // Autres méthodes ...
     public function toString()
     {
-        $result = " \nGenre : " . $this->_genre . " \nNom : " . $this->_nom . " \nPrenom : " . $this->_prenom . " \nAge : " . $this->_age;
+        $result = " \nGenre : " . $this->_genre . " \nNom : " . $this->_nom . " \nPrenom : " . $this->_prenom . " \nAge : " . $this->_age . "\n La marque de la voiture : " . $this->getVoiture()->getMarque();
         return $result;
     }
     // EQUALS TO
@@ -71,7 +82,7 @@ class Personne
         return false;
     }
     // COMPARE TO
-    public function compareTo( Personne $obj)
+    public function compareTo(Personne $obj)
     {
         if ($this->_age > $obj->getAge()) {
             return 1;
@@ -81,14 +92,5 @@ class Personne
             return 0;
         }
     }
+
 }
-
-$p1 = new Personne("homme", "balair", "quentin", "21");
-$p2 = new Personne("homme", "balair", "quentin", "22");
-echo $p1-> toString()."\n";
-echo $p2-> toString()."\n";
-echo $p1-> compareTo($p2);
-$equal=$p1-> equalsTo($p2);
-echo "\n";
-var_dump($equal);
-
