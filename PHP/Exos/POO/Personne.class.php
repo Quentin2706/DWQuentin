@@ -10,12 +10,12 @@ class Personne
     private $_age;
 
     // ==Constructeur==
-    public function __construct($genre, $nom, $prenom, $age)
+    public function __construct(string $genre, string $nom, string $prenom, string $age)
     {
-        $this->setGenre($genre);
-        $this->setNom($nom);
-        $this->setPrenom($prenom);
-        $this->setAge($age);
+        $this->setGenre( $genre);
+        $this->setNom( $nom);
+        $this->setPrenom( $prenom);
+        $this->setAge( $age);
     }
 
     // ===========  Assesseurs  ===========
@@ -38,21 +38,21 @@ class Personne
     }
 
     //    ==SETTER==
-    public function setGenre($genre)
+    public function setGenre(string $genre)
     {
         $this->_genre = ctype_alpha($genre) && ("homme" || "femme") ? strtoupper($genre) : null;
     }
-    public function setNom($nom)
+    public function setNom(string $nom)
     {
         $this->_nom = ctype_alpha($nom) ? strtoupper($nom) : null;
     }
-    public function setPrenom($prenom)
+    public function setPrenom(string $prenom)
     {
-        return $this->_prenom = ctype_alpha($prenom) ? ucfirst(strtolower($prenom)) : null;
+        $this->_prenom = ctype_alpha($prenom) ? ucfirst(strtolower($prenom)) : null;
     }
-    public function setAge($age)
+    public function setAge(string $age)
     {
-        return $this->_age = ctype_digit($age) ? $age : null;
+        $this->_age = ctype_digit($age) ? $age : null;
     }
     // =======================================
 
