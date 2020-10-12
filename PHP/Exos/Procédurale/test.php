@@ -20,14 +20,14 @@
 $mot = "carrément";
 
 // la fonction
-function inversermot($mot){
-    $long=strlen($mot);
-    if ($mot[$long-1])==0){
-        return $mot[$long];
-    } else { 
-        $long--;    
-        return inversermot($mot);
-    }
-}
+// function inversermot($mot){
+//     $long=strlen($mot);
+//     if ($mot[$long-1])==0){
+//         return $mot[$long];
+//     } else { 
+//         $long--;    
+//         return inversermot($mot);
+//     }
+// }
 $reverse= inversermot($mot);
 echo $reverse;
