@@ -41,7 +41,7 @@ class Pave extends Rectangle
 	/*****************Autres Méthodes***************** */
 public function volume()
 {
-	return parent::aire*$this->getHauteur();
+	return parent::aire()*$this->getHauteur();
 }
 public function perimetre()
 {
