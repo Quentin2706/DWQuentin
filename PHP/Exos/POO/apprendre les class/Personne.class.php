@@ -11,14 +11,6 @@ class Personne
     private $_voiture;
 
     // ==Constructeur==
-<<<<<<< HEAD:PHP/Exos/POO/Personne.class.php
-    public function __construct(string $genre, string $nom, string $prenom, string $age)
-    {
-        $this->setGenre( $genre);
-        $this->setNom( $nom);
-        $this->setPrenom( $prenom);
-        $this->setAge( $age);
-=======
     public function __construct($genre, $nom, $prenom, $age, $voiture)
     {
         $this->setGenre($genre);
@@ -26,7 +18,6 @@ class Personne
         $this->setPrenom($prenom);
         $this->setAge($age);
         $this->setVoiture($voiture);
->>>>>>> 7e235fb0218749d64d292f671420b27e354a3e7b:PHP/Exos/POO/apprendre les class/Personne.class.php
     }
 
     // ===========  Assesseurs  ===========
