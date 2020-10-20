@@ -1,0 +1,21 @@
+DROP DATABASE IF EXISTS Departement;
+CREATE DATABASE Departement;
+USE Departement;
+
+CREATE TABLE Region
+(
+    idRegion INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nomRegion VARCHAR(50) NOT NULL
+)ENGINE = InnoDB, CHARSET = UTF8;
+
+CREATE TABLE Departement
+(
+    idDepartement INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nomDepartement VARCHAR(50) NOT NULL,
+    idRegion INT(11) NOT NULL
+)ENGINE = InnoDB, CHARSET = UTF8;
+
+ALTER TABLE Departement
+	ADD CONSTRAINT Departement_Region_FK,
+	FOREIGN KEY (idRegion)
+	REFERENCES Region(idRegion);

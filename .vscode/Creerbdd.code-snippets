@@ -1,0 +1,31 @@
+{
+	"bdd": {
+		"prefix": "bdd",
+		"body": [
+		  "DROP DATABASE IF EXISTS nomdetabase;",
+		  "CREATE DATABASE nomdetabase;",
+		  "USE nomdetabase;",
+		  "",
+		  " CREATE TABLE Table1",
+		  "    (",
+		  "        idtable1 INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,",
+		  "        nomattributs VARCHAR (50) NOT NULL,",
+		  "        nomattributs VARCHAR (50) NOT NULL",
+		  "    )ENGINE = InnoDB, CHARSET = UTF8;",
+		  "",
+		  "    CREATE TABLE Table2",
+		  "    (",
+		  "        idtable2 INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,",
+		  "        nomattributs VARCHAR (50) NOT NULL,",
+		  "        nomattributs VARCHAR (50) NOT NULL",
+		  "    )ENGINE = InnoDB, CHARSET = UTF8;",
+		  "",
+		  "    ALTER TABLE tablequicontientlaFK_Key",
+		  "	ADD CONSTRAINT TablePrincipale_Tablesecondaire_FK",
+		  "	FOREIGN KEY (idTablesecondaire)",
+		  "	REFERENCES Tablesecondaire(idTablesecondaire);",
+		  ""
+		],
+		"description": "bdd"
+	  }
+}
