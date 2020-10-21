@@ -23,17 +23,17 @@ a. SELECT * FROM `clients`
 b. SELECT nomClient FROM `clients`
 c. SELECT DISTINCT dateCommande FROM `commandes`
 d. SELECT prenomClient FROM `Clients` WHERE prenomClient = "sophie"
-e. SELECT idArticle, quantiteCommande FROM commandes WHERE idClient = 1
+e. SELECT idArticle, quantiteCommande FROM commandes WHERE idClient = 1   ///////// FACILE 2
 f. SELECT UPPER(nomClient) FROM clients
 g. SELECT CONCAT(UPPER(LEFT(nomClient,1)), SUBSTRING(nomClient,2)) FROM `Clients` // SELECT CONCAT(UCASE(LEFT(nomClient,1)), SUBSTRING(nomClient,2)) FROM `Clients`
-h. SELECT nomClient FROM `Clients` WHERE LENGTH(nomClient) = 5
-i. SELECT nomClient FROM clients WHERE nomClient like "T%" OR nomClient like "__L%";
-j. SELECT commandes.idClient, commandes.idCommande, commandes.dateCommande, DATE_ADD(commandes.dateCommande,INTERVAL 15 DAY) as datePaiement FROM commandes
-k.SELECT NOW()
-l.SELECT (DATEDIFF(NOW(),dateEntreeClient))/365 as "Ancienneté" FROM clients
-m.SELECT commandes.idClient, MAX(commandes.quantiteCommande) as "Quantité max commandée" FROM commandes
+h. SELECT nomClient FROM `Clients` WHERE LENGTH(nomClient) = 5 //////
+i. SELECT nomClient FROM clients WHERE nomClient like "T%" OR nomClient like "__L%";   //////////
+j. SELECT commandes.idClient, commandes.idCommande, commandes.dateCommande, DATE_ADD(commandes.dateCommande,INTERVAL 15 DAY) as datePaiement FROM commandes /////////
+k. SELECT NOW()  ////////// NORMAL 2
+l. SELECT FLOOR((DATEDIFF(NOW(),dateEntreeClient))/365,0) as "Ancienneté" FROM clients
+m. SELECT commandes.idClient, MAX(commandes.quantiteCommande) as "Quantité max commandée" FROM commandes ////////////
 n. SELECT commandes.idClient, SUM(commandes.quantiteCommande) as "Quantité totale commandée" FROM commandes WHERE idClient = 1
-o. SELECT commandes.idClient, AVG(commandes.quantiteCommande) as "Quantité moyenne commandée" FROM commandes WHERE idClient = 2
+o. SELECT commandes.idClient, AVG(commandes.quantiteCommande) as "Quantité moyenne commandée" FROM commandes WHERE idClient = 2 ////////////// DIFFICILE 2
 p. SELECT clients.nomClient, clients.prenomClient FROM clients ORDER BY nomClient, prenomClient
 q. SELECT articles.prixArticle FROM articles ORDER BY prixArticle DESC
 

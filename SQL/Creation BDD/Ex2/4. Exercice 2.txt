@@ -10,29 +10,67 @@ commande a-t-il été calculé ?
 Ecrire des requêtes SELECT. Vous vérifierez que le résultat de la requête correspond à votre inspection des
 tables correspondantes. 
 A)Afficher le montant le plus élevé de commande.
-SELECT idClient, MAX(cde_Total) FROM commandes
+SELECT idClient, MAX(cde_Total) as "Montant maximum du panier" FROM commandes
 
 B) Afficher le montant moyen des commandes.
-SELECT AVG(cde_Total) as "Montant moyen des commandes" FROM commandes
+SELECT ROUND(AVG(cde_Total),2) as "Montant moyen des commandes" FROM commandes
+
 C) Afficher le montant le plus bas de commande.
 SELECT MIN(cde_Total) as "Montant Min des commandes" FROM commandes
+
 D) Afficher le nombre de commandes qui ont été passées.
-SELECT SUM(quantiteCommande)
+SELECT Count(*) FROM commandes
+
 E) Afficher le montant moyen de commande par client
 SELECT idClient, ROUND(AVG(cde_Total),2) as "Montant moyen des commandes" FROM commandes GROUP BY idClient
+
 F) Afficher le montant le plus élevé de commande par client.
 SELECT MAX(cde_Total) as "Montant plus élevé des commandes" FROM commandes GROUP BY idClient
+
 G) Afficher le nombre de commandes par client.
-SELECT count(idcommandes) FROM commandes GROUP BY idClient
+SELECT idClient, count(idcommandes) FROM commandes GROUP BY idClient
+
 H) Afficher le nombre d 'articles commandés en moyenne par client
 SELECT idCLient as "numero Client, idArticle as "Articles", AVG(quantiteCommande) as "Moyenne des articles par client" FROM commandes GROUP BY idClient
+
 I) Afficher le nombre d'articles commandés en moyenne par article.
 SELECT idArticle as "Articles", AVG(quantiteCommande) as "Moyenne des articles par client" FROM commandes GROUP BY idArticle
+
 J) Afficher le nombre total d'articles commandés par article.
-SELECT idArticle as "Articles", SUM(quantiteCommande) as "Somme des commandes par article" FROM commandes GROUP BY idArticle
+SELECT articles.descriptionArticle as "Article", SUM(quantiteCommande) as "Somme des commandes par article" FROM commandes INNER JOIN Artilces ON commandes.idArticle = articles.idArticleGROUP BY commande.idArticles
+
 K) Afficher le nombre moyen d'articles par client et par date.
+SELECT idArticle as "Articles", AVG(quantiteCommande) as "Moyenne des articles par client" FROM commandes GROUP BY idClient, dateCommande
+
 L) Afficher le nombre de commandes par jour.
+SELECT count(dateCommande) FROM commandes GROUP BY dateCommande
+
 M) Afficher le nombre de clients dans la table.
+SELECT count(idclient) FROM idclients
+
 N) Afficher le nombre de clients différents qui ont passé commande.
+SELECT count(DISTINCT idclient) as "Nombre de clients uniques qui ont passé commande" FROM clients
+
 O) Afficher le nombre d' articles différents qui ont été commandés.
+SELECT count(DISTINCT idArticle) as "nombre d'articles différents commandés" FROM commandes
+
 P) Afficher le nombre de jours différents de commandes
+SELECT count(DISTINCT dateCommande)as "date de commande différentes" FROM commandes
+
+========================================
+
+b. SELECT commandes.idClient, clients.nomClient, clients.prenomClient, ROUND(AVG(quantiteCommande*articles.prixArticle),2) as "Montant moyen des commandes" FROM commandes INNER JOIN articles ON commandes.idArticle = articles.idArticle INNER JOIN clients ON commandes.idClient = clients.idClient
+c. SELECT commandes.idClient, clients.nomClient, clients.prenomClient, MIN(quantiteCommande*articles.prixArticle) as "Montant Min des commandes" FROM commandes INNER JOIN articles ON commandes.idArticle = articles.idArticle INNER JOIN clients ON commandes.idClient = clients.idClient
+d. SELECT commandes.idClient, clients.nomClient, clients.prenomClient, Count(*) as "nombre de commandes passées" FROM commandes INNER JOIN articles ON commandes.idArticle = articles.idArticle INNER JOIN clients ON commandes.idClient = clients.idClient GROUP BY idClient 
+e. SELECT commandes.idClient, clients.nomClient, clients.prenomClient, ROUND(AVG(quantiteCommande*articles.prixArticle),2) as "Montant moyen de commandes par client" FROM commandes INNER JOIN articles ON commandes.idArticle = articles.idArticle INNER JOIN clients ON commandes.idClient = clients.idClient GROUP BY idClient 
+f. SELECT commandes.idClient, clients.nomClient, clients.prenomClient, MAX(quantiteCommande*articles.prixArticle) as "Montant max de commandes par client" FROM commandes INNER JOIN articles ON commandes.idArticle = articles.idArticle INNER JOIN clients ON commandes.idClient = clients.idClient GROUP BY idClient
+g. SELECT commandes.idClient, clients.nomClient, clients.prenomClient, count(*) as "Nombre de commandes passées par client" FROM commandes INNER JOIN articles ON commandes.idArticle = articles.idArticle INNER JOIN clients ON commandes.idClient = clients.idClient GROUP BY idClient
+h. SELECT commandes.idClient, clients.nomClient, clients.prenomClient, AVG(quantiteCommande) as "Moyenne des articles par client" FROM commandes INNER JOIN articles ON commandes.idArticle = articles.idArticle INNER JOIN clients ON commandes.idClient = clients.idClient GROUP BY idClient
+i. SELECT articles.descriptionArticle, AVG(quantiteCommande) as "Moyenne des articles par articles " FROM commandes INNER JOIN articles ON commandes.idArticle = articles.idArticle GROUP BY commandes.idArticle
+j. SELECT articles.descriptionArticle, SUM(quantiteCommande) as "Somme des commandes par article" FROM commandes INNER JOIN articles ON commandes.idArticle = articles.idArticle GROUP BY commandes.idArticle
+k. SELECT articles.descriptionArticle, AVG(quantiteCommande) as "Moyenne des articles commandés par client" FROM commandes INNER JOIN articles ON commandes.idArticle = articles.idArticle GROUP BY commandes.idClient, commandes.dateCommande
+l. SELECT dateCommande, count(dateCommande) as "Nombre d ecommande par jour" FROM commandes GROUP BY dateCommande
+m. SELECT count(idclient) as "Nombres de clients" FROM idclients
+n. SELECT count(DISTINCT idclient) as "Nombre de clients uniques qui ont passé commande" FROM clients
+o. SELECT count(DISTINCT idArticle) as "nombre d'articles différents commandés" FROM commandes
+p. SELECT count(DISTINCT dateCommande)as "date de commande différentes" FROM commandes
