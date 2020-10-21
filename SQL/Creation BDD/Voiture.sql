@@ -17,3 +17,6 @@ ALTER TABLE Detenu
 	ADD CONSTRAINT Detenu_NatureTerrain_FK
 	FOREIGN KEY (idNatureTerrain)
 	REFERENCES NatureTerrains(idNatureTerrain);
+    
+
+
