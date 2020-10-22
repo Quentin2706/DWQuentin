@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.31, for Win64 (x86_64)
 --
--- Host: localhost    Database: exercice3
+-- Host: localhost    Database: exo3copie
 -- ------------------------------------------------------
 -- Server version	5.7.31
 
@@ -16,12 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `exercice3`
+-- Current Database: `exo3copie`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `exercice3` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `exo3copie` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `exercice3`;
+USE `exo3copie`;
 
 --
 -- Table structure for table `avoir_note`
@@ -37,10 +37,8 @@ CREATE TABLE `avoir_note` (
   `note` int(11) DEFAULT NULL,
   PRIMARY KEY (`idAvoirNote`),
   KEY `FK_AvoirNote_Epreuves` (`idEpreuve`),
-  KEY `FK_AvoirNote_Etudiants` (`idEtudiant`),
-  CONSTRAINT `FK_AvoirNote_Epreuves` FOREIGN KEY (`idEpreuve`) REFERENCES `epreuves` (`idEpreuve`),
-  CONSTRAINT `FK_AvoirNote_Etudiants` FOREIGN KEY (`idEtudiant`) REFERENCES `etudiants` (`idEtudiant`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+  KEY `FK_AvoirNote_Etudiants` (`idEtudiant`)
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,7 +47,7 @@ CREATE TABLE `avoir_note` (
 
 LOCK TABLES `avoir_note` WRITE;
 /*!40000 ALTER TABLE `avoir_note` DISABLE KEYS */;
-INSERT INTO `avoir_note` VALUES (1,1,1,15),(2,2,1,8),(3,3,1,7),(4,4,1,11),(5,5,1,15),(6,6,1,16),(7,7,1,1),(8,17,1,6),(9,18,1,11),(10,1,2,12),(11,2,2,12),(12,3,2,3),(13,4,2,15),(14,5,2,9),(15,6,2,11),(16,7,2,13),(17,17,2,19),(18,18,2,6),(19,8,3,8),(20,9,3,14),(21,10,3,14),(22,11,3,11),(23,12,3,6),(24,13,3,3),(25,14,3,20),(26,15,3,12),(27,16,3,11),(28,8,4,7),(29,9,4,11),(30,10,4,12),(31,11,4,3),(32,12,4,20),(33,13,4,12),(34,14,4,10),(35,15,4,8),(36,16,4,10),(37,17,4,8);
+INSERT INTO `avoir_note` VALUES (1,1,1,15),(2,2,1,8),(3,3,1,7),(4,4,1,11),(5,5,1,15),(6,6,1,16),(7,7,1,1),(8,17,1,6),(9,18,1,11),(10,1,2,12),(11,2,2,12),(12,3,2,3),(13,4,2,15),(14,5,2,9),(15,6,2,11),(16,7,2,13),(17,17,2,19),(18,18,2,6),(19,8,3,8),(20,9,3,14),(21,10,3,14),(22,11,3,11),(23,12,3,6),(24,13,3,3),(25,14,3,20),(26,15,3,12),(27,16,3,11),(28,8,4,7),(29,9,4,11),(30,10,4,12),(31,11,4,3),(32,12,4,20),(33,13,4,12),(34,14,4,10),(35,15,4,8),(36,16,4,10),(37,17,4,8),(38,1,7,10),(39,2,7,8),(40,3,7,7),(41,4,7,9),(42,17,3,15);
 /*!40000 ALTER TABLE `avoir_note` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -105,7 +103,7 @@ CREATE TABLE `epreuves` (
   KEY `FK_epreuves_matieres` (`idMatiereEpreuve`),
   CONSTRAINT `FK_epreuves_enseignants` FOREIGN KEY (`idEnseignantEpreuve`) REFERENCES `enseignants` (`idEnseignant`),
   CONSTRAINT `FK_epreuves_matieres` FOREIGN KEY (`idMatiereEpreuve`) REFERENCES `matieres` (`idMatiere`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -114,7 +112,7 @@ CREATE TABLE `epreuves` (
 
 LOCK TABLES `epreuves` WRITE;
 /*!40000 ALTER TABLE `epreuves` DISABLE KEYS */;
-INSERT INTO `epreuves` VALUES (1,'interro anglais',9,1,'2014-09-12',1,1),(2,'partiel maths',3,8,'2014-09-13',3,1),(3,'partiel BD',1,2,'2014-09-18',4,2),(4,'partiel UNIX',7,3,'2014-10-01',3,2),(5,'interro BD',1,2,'2014-10-12',1,2),(6,'interro maths',3,8,'2014-10-12',4,1);
+INSERT INTO `epreuves` VALUES (1,'interro anglais',9,1,'2014-09-12',1,1),(2,'partiel maths',3,8,'2014-09-13',3,1),(3,'partiel BD',1,2,'2014-09-18',4,2),(4,'partiel UNIX',7,3,'2014-10-01',3,2),(5,'interro BD',1,2,'2014-10-12',1,2),(6,'interro maths',3,8,'2014-10-12',4,1),(7,'interro écrite',9,1,'1996-10-21',1,NULL);
 /*!40000 ALTER TABLE `epreuves` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,6 +136,7 @@ CREATE TABLE `etudiants` (
   `remarqueEtudiant` varchar(40) DEFAULT NULL,
   `sexeEtudiant` char(1) DEFAULT NULL,
   `dateNaissanceEtudiant` date DEFAULT NULL,
+  `HOBBY` varchar(20) NOT NULL DEFAULT 'SPORT',
   PRIMARY KEY (`idEtudiant`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -148,7 +147,7 @@ CREATE TABLE `etudiants` (
 
 LOCK TABLES `etudiants` WRITE;
 /*!40000 ALTER TABLE `etudiants` DISABLE KEYS */;
-INSERT INTO `etudiants` VALUES (1,'roblin','lea','12,bd de la liberte','calais',62100,'21345678','2014-09-01',1,'','F','1995-01-14'),(2,'macarthur','leon','121,bd gambetta','calais',62100,'21-30-65-09','2014-09-01',1,'','M','1994-04-12'),(3,'minol','luc','9,rue des prairies','boulogne',62200,'21-30-20-10','2014-09-01',1,'','M','1997-03-12'),(4,'bagnole','sophie','12,rue des capucines','wimereux',62930,'21-89-04-30','2014-09-01',1,'','F','1996-03-21'),(5,'bury','marc','67,allee ronde','marcq',62300,'21-90-87-65','2014-09-01',1,'','M','1993-02-05'),(6,'vendraux','marc','5,rue de marseille','calais',62100,'21-96-00-09','2013-09-01',1,'a redouble sa premiere annee','M','1996-01-21'),(7,'vendermaele','helene','456,rue de paris','boulogne',62200,'21-45-45-60','2014-09-01',1,'','F','1995-03-30'),(8,'besson','loic','3,allee carpentier','dunkerque',59300,'28-90-89-78','2014-09-01',2,'','M','1994-05-21'),(9,'godart','jean-paul','123,rue de lens','marck',59870,'28-09-87-65','2013-09-01',2,'a double sa seconde annee','M','1993-01-12'),(10,'beaux','marie','1,allee des cygnes','dunkerque',59100,'21-30-87-90','2014-09-01',2,NULL,'F','1996-04-12'),(11,'turini','elsa','12,route de paris','boulogne',62200,'21-32-47-97','2014-09-01',2,NULL,'F','1996-07-17'),(12,'torelle','elise','123,vallee du denacre','boulogne',62200,'21-67-86-90','2014-09-01',2,NULL,'F','1997-04-16'),(13,'pharis','pierre','12,avenue foch','calais',62100,'21-21-85-90','2014-09-01',2,NULL,'M','1996-03-18'),(14,'ephyre','luc','12,rue de lyon','calais',62100,'21-35-32-90','2014-09-01',2,NULL,'M','1995-01-21'),(15,'leclercq','jules','12,allee des ravins','boulogne',62200,'21-36-71-92','2014-09-01',2,NULL,'M','1994-05-19'),(16,'dupont','luc','21,avenue monsigny','calais',62200,'21-21-34-99','2014-09-01',2,NULL,'M','1996-11-02'),(17,'marke','loic','312,route de paris','wimereux',62930,'21-87-87-71','2014-09-01',2,NULL,'M','1996-11-12'),(18,'dewa','leon','121,allee des eglantines','dunkerque',59100,'28-30-87-90','2014-09-01',2,NULL,'M','1997-04-03');
+INSERT INTO `etudiants` VALUES (1,'roblin','lea','12,bd de la liberte','calais',62100,'21345678','2014-09-01',1,'','F','1995-01-14','SPORT'),(2,'macarthur','leon','121,bd gambetta','calais',62100,'21-30-65-09','2014-09-01',1,'','M','1994-04-12','SPORT'),(3,'minol','luc','9,rue des prairies','boulogne',62200,'21-30-20-10','2014-09-01',1,'','M','1997-03-12','SPORT'),(4,'bagnole','sophie','12,rue des capucines','wimereux',62930,'21-89-04-30','2014-09-01',1,'','F','1996-03-21','SPORT'),(5,'bury','marc','67,allee ronde','marcq',62300,'21-90-87-65','2014-09-01',1,'','M','1993-02-05','SPORT'),(6,'vendraux','marc','5,rue de marseille','calais',62100,'21-96-00-09','2013-09-01',1,'a redouble sa premiere annee','M','1996-01-21','SPORT'),(7,'vendermaele','helene','456,rue de paris','boulogne',62200,'21-45-45-60','2014-09-01',1,'','F','1995-03-30','SPORT'),(8,'besson','loic','3,allee carpentier','dunkerque',59300,'28-90-89-78','2014-09-01',2,'','M','1994-05-21','SPORT'),(9,'godart','jean-paul','123,rue de lens','marck',59870,'28-09-87-65','2013-09-01',2,'a double sa seconde annee','M','1993-01-12','SPORT'),(10,'beaux','marie','1,allee des cygnes','dunkerque',59100,'21-30-87-90','2014-09-01',2,NULL,'F','1996-04-12','SPORT'),(11,'turini','elsa','12,route de paris','boulogne',62200,'21-32-47-97','2014-09-01',2,NULL,'F','1996-07-17','SPORT'),(12,'torelle','elise','123,vallee du denacre','boulogne',62200,'21-67-86-90','2014-09-01',2,NULL,'F','1997-04-16','SPORT'),(13,'pharis','pierre','12,avenue foch','calais',62100,'21-21-85-90','2014-09-01',2,NULL,'M','1996-03-18','SPORT'),(14,'ephyre','luc','12,rue de lyon','calais',62100,'21-35-32-90','2014-09-01',2,NULL,'M','1995-01-21','SPORT'),(15,'leclercq','jules','12,allee des ravins','boulogne',62200,'21-36-71-92','2014-09-01',2,NULL,'M','1994-05-19','SPORT'),(16,'dupont','luc','21,avenue monsigny','calais',62200,'21-21-34-99','2014-09-01',2,NULL,'M','1996-11-02','SPORT'),(17,'marke','loic','312,route de paris','wimereux',62930,'21-87-87-71','2014-09-01',2,NULL,'M','1996-11-12','SPORT'),(18,'dewa','leon','121,allee des eglantines','dunkerque',59100,'28-30-87-90','2014-09-01',2,NULL,'M','1997-04-03','SPORT');
 /*!40000 ALTER TABLE `etudiants` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -244,4 +243,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-21 17:00:00
+-- Dump completed on 2020-10-22 17:17:12

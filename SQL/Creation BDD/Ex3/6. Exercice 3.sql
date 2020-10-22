@@ -30,7 +30,7 @@ H) Vérifiez que PREnomEtudiant peut ne pas avoir de contenu puis indiquez que l
 doit obligatoirement avoir une valeur. Vérifiez sur la description de la table.
 NULL est coché sur "Oui" donc il peut ne pas avoir de contenu
 Avec cette commande il est obligé d''être renseigné.
-ALTER TABLE `etudiants` CHANGE `prenomEtudiant` `prenomEtudiant` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE `etudiants` CHANGE `prenomEtudiant` `prenomEtudiant` VARCHAR(20) NOT NULL;
 
 I)Insérez les enregistrements suivants: 7, 'interro écrite',9,1,'21-oct-96',1 dans EPREUVE 
 insert into epreuves values (7, 'interro écrite',9,1,'1996-10-21',1, NULL)
@@ -40,15 +40,24 @@ insert into avoir_note values (null,3,7,05);
 insert into avoir_note values (null,4,7,09);
 insert into avoir_note values (null,17,3,15)
 J) Changez la note de n°3 dans l''épreuve7, elle passe à 07. Vérifiez les valeurs avant et après la requête.
-LIMIT(3,1) 
+UPDATE avoir_note SET note=07 WHERE idEtudiant= 3 AND idEpreuve = 7
 
-K) N°1 a mis de la bonne volonté, on augmente sa note dans l'épreuve 7 de 1 point. Vérifiez.
-L) Détruisez l'épreuve 7 qui a été annulée pour cause de tricherie et les notes qui lui correspondent. Vérifiez.
-M)Réflexion : N'y aurait-il pas eu moyen de détruire les notes de l'épreuve automatiquement dès la destruction de l'épreuve ?
+K) N°1 a mis de la bonne volonté, on augmente sa note dans l''épreuve 7 de 1 point. Vérifiez.
+UPDATE avoir_note SET note=note+1 WHERE idAvoirNote= (SELECT idAvoirNote FROM (SELECT * FROM avoir_note WHERE idEpreuve=7) as a LIMIT 0,1 )
+
+L) Détruisez l''épreuve 7 qui a été annulée pour cause de tricherie et les notes qui lui correspondent. Vérifiez.
+DELETE FROM epreuves WHERE idEpreuve = 7;
+DELETE FROM avoir_note WHERE idEpreuve = 7;
+
+M)Réflexion : N''y aurait-il pas eu moyen de détruire les notes de l''épreuve automatiquement dès la destruction de l''épreuve ?
+Si avec la methode cascade. 
+
 N) Changez toutes les notes de MARKE dans la matière « BASES DE DONNEES ». Suite à un mauvais comportement, elles diminuent toutes de 3 points. Attention, la requête doit intégrer le nom de la matière.
 (et non chercher à repérer le numéro avant de la taper.)
-O) DEWA a manqué l'épreuve 4. Vu son niveau, on décide de lui créer une entrée dans AVOIR_NOTE en lui
+SELECT idEtudiant FROM etudiants WHERE nomEtudiant ="MARKE"
+
+O) DEWA a manqué l''épreuve 4. Vu son niveau, on décide de lui créer une entrée dans AVOIR_NOTE en lui
 attribuant la moyenne des notes obtenues à cette épreuve par ses collègues*0.9. Attention, la requête doit
-intégrer le nom de l'étudiant (et non chercher à repérer le numéro avant de la taper.)
+intégrer le nom de l''étudiant'' (et non chercher à repérer le numéro avant de la taper.)
 P)Insérez un nouvel étudiant dont vous ne connaissez que le numéro, le nom, le prénom, le hobby et
-l'année: 25, 'DARTE','REMY','SCULPTURE',1.
+l''année: 25, 'DARTE','REMY','SCULPTURE',1.
