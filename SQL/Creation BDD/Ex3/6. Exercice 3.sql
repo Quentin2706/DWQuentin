@@ -4,25 +4,44 @@ tables correspondantes.
 
 A)Les noms des étudiants nés avant l''étudiant « JULES LECLERCQ »
 SELECT idEtudiant, CONCAT(`nomEtudiant`,prenomEtudiant) as Etudiant, dateNaissanceEtudiant FROM `etudiants` WHERE `dateNaissanceEtudiant` < (SELECT `dateNaissanceEtudiant` FROM etudiants WHERE `nomEtudiant` = "leclercq" AND `prenomEtudiant` = "jules")
-B) Les noms et notes des étudiants qui ont,à l''épreuve 4, une note supérieure à la moyenne de cette épreuve.
-SELECT nomEtudiant, prenomEtudiant, note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant INNER JOIN epreuve ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE idEpreuve = 4 AND note > ( SELECT AVG(note) FROM `avoir_note` WHERE idepreuve = 4 )
-D)Le nom des étudiants qui ont dans l'épreuve 4 une note supérieure à celle obtenue par « LUC DUPONT »(à cette même épreuve).
-E) Le nom des étudiants qui partagent une ou plusieurs notes avec « LUC DUPONT ».
 
+B) Les noms et notes des étudiants qui ont,à l''épreuve 4, une note supérieure à la moyenne de cette épreuve.
+SELECT nomEtudiant, prenomEtudiant, libelleEpreuve,note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant INNER JOIN epreuves ON avoir_note.idEpreuve = epreuves.idEpreuve WHERE avoir_note.idEpreuve = 4 AND note > ( SELECT AVG(note) FROM `avoir_note` WHERE avoir_note.idepreuve = 4 )
+
+C) Le nom des étudiants qui ont obtenu un 12 ou plus.
+SELECT avoir_note.idEtudiant, nomEtudiant, prenomEtudiant, note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE note >= 12
+
+D)Le nom des étudiants qui ont dans l''épreuve 4 une note supérieure à celle obtenue par « LUC DUPONT »(à cette même épreuve).
+SELECT avoir_note.idEtudiant, nomEtudiant, prenomEtudiant, note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE note > (SELECT note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE nomEtudiant = "DUPONT" AND prenomEtudiant = "Luc" AND idEpreuve = 4) AND idEpreuve = 4
+
+E) Le nom des étudiants qui partagent une ou plusieurs notes avec « LUC DUPONT ».
+SELECT avoir_note.idEtudiant, nomEtudiant, prenomEtudiant, note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE note IN (SELECT note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE nomEtudiant = "DUPONT" AND prenomEtudiant = "Luc")
 
 F) Ajoutez une colonne HOBBY à la table ETUDIANT. Cette colonne est de type chaine sur 20 caractères.
 Par défaut le HOBBY est mis à SPORT. 
+ALTER TABLE `etudiants` ADD `HOBBY` VARCHAR(20) NOT NULL DEFAULT 'SPORT' AFTER `dateNaissanceEtudiant`;
+
 G) Ajouter à la table ETUDIANT une colonne NEWCOL de type INTEGER (vérifier en affichant la
 structure de la table) puis la supprimer (vérifier de nouveau la suppression).
+ALTER TABLE `etudiants` ADD `NEWCOL` INT NOT NULL AFTER `HOBBY`;
+ALTER TABLE `etudiants` DROP `NEWCOL`;
+
 H) Vérifiez que PREnomEtudiant peut ne pas avoir de contenu puis indiquez que la colonne PREnomEtudiant
 doit obligatoirement avoir une valeur. Vérifiez sur la description de la table.
+NULL est coché sur "Oui" donc il peut ne pas avoir de contenu
+Avec cette commande il est obligé d''être renseigné.
+ALTER TABLE `etudiants` CHANGE `prenomEtudiant` `prenomEtudiant` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
 I)Insérez les enregistrements suivants: 7, 'interro écrite',9,1,'21-oct-96',1 dans EPREUVE 
-1,7,10
-2,7,08
-3,7,05
-4,7,09 
-17,3,15 dans AVOIR_NOTE
-J) Changez la note de n°3 dans l'épreuve7, elle passe à 07. Vérifiez les valeurs avant et après la requête.
+insert into epreuves values (7, 'interro écrite',9,1,'1996-10-21',1, NULL)
+insert into avoir_note values (null,1,7,10);
+insert into avoir_note values (null,2,7,08);
+insert into avoir_note values (null,3,7,05);
+insert into avoir_note values (null,4,7,09);
+insert into avoir_note values (null,17,3,15)
+J) Changez la note de n°3 dans l''épreuve7, elle passe à 07. Vérifiez les valeurs avant et après la requête.
+LIMIT(3,1) 
+
 K) N°1 a mis de la bonne volonté, on augmente sa note dans l'épreuve 7 de 1 point. Vérifiez.
 L) Détruisez l'épreuve 7 qui a été annulée pour cause de tricherie et les notes qui lui correspondent. Vérifiez.
 M)Réflexion : N'y aurait-il pas eu moyen de détruire les notes de l'épreuve automatiquement dès la destruction de l'épreuve ?

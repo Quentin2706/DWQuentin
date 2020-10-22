@@ -43,13 +43,13 @@ K) Afficher le nombre moyen d'articles par client et par date.
 SELECT idArticle as "Articles", AVG(quantiteCommande) as "Moyenne des articles par client" FROM commandes GROUP BY idClient, dateCommande
 
 L) Afficher le nombre de commandes par jour.
-SELECT count(dateCommande) FROM commandes GROUP BY dateCommande
+SELECT dateCommande, count(*) FROM commandes GROUP BY dateCommande
 
 M) Afficher le nombre de clients dans la table.
-SELECT count(idclient) FROM idclients
+SELECT count(*) FROM clients
 
 N) Afficher le nombre de clients différents qui ont passé commande.
-SELECT count(DISTINCT idclient) as "Nombre de clients uniques qui ont passé commande" FROM clients
+SELECT count(DISTINCT idclient) as "Nombre de clients uniques qui ont passé commande" FROM commandes
 
 O) Afficher le nombre d' articles différents qui ont été commandés.
 SELECT count(DISTINCT idArticle) as "nombre d'articles différents commandés" FROM commandes
@@ -71,6 +71,6 @@ j. SELECT articles.descriptionArticle, SUM(quantiteCommande) as "Somme des comma
 k. SELECT articles.descriptionArticle, AVG(quantiteCommande) as "Moyenne des articles commandés par client" FROM commandes INNER JOIN articles ON commandes.idArticle = articles.idArticle GROUP BY commandes.idClient, commandes.dateCommande
 l. SELECT dateCommande, count(dateCommande) as "Nombre d ecommande par jour" FROM commandes GROUP BY dateCommande
 m. SELECT count(idclient) as "Nombres de clients" FROM idclients
-n. SELECT count(DISTINCT idclient) as "Nombre de clients uniques qui ont passé commande" FROM clients
+n. SELECT count(DISTINCT idclient) as "Nombre de clients uniques qui ont passé commande" FROM commandes
 o. SELECT count(DISTINCT idArticle) as "nombre d'articles différents commandés" FROM commandes
 p. SELECT count(DISTINCT dateCommande)as "date de commande différentes" FROM commandes
