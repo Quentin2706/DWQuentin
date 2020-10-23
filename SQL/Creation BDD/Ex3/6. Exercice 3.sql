@@ -6,16 +6,16 @@ A)Les noms des étudiants nés avant l''étudiant « JULES LECLERCQ »
 SELECT idEtudiant, CONCAT(`nomEtudiant`,prenomEtudiant) as Etudiant, dateNaissanceEtudiant FROM `etudiants` WHERE `dateNaissanceEtudiant` < (SELECT `dateNaissanceEtudiant` FROM etudiants WHERE `nomEtudiant` = "leclercq" AND `prenomEtudiant` = "jules")
 
 B) Les noms et notes des étudiants qui ont,à l''épreuve 4, une note supérieure à la moyenne de cette épreuve.
-SELECT nomEtudiant, prenomEtudiant, libelleEpreuve,note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant INNER JOIN epreuves ON avoir_note.idEpreuve = epreuves.idEpreuve WHERE avoir_note.idEpreuve = 4 AND note > ( SELECT AVG(note) FROM `avoir_note` WHERE avoir_note.idepreuve = 4 )
+SELECT CONCAT(nomEtudiant," ",prenomEtudiant), libelleEpreuve,note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant INNER JOIN epreuves ON avoir_note.idEpreuve = epreuves.idEpreuve WHERE avoir_note.idEpreuve = 4 AND note > ( SELECT AVG(note) FROM `avoir_note` WHERE avoir_note.idepreuve = 4 )
 
 C) Le nom des étudiants qui ont obtenu un 12 ou plus.
-SELECT avoir_note.idEtudiant, nomEtudiant, prenomEtudiant, note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE note >= 12
+SELECT nomEtudiant, prenomEtudiant, note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE note >= 12
 
 D)Le nom des étudiants qui ont dans l''épreuve 4 une note supérieure à celle obtenue par « LUC DUPONT »(à cette même épreuve).
-SELECT avoir_note.idEtudiant, nomEtudiant, prenomEtudiant, note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE note > (SELECT note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE nomEtudiant = "DUPONT" AND prenomEtudiant = "Luc" AND idEpreuve = 4) AND idEpreuve = 4
+SELECT nomEtudiant, prenomEtudiant, note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE note > (SELECT note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE nomEtudiant = "DUPONT" AND prenomEtudiant = "Luc" AND idEpreuve = 4) AND idEpreuve = 4
 
 E) Le nom des étudiants qui partagent une ou plusieurs notes avec « LUC DUPONT ».
-SELECT avoir_note.idEtudiant, nomEtudiant, prenomEtudiant, note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE note IN (SELECT note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE nomEtudiant = "DUPONT" AND prenomEtudiant = "Luc")
+SELECT nomEtudiant, prenomEtudiant, note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE note IN (SELECT note FROM avoir_note INNER JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE nomEtudiant = "DUPONT" AND prenomEtudiant = "Luc")
 
 F) Ajoutez une colonne HOBBY à la table ETUDIANT. Cette colonne est de type chaine sur 20 caractères.
 Par défaut le HOBBY est mis à SPORT. 
@@ -23,7 +23,7 @@ ALTER TABLE `etudiants` ADD `HOBBY` VARCHAR(20) NOT NULL DEFAULT 'SPORT' AFTER `
 
 G) Ajouter à la table ETUDIANT une colonne NEWCOL de type INTEGER (vérifier en affichant la
 structure de la table) puis la supprimer (vérifier de nouveau la suppression).
-ALTER TABLE `etudiants` ADD `NEWCOL` INT NOT NULL AFTER `HOBBY`;
+ALTER TABLE `etudiants` ADD `NEWCOL` INT ;
 ALTER TABLE `etudiants` DROP `NEWCOL`;
 
 H) Vérifiez que PREnomEtudiant peut ne pas avoir de contenu puis indiquez que la colonne PREnomEtudiant
@@ -46,8 +46,8 @@ K) N°1 a mis de la bonne volonté, on augmente sa note dans l''épreuve 7 de 1 
 UPDATE avoir_note SET note=note+1 WHERE idAvoirNote= (SELECT idAvoirNote FROM (SELECT * FROM avoir_note WHERE idEpreuve=7) as a LIMIT 0,1 )
 
 L) Détruisez l''épreuve 7 qui a été annulée pour cause de tricherie et les notes qui lui correspondent. Vérifiez.
-DELETE FROM epreuves WHERE idEpreuve = 7;
 DELETE FROM avoir_note WHERE idEpreuve = 7;
+DELETE FROM epreuves WHERE idEpreuve = 7;
 
 M)Réflexion : N''y aurait-il pas eu moyen de détruire les notes de l''épreuve automatiquement dès la destruction de l''épreuve ?
 Si avec la methode cascade. 
