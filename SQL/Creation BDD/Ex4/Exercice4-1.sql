@@ -87,7 +87,7 @@ SELECT LEFT(nom , 5) from Employe
 SELECT nom, LOCATE("R",nom) as Position du "R" from Employe
 
 31. Afficher le nom, le nom en majuscule et le nom en minuscule de l employé dont le nom est Vrante
-SELECT nom, UPPER(nom) as nomMAJ, LOWER(nom) as nomMIN from employe
+SELECT nom, UPPER(nom) as nomMAJ, LOWER(nom) as nomMIN from employe WHERE `nom`="Vrante"
 
 32.Afficher le nom et le nombre de caractères du nom des employés. 
 SELECT nom, LENGTH(nom) as "nombre de charactere" from employe
