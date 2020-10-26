@@ -54,7 +54,8 @@ Si avec la methode cascade.
 
 N) Changez toutes les notes de MARKE dans la matière « BASES DE DONNEES ». Suite à un mauvais comportement, elles diminuent toutes de 3 points. Attention, la requête doit intégrer le nom de la matière.
 (et non chercher à repérer le numéro avant de la taper.)
-SELECT idEtudiant FROM etudiants WHERE nomEtudiant ="MARKE"
+
+UPDATE avoir_note SET note=note-3 WHERE idAvoirNote = (SELECT idAvoirNote FROM avoir_note WHERE idEtudiant = (SELECT idEtudiant FROM etudiants WHERE nomEtudiant ="MARKE") AND idEpreuve IN (SELECT idEpreuve FROM epreuves INNER JOIN matieres ON matieres.idMatiere = epreuves.idMatiereEpreuve WHERE nomMatiere = "BD")
 
 O) DEWA a manqué l''épreuve 4. Vu son niveau, on décide de lui créer une entrée dans AVOIR_NOTE en lui
 attribuant la moyenne des notes obtenues à cette épreuve par ses collègues*0.9. Attention, la requête doit
