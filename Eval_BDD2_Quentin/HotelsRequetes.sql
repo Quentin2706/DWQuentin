@@ -37,4 +37,4 @@ CREATE PROCEDURE archivage()
         CASE WHEN dateFinSejour < now() THEN "oui" 
         ELSE "non" 
         END ); 
-        END |
+        END | 

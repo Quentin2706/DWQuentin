@@ -1,0 +1,12 @@
+{
+	"Date creation et modif sql": {
+		"scope" : "sql",
+		"prefix": "tracker",
+		"body": [
+		  "ALTER TABLE NOMDELATABLEICI",
+		  "ADD `DATECREATION` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, ",
+		  "ADD `DATEMODIFICATION` DATETIME on update CURRENT_TIMESTAMP NULL DEFAULT NULL; "
+		],
+		"description": "Date creation et modif sql"
+	  }
+}
