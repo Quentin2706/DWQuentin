@@ -1,0 +1,30 @@
+* {
+    margin : 0;
+}
+#vert {
+    background-color: green;
+    width: 70vw;
+    height: 70vh;
+}
+
+#bleu {
+    background-color: blue;
+    width : 70vw;
+    height : 30vh; 
+}
+
+#jaune {
+    background-color: yellow;
+    width : 30vw; 
+    height  : 30vh;
+}
+
+#rouge {
+    background-color: red;
+    width: 30vw;
+    height : 70vh;
+}
+
+.flex {
+    display : flex;
+}

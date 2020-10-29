@@ -1,0 +1,47 @@
+header {
+    height : 4em;
+    padding-top: 3em;
+    padding-left: 3em;
+    display: flex;
+    margin : 1em 3em 1em 3em;
+}
+.border {
+    padding : 1em 1em 1em 1em; 
+    border: 1px dashed black;
+}
+
+.enteteart {
+    background-color: rgb(230,230,230);
+    border: 1px dashed rgb(109, 109, 109);
+    padding:  1em
+}
+
+#main {
+    display : flex;
+}
+
+.button {
+    margin-left: 0.5em;
+}
+
+aside {
+    margin-left: 1em;
+    width : 20vw
+}
+
+.tangentiel {
+    margin-left: 4em;
+    margin-top : 1em;
+}
+
+.footart {
+    margin-top: 1em;
+    background-color: rgb(230,230,230);
+    border: 1px dashed rgb(109, 109, 109);
+    padding:  1em;
+}
+article {
+    margin-left: 4em;
+    margin-top : 1em;
+    width: 65vw;
+}

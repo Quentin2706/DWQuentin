@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Form</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+    <p class="instruct">Please complete the form below. Mandatory fields marked <span class="red">*</span></p>
+    <div id="dim">
+  <div id="formulaire">
+      <div id="top">
+    <p>Delivery Details </p>
+        <hr>
+    </div>
+    <form>
+        Name <input type="text" class="form"><br><hr>
+        Address <span class="red">*</span> <input type="text" class="form"><br><hr>
+        Town/City <input type="text" class="form"><br><hr>
+        County <span class="red">*</span><input type="text" class="form"><br><hr>
+        Postcode <span class="red">*</span><input type="text" class="form"><br><hr>
+        <p class="instruct">Is address also your invoice address ? <span class="red">*</span></p>
+        <div class="formradio">
+            <input type="radio"  name="Adress"
+                   checked>
+            <label for="Yes">Yes</label>
+          </div>
+          <div class="formradio">
+            <input type="radio"  name="Adress"
+                   checked>
+            <label for="Yes">No</label>
+          </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>

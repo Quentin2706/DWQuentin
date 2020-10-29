@@ -1,0 +1,24 @@
+#formulaire {
+    background: linear-gradient( white, rgb(208,247,177));
+    width: 25vw;
+}
+
+.instruct {
+    font-size: small;
+}
+
+.red {
+    color: red;
+}
+
+.form {
+    margin-right: 10%;
+}
+
+.formradio {
+    margin-left: 17%;
+}
+
+.top {
+    display: flex;
+}
