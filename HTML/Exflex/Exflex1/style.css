@@ -1,0 +1,38 @@
+.bleu {
+    background-color : blue;
+    width : 600px;
+    height : 900px;
+    display : flex;
+    padding : 1em;
+    flex-direction: column;
+}
+
+.rouge {
+    background-color : red;
+    width : 100%;
+    height : 15%;
+}
+
+.grisyellow {
+    display: flex;
+    margin-top : 1em;
+    height : 70%;
+}
+
+.gris {
+    background-color: gray;
+    flex : 1;
+    height : 100%;
+    margin-right : 1em;
+}
+.yellow {
+    background-color: rgb(238, 255, 0);
+    flex : 3;
+    height : 100%;
+}
+
+.vert {
+    background-color : green;
+    height : 15%;
+    margin-top : 1em;
+}

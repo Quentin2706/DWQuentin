@@ -1,0 +1,23 @@
+.bleu {
+    background-color : blue;
+    width : 600px;
+    height : 900px;
+    display : flex;
+    padding : 2em;
+}
+
+.header {
+    display : flex;
+    height : 20%;
+    margin-bottom: 1em;
+}
+
+.rouge {
+    background-color: red;
+    margin-right: 1.5em;
+    width: 40%;
+}
+.gris {
+    background-color:gray;
+    margin-left: 1em;
+}

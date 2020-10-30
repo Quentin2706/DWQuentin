@@ -4,6 +4,7 @@ header {
     padding-left: 3em;
     display: flex;
     margin : 1em 3em 1em 3em;
+    border: 1px dashed black;
 }
 .border {
     padding : 1em 1em 1em 1em; 
@@ -44,4 +45,8 @@ article {
     margin-left: 4em;
     margin-top : 1em;
     width: 65vw;
+}
+
+.main1 {
+    width : 65vw; 
 }
