@@ -1,0 +1,107 @@
+body {
+    margin: 0em;
+}
+div {
+    flex : 1;
+    display: flex;
+}
+header {
+    display: flex;
+    background-color: chartreuse;
+}
+
+#titre {
+    flex : 2;
+    background-color: blue;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+}
+#connecter {
+    flex : 1;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+}
+.logo > img {
+    width: 25%;
+}
+
+#menu {
+    flex: 1;
+    background-color: chocolate;
+    flex-direction: column;
+}
+
+#articles {
+    flex: 3;
+    background-color: cadetblue;
+    flex-direction: column;
+    padding: 1em 0em 0em 1em;
+}
+#headermenu {
+    background-color: coral;
+    flex: 1;
+    flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+    align-content: stretch;
+}
+#mainmenu {
+    flex-direction: column;
+    flex: 10;
+}
+
+.ligneart {
+    flex: 1;
+    justify-content: space-around;
+    margin: 0em 0em 1em 0em;
+}
+
+#headerarticle {
+    background-color: coral;
+    flex : 1;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+    align-content: stretch;
+    margin: 0em 1em  1em 0em;
+}
+
+.art {
+    justify-content: space-between;
+    background-color: cyan;
+    margin-right: 1em;
+    /* max-width: 20vw;             POUR TOUT CASSER
+    max-height: 20vw; */
+    flex-direction: column;
+    padding: 0em 1em 1em 1em;
+}
+.headerart {
+    flex : 1;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+    align-content: stretch;
+}
+
+.contenuart {
+    flex : 1;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+    align-content: stretch;
+}
