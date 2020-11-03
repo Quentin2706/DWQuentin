@@ -1,5 +1,6 @@
 {
     "newObjet": {
+      "scope" : "php",
         "prefix": "newObjet",
         "body": [
           "//CREATION DES OBJETS",

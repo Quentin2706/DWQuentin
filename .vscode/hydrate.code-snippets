@@ -1,5 +1,6 @@
 {
 	"Constructeur_class": {
+		"scope" : "php",
 		"prefix": "hydrate, constrct",
 		"body": [
 		  "public function __construct(array $options = [])",

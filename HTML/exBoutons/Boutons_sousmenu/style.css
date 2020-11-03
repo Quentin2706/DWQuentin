@@ -1,0 +1,51 @@
+
+div {
+    flex : 1;
+    display: flex;
+}
+nav {
+    display: flex;
+    width: 10vw;
+    background-color: black;
+    flex-direction: column;
+    padding: 1em;
+}
+.boutons {
+    padding: 1em;
+    background-color: rgb(0, 148, 49);
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 0.1em;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    font-family: Verdana, Tahoma, sans-serif;
+    box-shadow : inset 0.1em 0.1em 2em black;
+    border: 1px white solid;
+    white-space: nowrap;
+}
+.espaces {
+    flex : 0.1em;
+}
+
+.boutons:hover {
+    text-decoration: underline;
+    text-underline-position: under left; 
+}
+
+.boutons:active {
+    box-shadow : inset 0.1em 0.25em 2em black;
+    transition-duration: 100ms;
+}
+
+.sousmenu {
+    display: none;
+}
+.avecenfants {
+    position: relative;
+}
+
+.avecenfants:hover .sousmenu {
+    display: flex;
+}
+

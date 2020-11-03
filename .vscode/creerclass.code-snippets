@@ -1,5 +1,6 @@
 {
 	"Créer une class": {
+		"scope" : "php",
 		"prefix": "cclass",
 		"body": [
 		  "class XXX",
