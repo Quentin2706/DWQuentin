@@ -1,0 +1,72 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(./image/fond.jpg);
+    background-position: center;
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    background-image: url(./image/header.jpg);
+    display: flex;
+}
+footer{
+    display: flex;
+    background-image: url(./image/fond1.png);
+    background-position: top;
+}
+div {
+    display: flex;
+    flex: 1;
+}
+img{
+    width: 100%;
+}
+
+.page {
+    width: 80vw;
+    flex-direction: column;
+    flex: none;
+}
+.titrePage, .piedPage {
+    flex: 9;
+    font-size: 2em;
+    justify-content: center;
+    align-items: center;
+}
+
+.boutons {
+    background: linear-gradient(#073C61,#88cdff);
+    border : 1px solid black;
+    padding: 0.2em;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.sousmenu {
+    display: none;
+    position: absolute;
+    flex-flow: column wrap;
+    margin-top: 1.5em;
+}
+.avecEnfant {
+    position: relative;
+    margin: 0.1em;
+}
+menu {
+    flex-direction: column;
+}
+nav {
+    display: flex;
+    background-image: url(./image/fond1.png);
+    background-position-y: 50%;
+}
+.avecEnfant:hover .sousmenu {
+    display: flex;
+}
