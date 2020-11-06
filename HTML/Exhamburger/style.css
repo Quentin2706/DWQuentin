@@ -102,13 +102,18 @@ header {
         display : block;
     }
     .sousmenu {
-        width: 80%;
-        /* position: none; */
+        width: 100%;
+        position: unset; 
+        margin-top: 0;
     }
     .items:hover {
         color: darkblue;
     }
     .boutons:hover {
         color: darkblue;
+    }
+    .avecEnfant {
+        position: unset; 
+        flex-direction: column;
     }
 }
