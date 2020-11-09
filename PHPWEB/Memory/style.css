@@ -1,0 +1,64 @@
+/* GLOBAL */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    display: flex;
+    flex: 1;
+}
+
+img {
+    width: 100%;
+}
+
+video {
+    width: 100%;
+}
+
+header {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.titrePage {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.ligne {
+    flex: 5;
+    display: flex;
+}
+
+#main {
+    display: block;
+}
+
+.img {
+    margin: 1em;
+    border-radius: 0.5em;
+}
+
+.imghidden {
+    display: none;
+    border-radius: 0.5em;
+}
+
+.imgplage {
+    border-radius: 0.5em;
+}
+
+.img:hover .imghidden {
+    display: flex;
+}
+
+.img:hover .imgplage {
+    display: none;
+}
