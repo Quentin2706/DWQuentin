@@ -1,0 +1,18 @@
+@media screen and (max-width:800px)
+{
+    .descriptionSemaine {
+        flex-direction: column;
+    }
+    .page {
+        width: 95vw;
+    }
+    .video{
+        display: none;
+    }
+    .titrePage {
+        font-size: 2em;
+    }
+    footer {
+        font-size: 0.5em;
+    }
+}

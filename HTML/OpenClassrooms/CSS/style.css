@@ -1,0 +1,186 @@
+/****  GENERAL ****/
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+div,
+footer,
+nav,
+article {
+  display: flex;
+  flex: 1;
+}
+
+img,
+video {
+  width: 100%;
+}
+
+#top {
+  background-color: #003668;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2em 0;
+  font-size: 1.1em;
+}
+
+#titretop {
+  flex: 1;
+  font-family: Montserrat;
+  white-space: nowrap;
+}
+#ensavoirplus {
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+#imagenormalement {
+  font-size: 1.75em;
+  color: #7451eb;
+  font-weight: 900;
+  padding: 0.5em;
+}
+
+#midheader {
+  flex: 3;
+}
+
+#espacetop {
+  flex: 1;
+}
+
+.middle {
+  flex: 5;
+}
+
+#imgnav {
+  flex: 0.7;
+  align-items: center;
+}
+nav {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+.boutons {
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  font-family: Montserrat;
+  padding: 0.5em;
+  white-space: nowrap;
+}
+.boutons:hover {
+  color: #7451eb;
+}
+
+#boutons2 {
+  padding: 0 0.5em;
+  margin: 0.5em 0.5em 0.5em 0;
+  border: 1px solid #7451eb;
+  border-radius: 0.3em;
+  color: #7451eb;
+  font-weight: bold;
+}
+
+#boutons3 {
+  padding: 0 0.5em;
+  margin: 0.5em 0;
+  border-radius: 0.3em;
+  background-color: #7451eb;
+  font-weight: bold;
+  color: white;
+}
+
+#boutons2:hover {
+	background-color: #DED6F8;
+}
+
+#boutons3:hover {
+	box-shadow: 0 0.3em 0.5em gray;
+}
+
+.topmain {
+	background-color: #7451eb;
+}
+.main {
+	display: block;
+	justify-content: center;
+	align-items: center;
+}
+
+.test {
+  display: unset;
+  background-color: #003668 ;
+  font-size: 2.5em;
+  font-weight: 800;
+  box-sizing: border-box;
+  font-family: Montserrat;
+  margin : 0;
+  padding: 0 0.3em;
+}
+
+#texttopmid {
+  display: block;
+  color: white;
+  margin-top: 2em;
+  font-family: Montserrat;
+}
+
+.text2 {
+  margin-top : 0.3em;
+}
+
+.text2-1 {
+  margin-top : 1em;
+}
+
+.divbotmain {
+  flex: 0.5;
+  padding: 1em;
+  justify-content: space-around;
+}
+
+.space {
+  justify-content: space-around;
+  flex: 5;
+  flex-direction: column;
+}
+
+.titrebotmain {
+  color:#003668;
+  font-family: Montserrat;
+  font-weight: 800;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.soustitrebotmain {
+  font-family: Montserrat;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 0.5em;
+}
+
+#boutons4 {
+  padding: 0.75em;
+  margin: 2.5em 0;
+  border-radius: 0.3em;
+  background-color: white;
+  font-weight: bold;
+  color :#7451eb;
+  display : block;
+  white-space: nowrap;
+}
+
+#boutons4:hover {
+	box-shadow: 0 0.3em 0.5em #321981;
+}
+
+.miniesp {
+  flex: 0.5;
+}
