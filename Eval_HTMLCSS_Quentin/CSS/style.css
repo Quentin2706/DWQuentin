@@ -1,0 +1,188 @@
+/* Je n'ai pas utilisé cette couleur #006633 car je suis daltonien donc je n'ai pas su la différencier c'est pas dire que je ne savais pas ou il fallait la mettre. :/ */
+
+/****  GENERAL ****/
+html, body {
+	margin : 0;
+	padding : 0;
+	background-color:#F7EFDF;
+}
+
+div, header, footer, nav, article {
+	display : flex;
+	flex : 1;
+}
+
+img, video {
+	width : 100%;
+}
+
+.grandespace {
+	flex: 2;
+}
+
+/* Titre */
+#titre {
+	justify-content: center;
+	align-items: center;
+	padding: 1em;
+	font-weight: bolder;
+	font-size: 1em;
+}
+
+/*main */
+
+#page {
+	display: block;
+}
+
+#toppage {
+	margin-top: 1em;
+}
+#botpage {
+	margin-top: 1em;
+}
+
+#intro {
+	font-weight: bolder;
+}
+
+#main {
+	display: block;
+}
+
+/* Haut de du main */
+#textetop {
+	margin-top: 1em;
+	display: block;
+	flex: 3;
+	align-items: center;
+	text-align: justify;
+}
+
+/* div gauche en haut */
+#boxleft {
+	border-radius: 1em;
+	border: 1px solid black;
+	display: block;
+	flex: 2;
+	margin-left: 2em;
+	padding: 1em;
+}
+
+.boxleftli {
+	margin-left: 1.5em;
+	color: #006633;
+}
+
+/* Textes en général */
+.bleu {
+	color: #000066;
+	font-weight: bold;
+}
+
+li {
+	margin-top: 0.5em;
+}
+
+.texte {
+	display: block;
+	justify-content: justify;
+	align-items: justify;
+	text-align: justify;
+}
+
+.margetexte {
+	margin: 1em 0;
+}
+
+/* Bas de page */
+.marron {
+	color: #006633;
+}
+#titreleft {
+	font-weight: 900;
+	margin-right: 0.5em;
+	font-size: 1.2em;
+}
+
+#left, #right {
+	flex: 4;
+	flex-direction: column;
+	margin: 1em 0;
+}
+
+#part1left, #part2left {
+	display: block;
+	margin-top: 1em;
+}
+ #part1right{
+	display: block;
+	margin-top: 1em;
+}
+
+#titreright {
+	font-weight: 900;
+	margin-right: 0.5em;
+}
+
+#hauttexte {
+	flex-direction: column;
+}
+
+/* Image avec titre */
+.image {
+	margin: 0em 1em 0.5em 1em;
+	display :block;
+	background-color: #F1E3C7;
+	border: 1px solid #BB8C00;
+}
+
+#titredesc {
+	text-align: center;
+	font-weight: 500;
+	text-transform: uppercase;
+	font-size: 0.7em;
+	font-weight: bold;
+}
+
+.desc {
+	flex-direction: column;
+}
+
+.perm, .copyright {
+	font-size: 0.5em;
+	text-align: center;
+	justify-content: center;
+}
+
+.flex05 {
+	flex: 0.5;
+}
+
+.margetitrephoto {
+	margin: 1em;
+}
+
+
+/* POUR LE RESPONSIVE */
+@media screen and (max-width:800px)
+{
+	.marge {
+		flex: 0;
+	}
+	div {
+		display : block;
+	}
+	.texte {
+		padding: 0.5em;
+	}
+	#boxleft {
+		margin: 0em 0.5em;
+	}
+	#textetop, #titreleft {
+		margin: 0em 0.5em;
+	}
+	#titreright {
+		margin: 0em 0.5em;
+	}
+}
