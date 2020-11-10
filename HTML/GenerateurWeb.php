@@ -3,25 +3,29 @@
 
 do {
     $nomprojet = ucfirst(readline("Donnez le nom de votre projet : "));
-
     echo strlen($nomprojet) < 1 ? "Vous devez donner un nom a votre projet !\n" : "";
     echo is_dir($nomprojet) ? "Ce nom de dossier existe déjà.\n" : "";
-    echo !ctype_alnum($nomprojet) && strlen($nomprojet) >= 1 ? "Vous devez entrer des caractères alpha-numériques\n" : "";
-}while(!ctype_alnum($nomprojet) || strlen($nomprojet) < 1 || is_dir($nomprojet));
+}while(strlen($nomprojet) < 1 || is_dir($nomprojet));
 
 // CREATION DES DIFFERENTS DOSSIERS DU PROJET WEB
 
 mkdir('./' . $nomprojet, 0777, true);
+mkdir('./' . $nomprojet . '/IMG', 0777, true);
+mkdir('./' . $nomprojet . '/DOCS', 0777, true);
 mkdir('./' . $nomprojet . '/HTML', 0777, true);
 mkdir('./' . $nomprojet . '/CSS', 0777, true);
 mkdir('./' . $nomprojet . '/JS', 0777, true);
-mkdir('./' . $nomprojet . '/IMG', 0777, true);
+mkdir('./' . $nomprojet . '/PHP', 0777, true);
+mkdir('./' . $nomprojet . '/PHP'.'/MODEL', 0777, true);
+mkdir('./' . $nomprojet . '/PHP'.'/VIEW', 0777, true);
+mkdir('./' . $nomprojet . '/PHP'.'/CONTROLLER', 0777, true);
 
 // CREATION DES DIFFERENTS FICHIERS DU PROJET WEB
 
 $HTML_folder = fopen('./'.$nomprojet.'/HTML/'. 'index.html', "w");
 $CSS_folder = fopen('./'.$nomprojet.'/CSS/'. 'style.css', "w");
 $JS_folder = fopen('./'.$nomprojet.'/JS/'. 'script.js', "w");
+$JS_folder = fopen('./'.$nomprojet.'/'. 'index.php', "w");
 
 $HTML_snippet = '<!doctype html>'."\n"
                 .'<html lang="fr">'."\n"
@@ -55,4 +59,4 @@ $CSS_snippet =  '/****  GENERAL ****/'."\n"
 fputs($HTML_folder,$HTML_snippet);
 fputs($CSS_folder,$CSS_snippet);
 
-echo is_dir($nomprojet) ? "Le dossier a été crée avec succès." : "Le dossier n'a pas été crée, un problème est survenu...";
+echo is_dir($nomprojet) ? "Le dossier a été crée avec succès." : "Le dossier n'a pas été crée, un problème est survenue...";

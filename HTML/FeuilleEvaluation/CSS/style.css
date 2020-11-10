@@ -1,0 +1,50 @@
+/****  GENERAL ****/
+html, body {
+	margin : 0;
+	padding : 0;
+}
+
+div, header, footer, nav, article {
+	display : flex;
+	flex : 1;
+}
+
+img, video {
+	width : 100%;
+}
+.colonne {
+	flex-direction: column;
+}
+
+.hrgreen {
+	width: 80vw;
+	border : none;
+	border-bottom: 2px solid green;
+}
+#titre {
+	justify-content: center;
+	align-items: center;
+}
+
+header {
+	background-color: #ccc;
+}
+
+.marge {
+	flex : 0.5;
+}
+#page {
+	margin-top: 1em;
+}
+
+.justify {
+	text-align: justify;
+	justify-content: justify;
+	align-items: justify;
+}
+.block {
+	flex : 0.2;
+	justify-content: center;
+	text-align: center;
+
+}
