@@ -60,8 +60,6 @@ footer{
     font-weight: bold;
     text-shadow: 2px 1px 5px white;
     white-space: nowrap;
-    -moz-user-select: none;
-    -webkit-user-select: none;
 }
 .piedPage {
     color: white;  

@@ -1,0 +1,118 @@
+/****  GENERAL ****/
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+div,
+header,
+footer,
+nav,
+article {
+    display: flex;
+    flex: 1;
+}
+
+img,
+video {
+    width: 100%;
+}
+
+header, footer {
+    background-image: url(../IMG/header.png);
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+    color : white; 
+}
+
+/*
+Mercure ;
+Vénus ;
+la Terre, notre planète ;
+Mars ;
+Jupiter ;
+Saturne ;
+Uranus ;
+et Neptune.*/
+
+/* couleur melon #F3B3A6  */
+
+.centrer {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.espace {
+    flex : 0.5;
+}
+
+.boutons {
+    text-decoration: none;
+    padding: 0.5em;
+    font-size: 1.5em;
+    margin: 0.1em;
+    white-space: nowrap;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    transition: font-size .2s;
+}
+
+nav {
+    background-color: rgb(102, 102, 102);
+}
+
+.boutons:hover {
+    font-size: 2em;
+    /* padding: 0; */
+}
+
+body {
+    background-color: #363D41;
+}
+
+.block {
+    display: block;
+}
+
+.vwmain {
+    flex: none;
+    width : 80vw;
+    background-color: #F3B3A6;
+    padding: 0.5em;
+}
+.margeV {
+    margin: 1em;
+}
+.image {
+    width: 50vw;
+}
+
+.helvetica {
+    font-family: Helvetica, arial, sans-serif;
+}
+
+.titre {
+    font-size: 3em;
+    font-weight: bolder;
+}
+
+.texte {
+    text-align: justify;
+}
+
+.troisquart {
+    flex : 3;
+}
+
+.hide {
+    font-size: 2em;
+    visibility: hidden;
+    flex : 0.1; 
+    padding: 0.5em 0;
+}
