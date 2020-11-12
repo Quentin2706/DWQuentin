@@ -20,25 +20,18 @@ video {
     width: 100%;
 }
 
-header, footer {
-    background-image: url(../IMG/header.png);
-    background-size: cover;
-}
 
 a {
     text-decoration: none;
     color : white; 
 }
 
-/*
-Mercure ;
-Vénus ;
-la Terre, notre planète ;
-Mars ;
-Jupiter ;
-Saturne ;
-Uranus ;
-et Neptune.*/
+header,
+footer {
+    background-image: url(../IMG/header.png);
+    height: 15vh;
+    background-size: cover;
+}
 
 /* couleur melon #F3B3A6  */
 
@@ -104,15 +97,29 @@ body {
 
 .texte {
     text-align: justify;
+    background-color: #fff;
+    padding: 0.5em;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    flex: 2;
+    margin:  1em;
 }
 
-.troisquart {
-    flex : 3;
-}
 
 .hide {
     font-size: 2em;
     visibility: hidden;
     flex : 0.1; 
     padding: 0.5em 0;
+}
+
+.galaxie {
+    background-image: url(../IMG/galaxie.jpg);
+    background-size: cover; 
+    background-position: center;
+    padding: 1em;
+}
+
+.navigation {
+    flex : 2.5;
 }
