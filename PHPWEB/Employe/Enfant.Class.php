@@ -60,14 +60,7 @@ class Enfant
     }
 
     /*****************Autres Méthodes***************** */
-    public function afficheEnfantsHTML()
-    {
-        $aff = '';
-        $aff .= 'Nom de l\'enfant : ' . $this->getNom() . '<br>';
-        $aff .= 'Prenom de l\'enfant : ' . $this->getPrenom() . '<br>';
-        $aff .= 'Age de l\'enfant: ' . $this->getAge() . '<br>';
-        return $aff;
-    }
+
     /**
      * Transforme l'objet en chaine de caractères
      *

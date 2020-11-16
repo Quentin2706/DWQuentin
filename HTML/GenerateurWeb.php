@@ -38,10 +38,22 @@ if ($choix == false) {
     mkdir($path . '/' . $nomprojet . '/PHP' . '/CONTROLLER', 0777, true);
 
     // CREATION DES DIFFERENTS FICHIERS DU PROJET WEB
-    $HTML_folder = fopen($path . '/' . $nomprojet . '/HTML/' . 'index.html', "w");
-    $CSS_folder = fopen($path . '/' . $nomprojet . '/CSS/' . 'style.css', "w");
-    $JS_folder = fopen($path . '/' . $nomprojet . '/JS/' . 'script.js', "w");
-    $JS_folder = fopen($path . '/' . $nomprojet . '/' . 'index.php', "w");
+    $HTML_file = fopen($path . '/' . $nomprojet . '/HTML/' . 'index.html', "w");
+    $CSS_file = fopen($path . '/' . $nomprojet . '/CSS/' . 'style.css', "w");
+    $JS_file = fopen($path . '/' . $nomprojet . '/JS/' . 'script.js', "w");
+    $GENERAL_INDEX_file = fopen($path . '/' . $nomprojet . '/' . 'index.php', "w");
+    $GENERAL_HEADPHP_file = fopen($path . '/' . $nomprojet . '/' . 'head.php', "w");
+
+    // INSERTION DES FICHIERS DE PROTECTIONS DE NIVEAU 1
+    $IMG_security = fopen($path . '/' . $nomprojet . '/IMG/' . 'index.php', "w");
+    $DOCS_security = fopen($path . '/' . $nomprojet . '/DOCS/' . 'index.php', "w");
+    $HTML_security = fopen($path . '/' . $nomprojet . '/HTML/' . 'index.php', "w");
+    $CSS_security = fopen($path . '/' . $nomprojet . '/CSS/' . 'index.php', "w");
+    $JS_security = fopen($path . '/' . $nomprojet . '/JS/' . 'index.php', "w");
+    $PHP_security = fopen($path . '/' . $nomprojet . '/PHP/' . 'index.php', "w");
+    $MODEL_security = fopen($path . '/' . $nomprojet . '/PHP' . '/MODEL/' . 'index.php', "w");
+    $VIEW_security = fopen($path . '/' . $nomprojet . '/PHP' . '/VIEW/' . 'index.php', "w");
+    $CONTROLLER_security = fopen($path . '/' . $nomprojet . '/PHP' . '/CONTROLLER/' . 'index.php', "w");
 
     // MESSAGE DE CONCLUSION DU PROGRAMME
     echo is_dir($repository) ? "Le dossier a été crée avec succès." : "Le dossier n'a pas été crée, un problème est survenu, verifiez le répertoire de destination.";
@@ -70,10 +82,22 @@ if ($choix == false) {
     mkdir('./' . $nomprojet . '/PHP' . '/CONTROLLER', 0777, true);
 
     // CREATION DES DIFFERENTS FICHIERS DU PROJET WEB
-    $HTML_folder = fopen('./' . $nomprojet . '/HTML/' . 'index.html', "w");
-    $CSS_folder = fopen('./' . $nomprojet . '/CSS/' . 'style.css', "w");
-    $JS_folder = fopen('./' . $nomprojet . '/JS/' . 'script.js', "w");
-    $JS_folder = fopen('./' . $nomprojet . '/' . 'index.php', "w");
+    $HTML_file = fopen('./' . $nomprojet . '/HTML/' . 'index.html', "w");
+    $CSS_file = fopen('./' . $nomprojet . '/CSS/' . 'style.css', "w");
+    $JS_file = fopen('./' . $nomprojet . '/JS/' . 'script.js', "w");
+    $GENERAL_INDEX_file = fopen('./' . $nomprojet . '/' . 'index.php', "w");
+    $GENERAL_HEADPHP_file = fopen('./' . $nomprojet . '/' . 'head.php', "w");
+
+    // INSERTION DES FICHIERS DE PROTECTIONS DE NIVEAU 1
+    $IMG_security = fopen('./' . $nomprojet . '/IMG/' . 'index.php', "w");
+    $DOCS_security = fopen('./' . $nomprojet . '/DOCS/' . 'index.php', "w");
+    $HTML_security = fopen('./' . $nomprojet . '/HTML/' . 'index.php', "w");
+    $CSS_security = fopen('./' . $nomprojet . '/CSS/' . 'index.php', "w");
+    $JS_security = fopen('./' . $nomprojet . '/JS/' . 'index.php', "w");
+    $PHP_security = fopen('./' . $nomprojet . '/PHP/' . 'index.php', "w");
+    $MODEL_security = fopen('./' . $nomprojet . '/PHP' . '/MODEL:' . 'index.php', "w");
+    $VIEW_security = fopen('./' . $nomprojet . '/PHP' . '/VIEW/' . 'index.php', "w");
+    $CONTROLLER_security = fopen('./' . $nomprojet . '/PHP' . '/CONTROLLER/' . 'index.php', "w");
 
     // MESSAGE DE CONCLUSION DU PROGRAMME
     echo is_dir($repository) ? "Le dossier a été crée avec succès." : "Le dossier n'a pas été crée, un problème est survenu, verifiez le répertoire de destination.";
@@ -110,9 +134,37 @@ if (is_dir($repository)) {
         . "\t" . 'width : 100%;' . "\n"
         . '}' . "\n\n";
 
+    $ERROR_snippet = '<?php // fichier de protection des dossiers. ?>' . "\n" . '<h1>ERROR 404 NOT FOUND<h1>';
+
+    $HEADPHP_snippet = '<!doctype html>' . "\n"
+        . '<html lang="fr">' . "\n"
+        . '<head>' . "\n"
+        . "\t" . '<meta charset="utf-8">' . "\n"
+        . "\t" . '<title><?php echo $titre ?></title>' . "\n"
+        . "\t" . '<link rel="stylesheet" href="./CSS/style.css">' . "\n"
+        . "\t" . '<script src="./JS/script.js"></script>' . "\n"
+        . '</head>' . "\n";
+
+    $INDEXPHP_snippet = '<?php'
+        . "\n" . '$titre = "Ton titre infobulle";'
+        . "\n" . 'include (\'head.php\');';
+
 // ECRITURE DU TEXTE CONTENU DANS LES VARIABLES CI-DESSUS
-    fputs($HTML_folder, $HTML_snippet);
-    fputs($CSS_folder, $CSS_snippet);
+    fputs($HTML_file, $HTML_snippet);
+    fputs($CSS_file, $CSS_snippet);
+    fputs($GENERAL_INDEX_file, $INDEXPHP_snippet);
+    fputs($GENERAL_HEADPHP_file, $HEADPHP_snippet);
+
+// ECRITURE DES PAGES ERROR 404 NOT FOUND DNAS LES FICHIERS DE SECURITE DE NIVEAU 1
+    fputs($IMG_security, $ERROR_snippet);
+    fputs($HTML_security, $ERROR_snippet);
+    fputs($CSS_security, $ERROR_snippet);
+    fputs($JS_security, $ERROR_snippet);
+    fputs($PHP_security, $ERROR_snippet);
+    fputs($MODEL_security, $ERROR_snippet);
+    fputs($VIEW_security, $ERROR_snippet);
+    fputs($CONTROLLER_security, $ERROR_snippet);
+
 } else {
     echo "Un problème est survenu lors de l'insertion du texte dans les différents dossiers.";
 }

@@ -12,6 +12,7 @@ class Employe
     private $_agence;
     private $_enfants = [];
     private static $_compteur = 0;
+    private $_idEmploye; 
 
     /*****************Accesseurs***************** */
 
@@ -102,6 +103,15 @@ class Employe
     {
         self::$_compteur = $compteur;
     }
+    public function getIdEmploye()
+    {
+        return $this->_idEmploye;
+    }
+
+    public function setIdEmploye($_idEmploye)
+    {
+        $this->_idEmploye = $_idEmploye;
+    }
     /*****************Constructeur***************** */
 
     public function __construct(array $options = [])
@@ -114,7 +124,8 @@ class Employe
     }
     public function hydrate($data)
     {
-        foreach ($data as $key => $value) {
+        foreach ($data as $key => $value)
+        {
             $methode = "set" . ucfirst($key); //ucfirst met la 1ere lettre en majuscule
             if (is_callable(([$this, $methode]))) // is_callable verifie que la methode existe
             {
@@ -137,50 +148,33 @@ class Employe
         $aff .= $this->recoitChequeVacances() ? "Ce salarié bénéficie de chèques vacances\n" : "Ce salarié ne bénéficie pas de chèques vacances\n";
         $aff .= "\n*** AGENCE ***\n" . $this->getAgence()->toString();
         $aff .= "\n*** ENFANTS ***\n";
-        if (count($this->getEnfants()) > 0) {
-            foreach ($this->getEnfants() as $enfant) {
+        if (count($this->getEnfants()) > 0)
+        {
+            foreach ($this->getEnfants() as $enfant)
+            {
                 $aff .= $enfant->toString();
             }
-        } else {
+        }
+        else
+        {
             $aff .= "Pas d'enfant";
         }
         $aff .= "\n*** CHEQUES NOEL ***\n";
         $cheques = $this->recoitChequeNoel();
-        if (array_sum($cheques) > 0) {
-            foreach ($cheques as $key => $nbCheque) // on parcours le tableau de chèques
+        if (array_sum($cheques) > 0)
+        {
+            foreach ($cheques as $key=>$nbCheque) // on parcours le tableau de chèques
             {
-                if ($nbCheque > 0) //  si le nombre de chèque est supérieur à 0
+                if ($nbCheque > 0)    //  si le nombre de chèque est supérieur à 0
                 {
-                    $aff .= $nbCheque . " chèque(s) de " . $key . "\n"; //$nbCheque contient le nombre de chèques  et $key, la valeur du chèque
+                    $aff .= $nbCheque . " chèque(s) de ".$key."\n";   //$nbCheque contient le nombre de chèques  et $key, la valeur du chèque
                 }
             }
-        } else {
+        }
+        else
+        {
             $aff .= "Pas de chèques de Noël";
         }
-        return $aff;
-    }
-
-    public function afficheEmployeHTML()
-    {
-        $aff = '';
-        $aff .= '<div class=\"Employe\">';
-        $aff .= 'Nom de l\'employé : ' . $this->getNom() . '<br>';
-        $aff .= 'Prenom de l\'employé : ' . $this->getPrenom() . '<br>';
-        $aff .= 'Date d\'embauche : ' . $this->getDateEmbauche()->format('Y-m-d') . '<br>';
-        $aff .= 'Poste occupé : ' . $this->getFonction() . '<br>';
-        $aff .= 'Salaire : ' . $this->getSalaireAnnuel() . 'K € <br>';
-        $aff .= 'Situé dans le service : ' . $this->getService() . '<br>';
-        $aff .= '=====  ENFANTS  ====<br>';
-        if (count($this->getEnfants()) > 0) {
-            foreach ($this->getEnfants() as $enfant) {
-                $aff .= $enfant->afficheEnfantsHTML();
-            }
-        } else {
-            $aff .= "Pas d'enfant<br>";
-        }
-        $aff .= '=====  AGENCE  ====<br>';
-        $aff .= 'Agence : ' . $this->getAgence()->afficheAgenceHTML() . '<br>';
-        $aff .= '</div><br>';
         return $aff;
     }
 
@@ -206,13 +200,20 @@ class Employe
      */
     public static function compareToNomPrenom($obj1, $obj2)
     {
-        if ($obj1->getNom() < $obj2->getNom()) {
+        if ($obj1->getNom() < $obj2->getNom())
+        {
             return -1;
-        } else if ($obj1->getNom() > $obj2->getNom()) {
+        }
+        else if ($obj1->getNom() > $obj2->getNom())
+        {
             return 1;
-        } else if ($obj1->getPrenom() < $obj2->getPrenom()) {
+        }
+        else if ($obj1->getPrenom() < $obj2->getPrenom())
+        {
             return -1;
-        } else if ($obj1->getPrenom() > $obj2->getPrenom()) {
+        }
+        else if ($obj1->getPrenom() > $obj2->getPrenom())
+        {
             return 1;
         }
 
@@ -230,11 +231,16 @@ class Employe
      */
     public static function compareToServiceNomPrenom($obj1, $obj2)
     {
-        if ($obj1->getService() < $obj2->getService()) {
+        if ($obj1->getService() < $obj2->getService())
+        {
             return -1;
-        } else if ($obj1->getService() > $obj2->getService()) {
+        }
+        else if ($obj1->getService() > $obj2->getService())
+        {
             return 1;
-        } else {
+        }
+        else
+        {
             return self::compareToNomPrenom($obj1, $obj2);
         }
 
@@ -312,10 +318,11 @@ class Employe
     public function recoitChequeNoel()
     {
         $cheque = ["0" => 0, "20" => 0, "30" => 0, "50" => 0];
-        foreach ($this->getEnfants() as $enfant) {
+        foreach ($this->getEnfants() as $enfant)
+        {
             $cheque[$enfant->montantChequeNoel()] += 1; // on augmente la valeur liée à l'étiquette correspondant au montant retourné par la fonction
         }
-        $cheque["0"] = 0; // pour que la somme du tableau corresponde au nombre de chèques à distibuer
+        $cheque["0"] = 0;       // pour que la somme du tableau corresponde au nombre de chèques à distibuer
         return $cheque;
     }
 

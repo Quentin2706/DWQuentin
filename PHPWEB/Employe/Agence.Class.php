@@ -95,16 +95,7 @@ class Agence
         return "Nom :" . $this->getNom() . "\nAdresse :" . $this->getAdresse()."\nCode postal : " . $this->getCodePostal()."\nVille : " . $this->getVille(). "\nRestauration :" . $this->getRestauration();
 
     }
-    public function afficheAgenceHTML()
-    {
-        $aff = '';
-        $aff .= 'Nom de l\'agence : ' . $this->getNom() . '<br>';
-        $aff .= 'Adresse de l\'agence : ' . $this->getAdresse() . '<br>';
-        $aff .= 'Ville de l\'agence : ' . $this->getVille() . '<br>';
-        $aff .= 'Code postal de l\'agence : ' . $this->getCodePostal() . '<br>';
-        $aff .= 'Mode de restauration : ' . $this->getRestauration() . '<br>';
-        return $aff;
-    }
+
     /**
      * Renvoi vrai si l'objet en paramètre est égal à l'objet appelant
      *
