@@ -5,7 +5,6 @@ include "listeemploye.php";
 
 $idRecherche = $_GET['id'];
 
-
 foreach ($e as $unemploye)
 {
     if ($unemploye->getIdEmploye() == $idRecherche)
