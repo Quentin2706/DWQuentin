@@ -28,6 +28,11 @@ catch (Exception $e)
 
 echo "on est connecté à la base de données<br><br>";
 
+
+/********************************************/
+/*****          REQUETE SIMPLE          *****/
+/********************************************/
+
 // $query=$db->query("SELECT nomEtudiant, prenomEtudiant, adresseEtudiant, villeEtudiant, codePostalEtudiant FROM etudiants where idEtudiant=2");
 // $answer = $query->fetch(PDO::FETCH_ASSOC);
 // $etudiant1 = new etudiants($answer);
@@ -37,6 +42,11 @@ echo "on est connecté à la base de données<br><br>";
 // echo 'adresse de l\'étudiant : '.$etudiant1->getAdresseEtudiant().'<br>';
 // echo 'ville de l\'étudiant : '.strtoupper($etudiant1->getVilleEtudiant()).'<br>';
 // echo 'Code postal de l\'étudiant : '.$etudiant1->getCodePostalEtudiant().'<br>';
+
+
+/********************************************/
+/*****  REQUETE AVEC RESULTAT MULTIPLE  *****/
+/********************************************/
 
 
 // $query=$db->query("SELECT nomEtudiant, prenomEtudiant, adresseEtudiant, villeEtudiant, codePostalEtudiant FROM etudiants");
@@ -54,5 +64,46 @@ echo "on est connecté à la base de données<br><br>";
 //     echo 'Code postal de l\'étudiant : '.$etudiant->getCodePostalEtudiant().'<br><br>';
 // }
 
-$insert = $db->exec('INSERT INTO etudiants(nomEtudiant,prenomEtudiant,adresseEtudiant,villeEtudiant) VALUES ("cugny", "maxime", "38 rue pierre puis", "Calais")');
-var_dump($insert);
+
+/********************************************/
+/*****      REQUETE d'AJOUT SIMPLE      *****/
+/********************************************/
+
+
+// $insert = $db->exec('INSERT INTO etudiants(nomEtudiant,prenomEtudiant,adresseEtudiant,villeEtudiant) VALUES ("cugny", "maxime", "38 rue pierre puis", "Calais")');
+// var_dump($insert);
+
+
+
+
+/********************************************/
+/*****     REQUETE d'AJOUT PARAMETRE    *****/
+/********************************************/
+
+
+// $newetudiant = new Etudiants(["nomEtudiant"=>"Hich","prenomEtudiant"=>"Roberto","adresseEtudiant"=>"11 bis rue du chapeau","villeEtudiant"=>"Comté","codePostalEtudiant"=>"00006"]);
+// var_dump($newetudiant);
+
+// $query = $db->prepare('INSERT INTO etudiants(nomEtudiant, prenomEtudiant) VALUES(:nom, :prenom)');
+
+// $query -> bindValue(':nom', $newetudiant->getNomEtudiant());
+// $query -> bindValue(':prenom', $newetudiant->getPrenomEtudiant());
+
+// $answer = $query ->execute();
+// var_dump($answer);
+
+/********************************************/
+/*****     REQUETE d'AJOUT COMPOSEE     *****/
+/********************************************/
+
+// $newetudiant = new Etudiants(["nomEtudiant"=>"Hich","prenomEtudiant"=>"Roberto","adresseEtudiant"=>"11 bis rue du chapeau","villeEtudiant"=>"Comté","codePostalEtudiant"=>"00006"]);
+// $query = $db->prepare('INSERT INTO etudiants(nomEtudiant, prenomEtudiant) VALUES("'.$newetudiant->getNomEtudiant().'","'.$newetudiant->getPrenomEtudiant().'")');
+// $answer = $query->execute();
+// var_dump($newetudiant);
+// var_dump($query);
+// var_dump($answer);
+
+
+
+// $remove = $db->exec('DELETE FROM etudiants WHERE prenomEtudiant="'.$newetudiant->getPrenomEtudiant().'"'.' AND nomEtudiant="'.$newetudiant->getNomEtudiant().'"' );
+// var_dump($remove);

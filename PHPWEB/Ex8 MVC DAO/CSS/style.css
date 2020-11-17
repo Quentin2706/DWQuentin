@@ -1,0 +1,14 @@
+body, header,div{
+    display: flex;
+    flex: 1;
+}
+.colonne{
+    flex-direction: column;
+}
+
+.titre {
+	color: coral;
+    font-size: 3em;
+    justify-content: center;
+    align-items: center;
+}
