@@ -34,7 +34,7 @@ function creationStructure($path, $nomProjet, $nomDB, $repository)
         $MODEL_security = fopen($path . '/' . $nomProjet . '/PHP' . '/MODEL/' . 'index.php', "w");
         $VIEW_security = fopen($path . '/' . $nomProjet . '/PHP' . '/VIEW/' . 'index.php', "w");
         $CONTROLLER_security = fopen($path . '/' . $nomProjet . '/PHP' . '/CONTROLLER/' . 'index.php', "w");
-        $SQL_security = fopen('./' . $nomProjet . '/SQL/' . 'index.php', "w");
+        $SQL_security = fopen($path . '/' . $nomProjet . '/SQL/' . 'index.php', "w");
     
         // MESSAGE DE CONCLUSION DU PROGRAMME
         echo is_dir($repository) ? "Le dossier a été crée avec succès.\n" : "Le dossier n'a pas été crée, un problème est survenu, verifiez le répertoire de destination.\n";
@@ -94,7 +94,8 @@ function creationStructure($path, $nomProjet, $nomDB, $repository)
         ."\n\t\t".'return DbConnect::$db;'
         ."\n\t".'}'
         ."\n\n\t".'public static function init()'
-        ."\n\t\t".'try{'
+        ."\n\t".'{'
+        ."\n\t\t".'try {'
         ."\n\t\t\t".'self::$db= new PDO ( \'mysql:host=localhost;dbname='.$nomDB.';charset=utf8\', \'root\', \'\');'
         ."\n\t\t".'}'
         ."\n\t\t".'catch (Exception $e)'

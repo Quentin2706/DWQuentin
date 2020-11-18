@@ -44,4 +44,4 @@ foreach ($baseDeDonnees as $nomTable => $colonne)
 }
 
 
-echo 'CREATE BY ';
+echo 'CREATE BY Maxime Bruno Pierre Marvine Quentin';

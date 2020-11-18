@@ -132,7 +132,7 @@ function genereManager($chemin,$nomProjet,$nomTable,$tabAtt)
     genereUpdate($fp,$nomObj,$tabAtt);
     genereDelete($fp,$nomObj,$tabAtt);
     genereFindById($fp,$nomObj,$tabAtt);
-    genereDelete($fp,$nomObj,$tabAtt);
+    genereGetList($fp,$nomObj);
     fputs($fp,'}');
     fclose($fp);
 }
