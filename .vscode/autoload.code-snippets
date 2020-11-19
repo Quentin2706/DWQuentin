@@ -1,6 +1,6 @@
 {
 	"recherche les class dans le dossier": {
-		"scope" : "php",
+		"scope" : "",
 		"prefix": "autoload",
 		"body": [
 		  "function ChargerClasse($$classe)",

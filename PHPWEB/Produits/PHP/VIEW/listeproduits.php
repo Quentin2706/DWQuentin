@@ -1,0 +1,3 @@
+<?php 
+
+$produits = produitsManager::getList();

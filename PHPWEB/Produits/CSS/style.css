@@ -1,0 +1,62 @@
+/****  GENERAL ****/
+html, body {
+	margin : 0;
+	padding : 0;
+}
+
+div, header, footer, nav, article, a{
+	display : flex;
+	flex : 1;
+}
+
+img, video {
+	width : 100%;
+}
+
+.colonne{
+    flex-direction: column;
+}
+
+.titre {
+	color: coral;
+    font-size: 3em;
+    justify-content: center;
+	align-items: center;
+	flex: 5;
+}
+
+.id {
+	display: none;
+	flex: none;
+}
+
+.boutons {
+    text-shadow: 2px 1px 2px black;
+    color: white;
+    background: linear-gradient(#073C61,#88cdff);
+    border-radius: 0.2em;
+    padding: 0em 0.5em;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    padding: 0.5em;
+}
+
+.centrer {
+	justify-content: center;
+	align-items: center;
+}
+
+.padding {
+	padding: 0.5em;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.grosflex {
+	flex: 5;
+}
