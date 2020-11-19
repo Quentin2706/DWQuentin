@@ -3,7 +3,13 @@ html, body {
 	margin : 0;
 	padding : 0;
 }
-
+a {
+	text-decoration : none;
+	color : White; 
+	flex : none;
+	align-items : center;
+	justify-content: center;
+} 
 div, header, footer, nav, article, a{
 	display : flex;
 	flex : 1;
@@ -29,8 +35,7 @@ img, video {
 	display: none;
 	flex: none;
 }
-
-.boutons {
+.boutons{
     text-shadow: 2px 1px 2px black;
     color: white;
     background: linear-gradient(#073C61,#88cdff);

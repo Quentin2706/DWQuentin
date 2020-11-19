@@ -8,15 +8,15 @@ echo'<div id="main">';
 echo'<div></div>';
 echo'<div class="grosflex">';
 echo'<div class="colonne">';
-echo'<div class="boutons">Ajouter un produit</div>';
+echo'<div class="boutons"><a href="./PHP/VIEW/add.php">Ajouter un produit</a></div>';
 echo'<div>';
-foreach($produits as $unproduit)
+foreach($produits as $unProduit)
 {
-    echo'<div class="id">'.$unproduit->getIdProduit().'</div>';
-    echo'<div class="centrer padding nowrap">'.$unproduit->getLibelleProduit().'</div>';
-    echo'<div class="boutons">Afficher</div>';
-    echo'<div class="boutons">Modifier</div>';
-    echo'<div class="boutons">Supprimer</div>';
+    echo'<div class="id">'.$unProduit->getIdProduit().'</div>';
+    echo'<div class="centrer padding nowrap">'.$unProduit->getLibelleProduit().'</div>';
+    echo'<div class="boutons"><a href="./PHP/VIEW/detail.php?id='.$unProduit->getIdProduit().'">Afficher</a></div>';
+    echo'<div class="boutons"><a href="./PHP/VIEW/update.php?id='.$unProduit->getIdProduit().'">Modifier</a></div>';
+    echo'<div class="boutons"><a href="./PHP/VIEW/delete.php?id='.$unProduit->getIdProduit().'">Supprimer</a></div>';
     echo'</div>';
     echo'<div>';
 }

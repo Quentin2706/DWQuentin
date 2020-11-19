@@ -5,7 +5,7 @@ class ProduitsManager
 	public static function add(Produits $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Produits (libelleProduit,prix,dateDePeremption) VALUES ( :libelleProduit,:prix,:dateDePeremption)");
+		$q=$db->prepare("INSERT INTO Produits (libelleProduit,prix,dateDePeremption) VALUES (:libelleProduit,:prix,:dateDePeremption)");
 		$q->bindValue(":libelleProduit", $obj->getLibelleProduit());
 		$q->bindValue(":prix", $obj->getPrix());
 		$q->bindValue(":dateDePeremption", $obj->getDateDePeremption());
@@ -15,7 +15,7 @@ class ProduitsManager
 	public static function update(Produits $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Produits SET libelleProduit=:libelleProduit,prix=:prix,dateDePeremption=:dateDePeremption WHERE idProduit=:idProduit");
+		$q=$db->prepare("UPDATE Produits SET idProduit=:idProduit,libelleProduit=:libelleProduit,prix=:prix,dateDePeremption=:dateDePeremption WHERE idProduit=:idProduit");
 		$q->bindValue(":idProduit", $obj->getIdProduit());
 		$q->bindValue(":libelleProduit", $obj->getLibelleProduit());
 		$q->bindValue(":prix", $obj->getPrix());
