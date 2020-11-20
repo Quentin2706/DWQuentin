@@ -65,3 +65,15 @@ img, video {
 .grosflex {
 	flex: 5;
 }
+
+a:hover {
+	color: rgb(161, 161, 161);
+}
+
+.border {
+	border: 1px solid black;
+}
+
+.borderline {
+	border-top: 1px solid black;
+}

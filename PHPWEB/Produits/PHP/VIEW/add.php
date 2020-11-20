@@ -15,7 +15,7 @@ echo'<input name="nom" type="text" placeholder="Nom du produit">';
 echo'</div>';
 echo'<div>';
 echo'<label>Prix du produit :</label>';
-echo'<input name="prix" type="text" placeholder="Nom du produit">';
+echo'<input name="prix" type="text" placeholder="Prix du produit">';
 echo'</div>';
 echo'<div>';
 echo'<label>Date de peremption du produit :</label>';
