@@ -11,7 +11,7 @@ if ($page == "add") {
     echo '<div>';
     echo '<form method="POST" action="./index.php?codePage=transmission&traitement=add">';
     echo '<label>Nom du produit :</label>';
-    echo '<input name="nom" type="text" placeholder="Nom du produit">';
+    echo '<input name="libelleProduit" type="text" placeholder="Nom du produit">';
     echo '</div>';
     echo '<div>';
     echo '<label>Prix du produit :</label>';
@@ -19,7 +19,7 @@ if ($page == "add") {
     echo '</div>';
     echo '<div>';
     echo '<label>Date de peremption du produit :</label>';
-    echo '<input  name="date" type="date" placeholder="Date de peremption">';
+    echo '<input  name="dateDePeremption" type="date" placeholder="Date de peremption">';
     echo '</div>';
     echo '<div>';
     echo '<div></div>';
@@ -41,9 +41,9 @@ if ($page == "add") {
     echo '<div class="boutons"><a href="./index.php?codePage=liste">Retour a la page d\'Acceuil</a></div>';
     echo '<div>';
     echo '<form method="POST" action="./index.php?codePage=transmission&traitement=update">';
-    echo '<input name="id" type="hidden" value="' . $pinfo->getIdProduit() . '"/>';
+    echo '<input name="idProduit" type="hidden" value="' . $pinfo->getIdProduit() . '"/>';
     echo '<label>Nom du produit :</label>';
-    echo '<input name="nom" type="text" value="' . $pinfo->getlibelleProduit() . '"/>';
+    echo '<input name="libelleProduit" type="text" value="' . $pinfo->getlibelleProduit() . '"/>';
     echo '</div>';
     echo '<div>';
     echo '<label>Prix du produit :</label>';
@@ -51,7 +51,7 @@ if ($page == "add") {
     echo '</div>';
     echo '<div>';
     echo '<label>Date de peremption du produit :</label>';
-    echo '<input  name="date" type="date" value="' . $pinfo->getDateDePeremption() . '"/>';
+    echo '<input  name="dateDePeremption" type="date" value="' . $pinfo->getDateDePeremption() . '"/>';
     echo '</div>';
     echo '<div>';
     echo '<div></div>';

@@ -1,56 +1,67 @@
 <?php
 
-class Produits 
+class Caisse 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idProduit;
-	private $_libelleProduit;
-	private $_prix;
-	private $_dateDePeremption;
+	private $_idCaisse;
+	private $_nomCaisse;
+	private $_totalCaisse;
+	private $_date;
+	private $_idUser;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdProduit()
+	public function getIdCaisse()
 	{
-		return $this->_idProduit;
+		return $this->_idCaisse;
 	}
 
-	public function setIdProduit(int $idProduit)
+	public function setIdCaisse($idCaisse)
 	{
-		$this->_idProduit=$idProduit;
+		$this->_idCaisse=$idCaisse;
 	}
 
-	public function getLibelleProduit()
+	public function getNomCaisse()
 	{
-		return $this->_libelleProduit;
+		return $this->_nomCaisse;
 	}
 
-	public function setLibelleProduit($libelleProduit)
+	public function setNomCaisse($nomCaisse)
 	{
-		$this->_libelleProduit=$libelleProduit;
+		$this->_nomCaisse=$nomCaisse;
 	}
 
-	public function getPrix()
+	public function getTotalCaisse()
 	{
-		return $this->_prix;
+		return $this->_totalCaisse;
 	}
 
-	public function setPrix(int $prix)
+	public function setTotalCaisse($totalCaisse)
 	{
-		$this->_prix=$prix;
+		$this->_totalCaisse=$totalCaisse;
 	}
 
-	public function getDateDePeremption()
+	public function getDate()
 	{
-		return $this->_dateDePeremption;
+		return $this->_date;
 	}
 
-	public function setDateDePeremption($dateDePeremption)
+	public function setDate($date)
 	{
-		$this->_dateDePeremption=$dateDePeremption;
+		$this->_date=$date;
+	}
+
+	public function getIdUser()
+	{
+		return $this->_idUser;
+	}
+
+	public function setIdUser($idUser)
+	{
+		$this->_idUser=$idUser;
 	}
 
 	/*****************Constructeur***************** */
@@ -83,7 +94,7 @@ class Produits
 	*/
 	public function toString()
 	{
-		return "IdProduit : ".$this->getIdProduit()."LibelleProduit : ".$this->getLibelleProduit()."Prix : ".$this->getPrix()."DateDePeremption : ".$this->getDateDePeremption()."\n";
+		return "IdCaisse : ".$this->getIdCaisse()."NomCaisse : ".$this->getNomCaisse()."TotalCaisse : ".$this->getTotalCaisse()."Date : ".$this->getDate()."IdUser : ".$this->getIdUser()."\n";
 	}
 
 

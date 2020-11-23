@@ -1,56 +1,56 @@
 <?php
 
-class Produits 
+class Ticket 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idProduit;
-	private $_libelleProduit;
-	private $_prix;
-	private $_dateDePeremption;
+	private $_idTicket;
+	private $_prixHT;
+	private $_date;
+	private $_montantTVA;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdProduit()
+	public function getIdTicket()
 	{
-		return $this->_idProduit;
+		return $this->_idTicket;
 	}
 
-	public function setIdProduit(int $idProduit)
+	public function setIdTicket($idTicket)
 	{
-		$this->_idProduit=$idProduit;
+		$this->_idTicket=$idTicket;
 	}
 
-	public function getLibelleProduit()
+	public function getPrixHT()
 	{
-		return $this->_libelleProduit;
+		return $this->_prixHT;
 	}
 
-	public function setLibelleProduit($libelleProduit)
+	public function setPrixHT($prixHT)
 	{
-		$this->_libelleProduit=$libelleProduit;
+		$this->_prixHT=$prixHT;
 	}
 
-	public function getPrix()
+	public function getDate()
 	{
-		return $this->_prix;
+		return $this->_date;
 	}
 
-	public function setPrix(int $prix)
+	public function setDate($date)
 	{
-		$this->_prix=$prix;
+		$this->_date=$date;
 	}
 
-	public function getDateDePeremption()
+	public function getMontantTVA()
 	{
-		return $this->_dateDePeremption;
+		return $this->_montantTVA;
 	}
 
-	public function setDateDePeremption($dateDePeremption)
+	public function setMontantTVA($montantTVA)
 	{
-		$this->_dateDePeremption=$dateDePeremption;
+		$this->_montantTVA=$montantTVA;
 	}
 
 	/*****************Constructeur***************** */
@@ -83,7 +83,7 @@ class Produits
 	*/
 	public function toString()
 	{
-		return "IdProduit : ".$this->getIdProduit()."LibelleProduit : ".$this->getLibelleProduit()."Prix : ".$this->getPrix()."DateDePeremption : ".$this->getDateDePeremption()."\n";
+		return "IdTicket : ".$this->getIdTicket()."PrixHT : ".$this->getPrixHT()."Date : ".$this->getDate()."MontantTVA : ".$this->getMontantTVA()."\n";
 	}
 
 

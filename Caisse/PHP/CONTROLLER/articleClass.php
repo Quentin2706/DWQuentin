@@ -1,56 +1,78 @@
 <?php
 
-class Produits 
+class Article 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idProduit;
-	private $_libelleProduit;
-	private $_prix;
-	private $_dateDePeremption;
+	private $_idArticle;
+	private $_libelleArticle;
+	private $_prixHt;
+	private $_codeBarre;
+	private $_idTva;
+	private $_idCategorie;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdProduit()
+	public function getIdArticle()
 	{
-		return $this->_idProduit;
+		return $this->_idArticle;
 	}
 
-	public function setIdProduit(int $idProduit)
+	public function setIdArticle($idArticle)
 	{
-		$this->_idProduit=$idProduit;
+		$this->_idArticle=$idArticle;
 	}
 
-	public function getLibelleProduit()
+	public function getLibelleArticle()
 	{
-		return $this->_libelleProduit;
+		return $this->_libelleArticle;
 	}
 
-	public function setLibelleProduit($libelleProduit)
+	public function setLibelleArticle($libelleArticle)
 	{
-		$this->_libelleProduit=$libelleProduit;
+		$this->_libelleArticle=$libelleArticle;
 	}
 
-	public function getPrix()
+	public function getPrixHt()
 	{
-		return $this->_prix;
+		return $this->_prixHt;
 	}
 
-	public function setPrix(int $prix)
+	public function setPrixHt($prixHt)
 	{
-		$this->_prix=$prix;
+		$this->_prixHt=$prixHt;
 	}
 
-	public function getDateDePeremption()
+	public function getCodeBarre()
 	{
-		return $this->_dateDePeremption;
+		return $this->_codeBarre;
 	}
 
-	public function setDateDePeremption($dateDePeremption)
+	public function setCodeBarre($codeBarre)
 	{
-		$this->_dateDePeremption=$dateDePeremption;
+		$this->_codeBarre=$codeBarre;
+	}
+
+	public function getIdTva()
+	{
+		return $this->_idTva;
+	}
+
+	public function setIdTva($idTva)
+	{
+		$this->_idTva=$idTva;
+	}
+
+	public function getIdCategorie()
+	{
+		return $this->_idCategorie;
+	}
+
+	public function setIdCategorie($idCategorie)
+	{
+		$this->_idCategorie=$idCategorie;
 	}
 
 	/*****************Constructeur***************** */
@@ -83,7 +105,7 @@ class Produits
 	*/
 	public function toString()
 	{
-		return "IdProduit : ".$this->getIdProduit()."LibelleProduit : ".$this->getLibelleProduit()."Prix : ".$this->getPrix()."DateDePeremption : ".$this->getDateDePeremption()."\n";
+		return "IdArticle : ".$this->getIdArticle()."LibelleArticle : ".$this->getLibelleArticle()."PrixHt : ".$this->getPrixHt()."CodeBarre : ".$this->getCodeBarre()."IdTva : ".$this->getIdTva()."IdCategorie : ".$this->getIdCategorie()."\n";
 	}
 
 

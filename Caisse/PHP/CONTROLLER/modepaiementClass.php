@@ -1,56 +1,34 @@
 <?php
 
-class Produits 
+class Modepaiement 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idProduit;
-	private $_libelleProduit;
-	private $_prix;
-	private $_dateDePeremption;
+	private $_idModePaiement;
+	private $_typePaiement;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdProduit()
+	public function getIdModePaiement()
 	{
-		return $this->_idProduit;
+		return $this->_idModePaiement;
 	}
 
-	public function setIdProduit(int $idProduit)
+	public function setIdModePaiement($idModePaiement)
 	{
-		$this->_idProduit=$idProduit;
+		$this->_idModePaiement=$idModePaiement;
 	}
 
-	public function getLibelleProduit()
+	public function getTypePaiement()
 	{
-		return $this->_libelleProduit;
+		return $this->_typePaiement;
 	}
 
-	public function setLibelleProduit($libelleProduit)
+	public function setTypePaiement($typePaiement)
 	{
-		$this->_libelleProduit=$libelleProduit;
-	}
-
-	public function getPrix()
-	{
-		return $this->_prix;
-	}
-
-	public function setPrix(int $prix)
-	{
-		$this->_prix=$prix;
-	}
-
-	public function getDateDePeremption()
-	{
-		return $this->_dateDePeremption;
-	}
-
-	public function setDateDePeremption($dateDePeremption)
-	{
-		$this->_dateDePeremption=$dateDePeremption;
+		$this->_typePaiement=$typePaiement;
 	}
 
 	/*****************Constructeur***************** */
@@ -83,7 +61,7 @@ class Produits
 	*/
 	public function toString()
 	{
-		return "IdProduit : ".$this->getIdProduit()."LibelleProduit : ".$this->getLibelleProduit()."Prix : ".$this->getPrix()."DateDePeremption : ".$this->getDateDePeremption()."\n";
+		return "IdModePaiement : ".$this->getIdModePaiement()."TypePaiement : ".$this->getTypePaiement()."\n";
 	}
 
 

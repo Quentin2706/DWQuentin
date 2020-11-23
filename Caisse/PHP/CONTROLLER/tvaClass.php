@@ -1,56 +1,34 @@
 <?php
 
-class Produits 
+class Tva 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idProduit;
-	private $_libelleProduit;
-	private $_prix;
-	private $_dateDePeremption;
+	private $_idTva;
+	private $_tauxTva;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdProduit()
+	public function getIdTva()
 	{
-		return $this->_idProduit;
+		return $this->_idTva;
 	}
 
-	public function setIdProduit(int $idProduit)
+	public function setIdTva($idTva)
 	{
-		$this->_idProduit=$idProduit;
+		$this->_idTva=$idTva;
 	}
 
-	public function getLibelleProduit()
+	public function getTauxTva()
 	{
-		return $this->_libelleProduit;
+		return $this->_tauxTva;
 	}
 
-	public function setLibelleProduit($libelleProduit)
+	public function setTauxTva($tauxTva)
 	{
-		$this->_libelleProduit=$libelleProduit;
-	}
-
-	public function getPrix()
-	{
-		return $this->_prix;
-	}
-
-	public function setPrix(int $prix)
-	{
-		$this->_prix=$prix;
-	}
-
-	public function getDateDePeremption()
-	{
-		return $this->_dateDePeremption;
-	}
-
-	public function setDateDePeremption($dateDePeremption)
-	{
-		$this->_dateDePeremption=$dateDePeremption;
+		$this->_tauxTva=$tauxTva;
 	}
 
 	/*****************Constructeur***************** */
@@ -83,7 +61,7 @@ class Produits
 	*/
 	public function toString()
 	{
-		return "IdProduit : ".$this->getIdProduit()."LibelleProduit : ".$this->getLibelleProduit()."Prix : ".$this->getPrix()."DateDePeremption : ".$this->getDateDePeremption()."\n";
+		return "IdTva : ".$this->getIdTva()."TauxTva : ".$this->getTauxTva()."\n";
 	}
 
 

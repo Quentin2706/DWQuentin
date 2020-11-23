@@ -1,56 +1,56 @@
 <?php
 
-class Produits 
+class Paiement 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idProduit;
-	private $_libelleProduit;
-	private $_prix;
-	private $_dateDePeremption;
+	private $_idPaiement;
+	private $_idModePaiement;
+	private $_idTicket;
+	private $_prixTTC;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdProduit()
+	public function getIdPaiement()
 	{
-		return $this->_idProduit;
+		return $this->_idPaiement;
 	}
 
-	public function setIdProduit(int $idProduit)
+	public function setIdPaiement($idPaiement)
 	{
-		$this->_idProduit=$idProduit;
+		$this->_idPaiement=$idPaiement;
 	}
 
-	public function getLibelleProduit()
+	public function getIdModePaiement()
 	{
-		return $this->_libelleProduit;
+		return $this->_idModePaiement;
 	}
 
-	public function setLibelleProduit($libelleProduit)
+	public function setIdModePaiement($idModePaiement)
 	{
-		$this->_libelleProduit=$libelleProduit;
+		$this->_idModePaiement=$idModePaiement;
 	}
 
-	public function getPrix()
+	public function getIdTicket()
 	{
-		return $this->_prix;
+		return $this->_idTicket;
 	}
 
-	public function setPrix(int $prix)
+	public function setIdTicket($idTicket)
 	{
-		$this->_prix=$prix;
+		$this->_idTicket=$idTicket;
 	}
 
-	public function getDateDePeremption()
+	public function getPrixTTC()
 	{
-		return $this->_dateDePeremption;
+		return $this->_prixTTC;
 	}
 
-	public function setDateDePeremption($dateDePeremption)
+	public function setPrixTTC($prixTTC)
 	{
-		$this->_dateDePeremption=$dateDePeremption;
+		$this->_prixTTC=$prixTTC;
 	}
 
 	/*****************Constructeur***************** */
@@ -83,7 +83,7 @@ class Produits
 	*/
 	public function toString()
 	{
-		return "IdProduit : ".$this->getIdProduit()."LibelleProduit : ".$this->getLibelleProduit()."Prix : ".$this->getPrix()."DateDePeremption : ".$this->getDateDePeremption()."\n";
+		return "IdPaiement : ".$this->getIdPaiement()."IdModePaiement : ".$this->getIdModePaiement()."IdTicket : ".$this->getIdTicket()."PrixTTC : ".$this->getPrixTTC()."\n";
 	}
 
 

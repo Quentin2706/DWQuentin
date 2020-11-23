@@ -3,14 +3,14 @@
 $page = $_GET['traitement'];
 
 if ($page == "add") {
-    $p = new Produits(["libelleProduit" => $_POST['nom'], "prix" => intval($_POST['prix']), "dateDePeremption" => $_POST['date']]);
+    $p = new Produits($_POST);
+    $p->setDateDePeremption($_POST['dateDePeremption']);
     produitsManager::add($p);
 } else if ($page == "update") {
-    $id = intval($_POST['id']);
+    $id = $_POST['idProduit'];
     $p = ProduitsManager::findById($id);
-    $p->setLibelleProduit($_POST['nom']);
-    $p->setPrix(intval($_POST['prix']));
-    $p->setDateDePeremption($_POST['date']);
+    $p = new Produits($_POST);
+    $p->setDateDePeremption($_POST['dateDePeremption']);
     produitsManager::update($p);
 } else if ($page == "delete") {
     $idRecherche = $_GET['id'];

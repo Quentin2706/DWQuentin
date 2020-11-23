@@ -1,56 +1,78 @@
 <?php
 
-class Produits 
+class Ligneticket 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idProduit;
-	private $_libelleProduit;
-	private $_prix;
-	private $_dateDePeremption;
+	private $_idLigneTicket;
+	private $_quantite;
+	private $_prixHt;
+	private $_montantTva;
+	private $_idTicket;
+	private $_idArticle;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdProduit()
+	public function getIdLigneTicket()
 	{
-		return $this->_idProduit;
+		return $this->_idLigneTicket;
 	}
 
-	public function setIdProduit(int $idProduit)
+	public function setIdLigneTicket($idLigneTicket)
 	{
-		$this->_idProduit=$idProduit;
+		$this->_idLigneTicket=$idLigneTicket;
 	}
 
-	public function getLibelleProduit()
+	public function getQuantite()
 	{
-		return $this->_libelleProduit;
+		return $this->_quantite;
 	}
 
-	public function setLibelleProduit($libelleProduit)
+	public function setQuantite($quantite)
 	{
-		$this->_libelleProduit=$libelleProduit;
+		$this->_quantite=$quantite;
 	}
 
-	public function getPrix()
+	public function getPrixHt()
 	{
-		return $this->_prix;
+		return $this->_prixHt;
 	}
 
-	public function setPrix(int $prix)
+	public function setPrixHt($prixHt)
 	{
-		$this->_prix=$prix;
+		$this->_prixHt=$prixHt;
 	}
 
-	public function getDateDePeremption()
+	public function getMontantTva()
 	{
-		return $this->_dateDePeremption;
+		return $this->_montantTva;
 	}
 
-	public function setDateDePeremption($dateDePeremption)
+	public function setMontantTva($montantTva)
 	{
-		$this->_dateDePeremption=$dateDePeremption;
+		$this->_montantTva=$montantTva;
+	}
+
+	public function getIdTicket()
+	{
+		return $this->_idTicket;
+	}
+
+	public function setIdTicket($idTicket)
+	{
+		$this->_idTicket=$idTicket;
+	}
+
+	public function getIdArticle()
+	{
+		return $this->_idArticle;
+	}
+
+	public function setIdArticle($idArticle)
+	{
+		$this->_idArticle=$idArticle;
 	}
 
 	/*****************Constructeur***************** */
@@ -83,7 +105,7 @@ class Produits
 	*/
 	public function toString()
 	{
-		return "IdProduit : ".$this->getIdProduit()."LibelleProduit : ".$this->getLibelleProduit()."Prix : ".$this->getPrix()."DateDePeremption : ".$this->getDateDePeremption()."\n";
+		return "IdLigneTicket : ".$this->getIdLigneTicket()."Quantite : ".$this->getQuantite()."PrixHt : ".$this->getPrixHt()."MontantTva : ".$this->getMontantTva()."IdTicket : ".$this->getIdTicket()."IdArticle : ".$this->getIdArticle()."\n";
 	}
 
 

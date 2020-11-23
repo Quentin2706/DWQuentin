@@ -1,56 +1,56 @@
 <?php
 
-class Produits 
+class User 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idProduit;
-	private $_libelleProduit;
-	private $_prix;
-	private $_dateDePeremption;
+	private $_idUser;
+	private $_identifiant;
+	private $_motDePasse;
+	private $_role;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdProduit()
+	public function getIdUser()
 	{
-		return $this->_idProduit;
+		return $this->_idUser;
 	}
 
-	public function setIdProduit(int $idProduit)
+	public function setIdUser($idUser)
 	{
-		$this->_idProduit=$idProduit;
+		$this->_idUser=$idUser;
 	}
 
-	public function getLibelleProduit()
+	public function getIdentifiant()
 	{
-		return $this->_libelleProduit;
+		return $this->_identifiant;
 	}
 
-	public function setLibelleProduit($libelleProduit)
+	public function setIdentifiant($identifiant)
 	{
-		$this->_libelleProduit=$libelleProduit;
+		$this->_identifiant=$identifiant;
 	}
 
-	public function getPrix()
+	public function getMotDePasse()
 	{
-		return $this->_prix;
+		return $this->_motDePasse;
 	}
 
-	public function setPrix(int $prix)
+	public function setMotDePasse($motDePasse)
 	{
-		$this->_prix=$prix;
+		$this->_motDePasse=$motDePasse;
 	}
 
-	public function getDateDePeremption()
+	public function getRole()
 	{
-		return $this->_dateDePeremption;
+		return $this->_role;
 	}
 
-	public function setDateDePeremption($dateDePeremption)
+	public function setRole($role)
 	{
-		$this->_dateDePeremption=$dateDePeremption;
+		$this->_role=$role;
 	}
 
 	/*****************Constructeur***************** */
@@ -83,7 +83,7 @@ class Produits
 	*/
 	public function toString()
 	{
-		return "IdProduit : ".$this->getIdProduit()."LibelleProduit : ".$this->getLibelleProduit()."Prix : ".$this->getPrix()."DateDePeremption : ".$this->getDateDePeremption()."\n";
+		return "IdUser : ".$this->getIdUser()."Identifiant : ".$this->getIdentifiant()."MotDePasse : ".$this->getMotDePasse()."Role : ".$this->getRole()."\n";
 	}
 
 
