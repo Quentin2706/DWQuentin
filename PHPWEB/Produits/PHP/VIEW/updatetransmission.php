@@ -9,4 +9,4 @@ $p -> setPrix(intval($_GET['prix']));
 $p -> setDateDePeremption($_GET['date']);
 ProduitsManager::update($p);
 
-header('Location:../../index.php');
+header('Location:./index.php?codePage=default');

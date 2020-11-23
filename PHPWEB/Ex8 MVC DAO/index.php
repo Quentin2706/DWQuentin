@@ -35,8 +35,6 @@ include "PHP/VIEW/Header.php";
 // {
 //     echo $unproduit->toString() . '<br>';
 // }
-// include "PHP/VIEW/Footer.php";
-
 
 // // on teste la suppression 
 // echo  "on supprime un article" . '<br>';

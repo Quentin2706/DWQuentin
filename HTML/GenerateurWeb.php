@@ -5,17 +5,18 @@ do {
     $choix = ucfirst(readline("Voulez vous créer le projet dans le dossier où se situe GenerateurWeb.php ? (O/N) : "));
     echo (strlen($choix) > 1 || ($choix != "O" && $choix != "N")) ? "Ecrivez O ou N\n" : "\n";
 } while (strlen($choix) > 1 || ($choix != "O" && $choix != "N"));
-$choix == "O" ? $choix = true : $choix = false;
 
 // SI L'UTILISATEUR SOUHAITE GENERER LE DOSSIER DU PROJET DANS UN AUTRE REPERTOIRE
-if ($choix == false) {
+if ($choix == "N") {
     do {
         $wrongpath = false;
         $path = readline("Entrez le chemin pour la création du projet (clique-droit pour coller) : ");
         is_dir($path) ? $wrongpath = false : $wrongpath = true;
         echo $wrongpath == true ? "Le chemin d'accès n'existe pas.\n" : $wrongpath = false;
     } while ($wrongpath == true);
-
+} else {
+    $path = ".";
+}
     do { // LA DEUXIEME BOUCLE SERT A VERIFIER QUE LE CHEMIN D'ACCES QUE L'UTILISATEUR A SAISI EST VALIDE
         do { // LA PREMIERE BOUCLE SERT A VERIFIER QUE LE NOM DU PROJET EST VALIDE
             $nomprojet = ucfirst(readline("Donnez le nom de votre projet : "));
@@ -60,52 +61,6 @@ if ($choix == false) {
     // MESSAGE DE CONCLUSION DU PROGRAMME
     echo is_dir($repository) ? "Le dossier a été crée avec succès." : "Le dossier n'a pas été crée, un problème est survenu, verifiez le répertoire de destination.";
 
-} else { // SINON L'UTILISATEUR SOUHAITE GENERER LE DOSSIER DANS LE MEME REPERTOIRE QUE LE FICHIER GENERATEURWEB.PHP
-
-    do { // LA DEUXIEME BOUCLE SERT A VERIFIER QUE LE CHEMIN D'ACCES QUE L'UTILISATEUR A SAISI EST VALIDE
-        do { // LA PREMIERE BOUCLE SERT A VERIFIER QUE LE NOM DU PROJET EST VALIDE
-            $nomprojet = ucfirst(readline("Donnez le nom de votre projet : "));
-            echo strlen($nomprojet) < 1 ? "Vous devez donner un nom a votre projet !\n" : "";
-        } while (strlen($nomprojet) < 1);
-        $repository = './' . $nomprojet;
-        echo is_dir($repository) ? "Ce nom de dossier existe déjà.\n" : "";
-    } while (is_dir($repository));
-
-    // CREATION DES DIFFERENTS DOSSIERS DU PROJET WEB
-    mkdir('./' . $nomprojet, 0777, true);
-    mkdir('./' . $nomprojet . '/IMG', 0777, true);
-    mkdir('./' . $nomprojet . '/DOCS', 0777, true);
-    mkdir('./' . $nomprojet . '/HTML', 0777, true);
-    mkdir('./' . $nomprojet . '/CSS', 0777, true);
-    mkdir('./' . $nomprojet . '/JS', 0777, true);
-    mkdir('./' . $nomprojet . '/PHP', 0777, true);
-    mkdir('./' . $nomprojet . '/SQL', 0777, true);
-    mkdir('./' . $nomprojet . '/PHP' . '/MODEL', 0777, true);
-    mkdir('./' . $nomprojet . '/PHP' . '/VIEW', 0777, true);
-    mkdir('./' . $nomprojet . '/PHP' . '/CONTROLLER', 0777, true);
-
-    // CREATION DES DIFFERENTS FICHIERS DU PROJET WEB
-    $HTML_file = fopen('./' . $nomprojet . '/HTML/' . 'index.html', "w");
-    $CSS_file = fopen('./' . $nomprojet . '/CSS/' . 'style.css', "w");
-    $JS_file = fopen('./' . $nomprojet . '/JS/' . 'script.js', "w");
-    $GENERAL_INDEX_file = fopen('./' . $nomprojet . '/' . 'index.php', "w");
-    $VIEW_HEADPHP_file = fopen('./' . $nomprojet . '/VIEW/' . 'head.php', "w");
-
-    // INSERTION DES FICHIERS DE PROTECTIONS DE NIVEAU 1
-    $IMG_security = fopen('./' . $nomprojet . '/IMG/' . 'index.php', "w");
-    $DOCS_security = fopen('./' . $nomprojet . '/DOCS/' . 'index.php', "w");
-    $HTML_security = fopen('./' . $nomprojet . '/HTML/' . 'index.php', "w");
-    $CSS_security = fopen('./' . $nomprojet . '/CSS/' . 'index.php', "w");
-    $JS_security = fopen('./' . $nomprojet . '/JS/' . 'index.php', "w");
-    $PHP_security = fopen('./' . $nomprojet . '/PHP/' . 'index.php', "w");
-    $MODEL_security = fopen('./' . $nomprojet . '/PHP' . '/MODEL/' . 'index.php', "w");
-    $VIEW_security = fopen('./' . $nomprojet . '/PHP' . '/VIEW/' . 'index.php', "w");
-    $CONTROLLER_security = fopen('./' . $nomprojet . '/PHP' . '/CONTROLLER/' . 'index.php', "w");
-    $SQL_security = fopen('./' . $nomprojet . '/SQL/' . 'index.php', "w");
-
-    // MESSAGE DE CONCLUSION DU PROGRAMME
-    echo is_dir($repository) ? "Le dossier a été crée avec succès." : "Le dossier n'a pas été crée, un problème est survenu, verifiez le répertoire de destination.";
-}
 
 // CREATION DES VARIABLES PERMETTANT D'ECRIRE DANS LES FICHIERS CORRESPONDANTS
 if (is_dir($repository)) {

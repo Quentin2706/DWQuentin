@@ -6,4 +6,4 @@ $p = new Produits (["libelleProduit" =>  $_GET['nom'] , "prix" => intval($_GET['
 // $p = new Produits ($_GET);
 produitsManager::add($p);
 
-header('Location:../../index.php');
+header('Location:./index.php?codePage=default');
