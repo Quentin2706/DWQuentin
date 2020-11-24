@@ -40,13 +40,14 @@ class ArticleManager
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
-			return new Article($results);
+			return new Paiement($results);
 		}
 		else
 		{
 			return false;
 		}
 	}
+	
 	public static function getList()
 	{
  		$db=DbConnect::getDb();

@@ -1,6 +1,6 @@
 <?php
 
-class Article 
+class Articles 
 {
 
 	/*****************Attributs***************** */

@@ -1,11 +1,11 @@
 <?php
 
-class ArticleManager 
+class ArticlesManager 
 {
-	public static function add(Article $obj)
+	public static function add(Articles $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Article (libelleArticle,prixHt,codeBarre,idTva,idCategorie) VALUES (:libelleArticle,:prixHt,:codeBarre,:idTva,:idCategorie)");
+		$q=$db->prepare("INSERT INTO Articles (libelleArticle,prixHt,codeBarre,idTva,idCategorie) VALUES (:libelleArticle,:prixHt,:codeBarre,:idTva,:idCategorie)");
 		$q->bindValue(":libelleArticle", $obj->getLibelleArticle());
 		$q->bindValue(":prixHt", $obj->getPrixHt());
 		$q->bindValue(":codeBarre", $obj->getCodeBarre());
@@ -14,10 +14,10 @@ class ArticleManager
 		$q->execute();
 	}
 
-	public static function update(Article $obj)
+	public static function update(Articles $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Article SET idArticle=:idArticle,libelleArticle=:libelleArticle,prixHt=:prixHt,codeBarre=:codeBarre,idTva=:idTva,idCategorie=:idCategorie WHERE idArticle=:idArticle");
+		$q=$db->prepare("UPDATE Articles SET idArticle=:idArticle,libelleArticle=:libelleArticle,prixHt=:prixHt,codeBarre=:codeBarre,idTva=:idTva,idCategorie=:idCategorie WHERE idArticle=:idArticle");
 		$q->bindValue(":idArticle", $obj->getIdArticle());
 		$q->bindValue(":libelleArticle", $obj->getLibelleArticle());
 		$q->bindValue(":prixHt", $obj->getPrixHt());
@@ -26,17 +26,17 @@ class ArticleManager
 		$q->bindValue(":idCategorie", $obj->getIdCategorie());
 		$q->execute();
 	}
-	public static function delete(Article $obj)
+	public static function delete(Articles $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Article WHERE idArticle=" .$obj->getIdArticle());
+		$db->exec("DELETE FROM Articles WHERE idArticle=" .$obj->getIdArticle());
 	}
 
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Article WHERE idArticle =".$id);
+		$q=$db->query("SELECT * FROM Articles WHERE idArticle =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
@@ -51,7 +51,7 @@ class ArticleManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Article");
+		$q = $db->query("SELECT * FROM Articles");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)
@@ -90,9 +90,9 @@ class ArticleManager
 		$donnees = $q->fetch ( PDO::FETCH_ASSOC );
 		$q->CloseCursor ();
 		if ($donnees == false) { // Si l'utilisateur n'existe pas, on renvoi un objet vide
-			return new Article ();
+			return new Articles ();
 		} else {
-			return new Article ( $donnees );
+			return new Articles ( $donnees );
 		}
     }
     
@@ -107,9 +107,9 @@ class ArticleManager
 		$donnees = $q->fetch ( PDO::FETCH_ASSOC );
 		$q->CloseCursor ();
 		if ($donnees == false) { // Si l'utilisateur n'existe pas, on renvoi un objet vide
-			return new Article ();
+			return new Articles ();
 		} else {
-			return new Article ( $donnees );
+			return new Articles ( $donnees );
 		}
 	}
 }
