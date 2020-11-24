@@ -47,7 +47,7 @@ class ArticleManager
 			return false;
 		}
 	}
-	
+
 	public static function getList()
 	{
  		$db=DbConnect::getDb();
