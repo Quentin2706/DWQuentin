@@ -40,7 +40,7 @@ CREATE TABLE `article` (
   PRIMARY KEY (`idArticle`),
   KEY `fk_article_tva` (`idTva`),
   KEY `fk_article_categorie` (`idCategorie`),
-  CONSTRAINT `fk_article_categorie` FOREIGN KEY (`idCategorie`) REFERENCES `categorie` (`idCategorie`),
+  CONSTRAINT `fk_article_categorie` FOREIGN KEY (`idCategorie`) REFERENCES `categories` (`idCategorie`),
   CONSTRAINT `fk_article_tva` FOREIGN KEY (`idTva`) REFERENCES `tva` (`idTva`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -86,10 +86,10 @@ UNLOCK TABLES;
 -- Table structure for table `categorie`
 --
 
-DROP TABLE IF EXISTS `categorie`;
+DROP TABLE IF EXISTS `categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `categorie` (
+CREATE TABLE `categories` (
   `idCategorie` int(11) NOT NULL AUTO_INCREMENT,
   `libelleCategorie` varchar(50) NOT NULL,
   PRIMARY KEY (`idCategorie`)
@@ -100,9 +100,9 @@ CREATE TABLE `categorie` (
 -- Dumping data for table `categorie`
 --
 
-LOCK TABLES `categorie` WRITE;
-/*!40000 ALTER TABLE `categorie` DISABLE KEYS */;
-/*!40000 ALTER TABLE `categorie` ENABLE KEYS */;
+LOCK TABLES `categories` WRITE;
+/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
