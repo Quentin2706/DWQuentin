@@ -55,9 +55,9 @@ DbConnect::init();
 //     echo $unProduit->toString() . '<br>';
 // }
 
-echo 'recherche ' . '<br>';
-$p = UtilisateursManager::findBypseudo("Quentin");
-var_dump($p);
+// echo 'recherche ' . '<br>';
+// $p = UtilisateursManager::findBypseudo("Quentin");
+// var_dump($p);
 
 
 

@@ -1,4 +1,8 @@
 <?php
+function crypte($mot)
+{
+    return md5(md5($mot.md5($mot)).(strlen($mot)*pow(pi(),strlen($mot))).(strlen($mot)*sqrt(strlen($mot)*pi())));
+}
 
 function ChargerClasse($classe)
 {
@@ -21,12 +25,13 @@ function AfficherPage($page)
 
     include 'PHP/VIEW/Head.php';
     include 'PHP/VIEW/Header.php';
+    include 'PHP/VIEW/Nav.php';
     include $chemin . $nom . '.php'; //Chargement de la page en fonction du chemin et du nom
     include 'PHP/VIEW/Footer.php';
 }
 
 DbConnect::init();
-
+session_start();
 
 $routes = [
     "default" => ["PHP/VIEW/", "Accueil", "Accueil"], 
