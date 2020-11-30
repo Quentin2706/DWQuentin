@@ -5,7 +5,7 @@ switch ($_GET['mode']) {
             $u = UtilisateursManager::findByPseudo($_POST['pseudoUtilisateur']);
             if ($u == false) {
                 $u = new Utilisateurs($_POST);
-                $u->setMdpUtilisateur(md5($u->getMdpUtilisateur()));
+                $u->setMdpUtilisateur(md5(crypte($u->getMdpUtilisateur())));
                 UtilisateursManager::add($u);
                 header("location:index.php?codePage=formConnexion&mode=ajout");
             } else {
@@ -19,7 +19,7 @@ switch ($_GET['mode']) {
         {
             $u = UtilisateursManager::findByPseudo($_POST['pseudoUtilisateur']);
             if ($u != false) {
-                if (md5($_POST['mdpUtilisateur']) == $u->getMdpUtilisateur()) {
+                if (md5(crypte($_POST['mdpUtilisateur'])) == $u->getMdpUtilisateur()) {
                     echo "connexion réussie.";
                     header("location:index.php?codePage=default");
                     $_SESSION['utilisateur'] = $u;

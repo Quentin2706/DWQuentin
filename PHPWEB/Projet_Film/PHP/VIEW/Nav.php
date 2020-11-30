@@ -40,6 +40,19 @@
             </div>
         </a>';
         }else {
+            if($_SESSION['utilisateur']->getRoleUtilisateur() == "Admin")
+            {
+                echo'<a href="index.php?codePage=admin">
+            <div class="boutons">
+                Bouton Admin
+            </div>
+        </a>';
+            }
+            echo'<a href="index.php?codePage=user">
+            <div class="boutons">
+                Bouton User
+            </div>
+        </a>';
             echo'<a href="index.php?codePage=actionsUtilisateurs&mode=Deconnexion">
             <div class="boutons">
                 Deconnexion

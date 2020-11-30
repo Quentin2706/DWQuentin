@@ -1,8 +1,9 @@
 <?php
 function crypte($mot)
 {
-    return md5(md5($mot.md5($mot)).(strlen($mot)*pow(pi(),strlen($mot))).(strlen($mot)*sqrt(strlen($mot)*pi())));
+    return md5(md5($mot.md5($mot)).(strlen($mot)*pow((pi()-0.31),strlen($mot))).(strlen($mot)*sqrt(strlen($mot)*(pi()*1.894))));
 }
+
 
 function ChargerClasse($classe)
 {
@@ -60,6 +61,8 @@ $routes = [
     "actionsUtilisateurs" => ["PHP/VIEW/", "ActionsUtilisateurs", "Formulaire"],
 
     "formConnexion" => ["PHP/VIEW/", "FormConnexion", "Formulaire des Connexions"],
+    "admin" => ["PHP/VIEW/", "Admin", "Admin"],
+    "user" => ["PHP/VIEW/", "user", "User"],
 
 ];
 
