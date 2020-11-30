@@ -1,0 +1,115 @@
+html,body{
+	margin: 0;
+	padding: 0;
+}
+body, header,div{
+    display: flex;
+	flex: 1;
+	justify-content: center;
+}	
+body{
+    background-color: black;
+}
+
+img {
+	width: 100%;
+}
+.colonne{
+    flex-direction: column;
+}
+header {
+	padding: 1em;
+}
+.titre {
+	flex: 5;
+	color: coral;
+    font-size: 3em;
+    justify-content: center;
+    align-items: center;
+}
+
+.espaceHorizon {
+	height: 2vw;
+}
+
+.page{
+	background-color: wheat;
+	width: 80%;
+	flex: none;
+	align-self: center;
+	padding-bottom: 5vh;
+
+}
+
+
+
+.crudColonne {
+	padding: 0.5vw 1vw;
+	border: black solid 0.5px;
+}
+
+
+.crudBtn {
+	font-family: Arial, sans-serif;
+	font-size: 1em;
+	text-align: center;
+	color: #000;
+	border-radius: 12px 0 12px 0;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 -1px 0 rgba(255, 255, 255, 0.4);
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
+	margin: 0.5vw;
+	padding: 0.5vw;
+}
+
+.crudBtnOutil {
+	background: linear-gradient(#32db7b, #32db7b);
+	margin: 1vw;
+}
+
+.crudBtnSuppr {
+	background: linear-gradient(#ff472e, #ff9789);
+}
+
+.crudBtnModif {
+	background: linear-gradient(#ffa533, #ffcb89);
+}
+
+.crudBtnEdit {
+	background: linear-gradient(#32d159, #7fffd4);
+}
+
+.crudBtnRetour {
+	background: linear-gradient(#999, #999);
+}
+
+.crudBtn:hover {
+	color: #FFF;
+	box-shadow: none;
+}
+
+.crudBtn:active {
+	color: #FFF;
+	box-shadow: none;
+}
+footer{
+	height: 50vh;
+}
+form{
+	justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+input, select{
+	margin: 0 1em;
+}
+.ligneDetail{
+	align-self: center;
+	width: 50%;
+	flex: none;
+	margin: 0.5vh 0;
+}
+.erreur{
+	font-size: 1.2em;
+	font-weight: 900;
+	color: red;
+}

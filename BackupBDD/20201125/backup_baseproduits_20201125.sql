@@ -83,7 +83,7 @@ LOCK TABLES `caisse` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `categorie`
+-- Table structure for table `categories`
 --
 
 DROP TABLE IF EXISTS `categories`;
@@ -93,15 +93,16 @@ CREATE TABLE `categories` (
   `idCategorie` int(11) NOT NULL AUTO_INCREMENT,
   `libelleCategorie` varchar(50) NOT NULL,
   PRIMARY KEY (`idCategorie`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `categorie`
+-- Dumping data for table `categories`
 --
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+INSERT INTO `categories` VALUES (3,'cat1');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -200,8 +201,9 @@ CREATE TABLE `produits` (
   `libelleProduit` varchar(50) NOT NULL,
   `prix` int(11) NOT NULL,
   `dateDePeremption` date NOT NULL,
+  `idCategorie` int(11) NOT NULL,
   PRIMARY KEY (`idProduit`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -210,7 +212,7 @@ CREATE TABLE `produits` (
 
 LOCK TABLES `produits` WRITE;
 /*!40000 ALTER TABLE `produits` DISABLE KEYS */;
-INSERT INTO `produits` VALUES (5,'stylos',55,'2020-11-11'),(17,' Bugatti Veyron',4000000,'2020-12-06');
+INSERT INTO `produits` VALUES (21,'p1',1,'2020-11-13',3);
 /*!40000 ALTER TABLE `produits` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -296,4 +298,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-24 17:10:02
+-- Dump completed on 2020-11-25 17:00:00
