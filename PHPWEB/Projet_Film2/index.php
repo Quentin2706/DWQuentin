@@ -30,7 +30,7 @@ function AfficherPage($page)
     include $chemin . $nom . '.php'; //Chargement de la page en fonction du chemin et du nom
     include 'PHP/VIEW/Footer.php';
 }
-
+Parametres::init();
 DbConnect::init();
 session_start();
 

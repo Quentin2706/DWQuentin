@@ -12,9 +12,9 @@ class DbConnect {
 	public static function init() {
 		try {
 			// On se connecte � MySQL
-			self::$db= new PDO ( 'mysql:host=localhost;dbname=projetFilms;charset=utf8', 'root', '');
+			self::$db= new PDO('mysql:host='. Parametres::getHost() . ';port=' .Parametres::getPort() . ';dbname=' . Parametres::getDbname(). ';charset=utf8', Parametres::getLogin(), Parametres::getPwd());
 		} catch ( Exception $e ) {
-			// En cas d'erreur, on affiche un message et on arr�te tout
+			// En cas d'erreur, on affiche un message et on arrête tout
 			die ( 'Erreur : ' . $e->getMessage () );
 		}
 		

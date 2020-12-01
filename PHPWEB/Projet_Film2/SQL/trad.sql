@@ -46,8 +46,8 @@ INSERT INTO `traductions`(`idTraduction`, `codeTexte`, `codeLangue`, `Texte`) VA
 INSERT INTO `traductions`(`idTraduction`, `codeTexte`, `codeLangue`, `Texte`) VALUES (NULL,"btnLstRealst","ENG","List of directors");
 INSERT INTO `traductions`(`idTraduction`, `codeTexte`, `codeLangue`, `Texte`) VALUES (NULL,"btnLstStd","ENG","List of studios");
 INSERT INTO `traductions`(`idTraduction`, `codeTexte`, `codeLangue`, `Texte`) VALUES (NULL,"btnInsc","ENG","Registration");
-INSERT INTO `traductions`(`idTraduction`, `codeTexte`, `codeLangue`, `Texte`) VALUES (NULL,"btnDeco","FR","Logout");
-INSERT INTO `traductions`(`idTraduction`, `codeTexte`, `codeLangue`, `Texte`) VALUES (NULL,"btnConnect","FR","Login");
+INSERT INTO `traductions`(`idTraduction`, `codeTexte`, `codeLangue`, `Texte`) VALUES (NULL,"btnDeco","ENG","Logout");
+INSERT INTO `traductions`(`idTraduction`, `codeTexte`, `codeLangue`, `Texte`) VALUES (NULL,"btnConnect","ENG","Login");
 INSERT INTO `traductions`(`idTraduction`, `codeTexte`, `codeLangue`, `Texte`) VALUES (NULL,"titreMainFilms","ENG","List of movies");
 INSERT INTO `traductions`(`idTraduction`, `codeTexte`, `codeLangue`, `Texte`) VALUES (NULL,"btnAjouter","ENG","Add");
 INSERT INTO `traductions`(`idTraduction`, `codeTexte`, `codeLangue`, `Texte`) VALUES (NULL,"btnDetail","ENG","Detail");
