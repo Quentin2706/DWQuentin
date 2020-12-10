@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div class="gros">Vos coordonnées :</div>
+  <div class="rougefonce gros"><span class="rouge gros">*</span>Ces zones sont obligatoires pour envoyer le formulaire
+  </div>
+  <form method="post">
+    <div class="ligne">
+      <div>Société :</div>
+      <input id="societe" placeholder="Nom de la société">
+      <div class="rouge gros" id="restrictionSociete">*</div>
+    </div>
+    <div class="ligne">
+      <div>Personne a contacter :</div>
+      <input id="personne" placeholder="Responsable Légal">
+      <div class="rouge gros" id="restrictionPersonne">*</div>
+    </div>
+    <div class="ligne">
+      <div>Adresse :</div>
+      <input id="adresseEntreprise" placeholder="Adresse">
+      <div class="blanc gros">*</div>
+    </div>
+    <div class="ligne">
+      <div>Code Postal :</div>
+      <input id="codePostal" placeholder="Code postal">
+      <div class="rouge gros" id="restrictionCodePostal">*</div>
+    </div>
+    <div class="ligne">
+      <div>Ville :</div>
+      <input id="ville" placeholder="Ville">
+      <div class="rouge gros" id="restrictionVille">*</div>
+    </div>
+    <div class="ligne">
+      <div>E-mail :</div>
+      <input id="email" placeholder="E-mail">
+      <div class="rouge gros" id="restrictionEmail">*</div>
+    </div>
+    <div class="ligne">
+      <div>Téléphone :</div>
+      <input id="telephone" placeholder="numéro de téléphone">
+      <div class="blanc gros">*</div>
+    </div>
+    <div class="ligne">
+      <div>Selectionnez l'environnement technique du projet :</div>
+      <select id="select">
+        <option value="Choisissez">Choisissez</option>
+        <option value="Access" onclick="afficherOption()">Access</option>
+        <option value="Java" onclick="afficherOption()">Java</option>
+        <option value="Delphi" onclick="afficherOption()">Delphi</option>
+        <option value="Windev" onclick="afficherOption()">Windev</option>
+        <option value="Visual Basic" onclick="afficherOption()">Visual Basic</option>
+        <option value="Power Builder" onclick="afficherOption()">Power Builder</option>
+        <option value="Internet" onclick="afficherOption()">Internet</option>
+        <option value="Intranet" onclick="afficherOption()">Intranet</option>
+        <option value="Windows NT" onclick="afficherOption()">Windows NT</option>
+        <option value="Unix" onclick="afficherOption()">Unix</option>
+        <option value="SQL Server" onclick="afficherOption()">SQL Server</option>
+        <option value="Oracle" onclick="afficherOption()">Oracle</option>
+        <option value="Autres" onclick="afficherOption()">Autres...</option>
+        </select>
+        <input id="selectInput" type="text"/>
+      <div class="blanc gros">*</div>
+    </div>
+    <div>
+      <button value="Envoyer" type="submit" onclick="envoyer()">Envoyer</button>
+      <button value="Annuler">Annuler</button>
+    </div>
+  </form>
+  <script src="script.js"></script>
+</body>
+
+</html>
