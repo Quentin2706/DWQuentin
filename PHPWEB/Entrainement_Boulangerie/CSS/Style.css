@@ -1,0 +1,105 @@
+/****  GENERAL ****/
+:root {
+	--ajouter: #84df68;
+	--detail: #ccc77c;
+	--modifier: #63dbad;
+	--supprimer:  #c4403c;
+	--return: #7d8686;
+}
+
+html, body {
+	margin : 0;
+	padding : 0;
+}
+
+div, header, footer, nav, article {
+	display : flex;
+	flex : 1;
+}
+
+img, video {
+	width : 100%;
+}
+
+a {
+	text-decoration: none;
+	color: #3d2f2f ;
+}
+
+.colonne {
+	flex-direction : column;
+}
+
+.titreliste {
+	flex: 5;
+	font-size: 1.5em;
+	padding: 0.5em;
+}
+
+.margeV {
+	margin: 1em;
+}
+
+.centrer {
+	justify-content: center;
+	align-items: center;
+}
+
+.ajouter {
+	border: 1px solid black;
+	padding:0.7em 1em;
+	background: var(--ajouter);
+	cursor:pointer;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.modifier {
+	border: 1px solid black;
+	padding:0.7em 1em;
+	background: var(--modifier);
+	cursor:pointer;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.detail {
+	border: 1px solid black;
+	padding:0.7em 1em;
+	background: var(--detail);
+	cursor:pointer;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.supprimer {
+	border: 1px solid black;
+	padding:0.7em 1em;
+	background: var(--supprimer);
+	cursor:pointer;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.retour {
+	box-shadow: 3px 4px 0px 0px #91b8b3;
+	background: var(--return);
+	border:1px solid black;
+	cursor:pointer;
+	padding:7px 25px;
+	text-shadow:0px 1px 0px #2b665e;
+	margin-top: 1em;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.libelle {
+	background-color:#fff;
+	border:1px solid #363636;
+	padding:0.7em 1em;
+	color:black;
+	flex : 5;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
