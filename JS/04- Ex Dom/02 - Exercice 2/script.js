@@ -11,7 +11,8 @@ var heureInput= document.getElementById("heureInput");
 heureBtn.addEventListener("click", function()
 {
     var datetemp = new Date();
-    var heure = datetemp.getHours() + ":" + datetemp.getMinutes() + ":" + datetemp.getSeconds()
+    var seconde = datetemp.getSeconds() < 10 ?  "0"+datetemp.getSeconds() : datetemp.getSeconds()
+    var heure = datetemp.getHours() + ":" + datetemp.getMinutes() + ":" + seconde;
     heureInput.value=heure;
 })
     
