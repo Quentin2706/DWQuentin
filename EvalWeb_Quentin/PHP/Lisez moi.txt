@@ -1,0 +1,4 @@
+J'ai rajoute run getByRole pour l'utilisateur pour ne prendre que la liste des enseignant, je trouvait ça plus simple à faire 
+le getByPseudo je l'ai mis plutot dans le manager des utilisateur et non dans la classe, c'est le manager qi gere les requetes et pas la classe en elle même.
+
+je me suis permis de rajouter les methodes dont j'avais besoin.

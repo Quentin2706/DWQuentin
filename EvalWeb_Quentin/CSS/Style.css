@@ -1,0 +1,79 @@
+/****  GENERAL ****/
+html, body {
+	margin : 0;
+	padding : 0;
+}
+
+div, header, footer, nav, article, input {
+	display : flex;
+	flex : 1;
+}
+
+img, video {
+	width : 100%;
+}
+
+.colonne {
+	flex-direction : column;
+}
+
+.gros {
+	font-size: 3em;
+}
+
+.listelib {
+	font-size: 2em;
+	margin: 0 1em;
+}
+.midHeader {
+	flex : 30;
+}
+.sousTitre {
+	font-size: 1.5em;
+}
+
+
+header {
+	padding: 1em;
+	background-color: #f8cbad;
+}
+
+.bouton, button {
+	background-color: #f2a16a;
+	font-size: 2em;
+	border : 1px solid black; 
+	border-radius: 0.5em;
+	padding: 0.5em;
+	white-space: nowrap;
+	margin: 1em;
+}
+
+.centrer {
+	justify-content : center;
+	align-items : center;
+}
+
+.margeV {
+	margin-top: 1em;
+}
+a {
+	text-decoration: none;
+	color : black;
+}
+
+.bcgmain {
+	background : linear-gradient(#f8cbad 50%, #fff);
+}
+
+.foot {
+	font-size: 1.2em;
+	padding: 1em;
+}
+
+footer {
+	border-top: 1em solid #f2a16a;
+}
+.petitemarge {
+	margin: 1em;
+}
+
