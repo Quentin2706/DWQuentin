@@ -1,6 +1,7 @@
 body {
     -moz-user-select: none;
     -webkit-user-select: none;
+    background-color: white;
 }
 
 #carre {
@@ -22,7 +23,7 @@ div {
 }
 
 .calculette {
-    max-width: 20vw;
+    max-width: 30vw;
 }
 
 .bouton {
@@ -31,6 +32,7 @@ div {
     border : 1px solid black;
     margin: 0.1em;
     padding: 0.5em;
+    font-size: 2em;
 }
 
 #affichage {
@@ -39,4 +41,27 @@ div {
     border: 1px solid black;
     margin: 0 0.1em;
     min-height : 1.15em;
+    border-top: none;
+    font-size: 2em;
+    color : black
+}
+#detail {
+    padding : 0.5em;
+    font-size: 1.2em;
+    border: 1px solid black;
+    margin: 0 0.1em;
+    min-height : 1.15em;
+    border-bottom: none;
+    font-size: 2em;
+    color : black;
+}
+
+.mode {
+    align-items: center;
+    justify-content: center;
+    border : 1px solid black;
+    margin: 0.1em;
+    padding: 0.5em;
+    font-size: 2em;
+    color : black
 }

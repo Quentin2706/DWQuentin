@@ -1,3 +1,4 @@
+// Carré avec deplacement bouton et touches ZQSD
 carre = document.getElementById("carre");
 haut = document.getElementById("h");
 bas = document.getElementById("b");
@@ -34,7 +35,6 @@ droite.addEventListener("mousedown", function () {
     left = parseInt(left.substring(0, left.indexOf("p")));
     var mouv = left + pas + "px";
     carre.style.left = mouv;
-
 })
 
 document.addEventListener("keydown", (e) => {
@@ -43,23 +43,35 @@ document.addEventListener("keydown", (e) => {
         top = parseInt(top.substring(0, top.indexOf("p")));
         var mouv = top - pas + "px";
         carre.style.top = mouv;
+        console.log(carre.offsetTop);
     }
     if (e.key == "q") {
         var left = getComputedStyle(carre).left;
         left = parseInt(left.substring(0, left.indexOf("p")));
         var mouv = left - pas + "px";
         carre.style.left = mouv;
+        console.log(carre.offsetLeft);
     }
     if (e.key == "d") {
         var left = getComputedStyle(carre).left;
         left = parseInt(left.substring(0, left.indexOf("p")));
         var mouv = left + pas + "px";
         carre.style.left = mouv;
+        console.log(carre.offsetLeft+parseInt(carre.offsetWidth));
     }
     if (e.key == "s") {
         var top = getComputedStyle(carre).top;
         top = parseInt(top.substring(0, top.indexOf("p")));
         var mouv = top + pas + "px";
         carre.style.top = mouv;
+        console.log(carre.offsetLeft+parseInt(carre.offsetHeight));
     }
 });
+
+// Obstacles 
+
+var obstacle = document.getElementsByClassName("obstacle")[0];
+
+var obstaclePosY = obstacle.offsetHeight;
+console.log(carre.offsetTop);
+

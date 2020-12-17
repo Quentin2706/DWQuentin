@@ -11,3 +11,12 @@ body {
     top : 2em;
     left : 1em;
 }
+
+.obstacle {
+    width: 5em;
+    height: 5em;
+    background-color: green;
+    position: absolute;
+    top : 10em;
+    left : 20em;
+}
