@@ -1,0 +1,152 @@
+/****  GENERAL ****/
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+div, a, header, footer, nav, article {
+    display: flex;
+    flex: 1;
+}
+
+img, video {
+    width: 100%;
+}
+
+.colonne {
+    flex-direction: column;
+    padding-bottom:  2em;
+}
+
+.centrer {
+    justify-content: center;
+    align-items: center;
+}
+
+.titre {
+    flex: 7;
+    font-size: 5em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    padding: 0 0.5em;
+}
+
+header {
+    padding: 2em;
+    background-color: #64030D;
+}
+
+.accueil {
+    text-decoration: none;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.logo {
+    border-radius: 2em;
+}
+
+.soustitre {
+    font-size: 0.5em;
+}
+
+nav {
+    background-color: black;
+}
+
+.boutons {
+    text-shadow: 2px 1px 2px black;
+    color: white;
+    background: linear-gradient(#1b1b1b, #7a7a7a);
+    border-radius: 0.2em;
+    padding: 0em 0.5em;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    padding: 0.5em;
+    margin: 0.5em;
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.block {
+    display: block;
+}
+
+.accueilfond {
+    background-image: url(main.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.grosflex {
+    flex: 7;
+}
+
+.bcgblack {
+    background-color: black;
+}
+
+h2 {
+    text-align: center;
+}
+
+.ajout {
+    background-color: chartreuse;
+    font-size: 1.2em;
+    border-top-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    padding: 0.3em 3em;
+}
+
+.liste {
+    justify-content: center;
+    align-items: center;
+}
+
+.detail {
+    background-color: rgb(230, 189, 7);
+    font-size: 1.2em;
+    border-top-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    padding: 0.3em 1.5em;
+    margin: 0 1em;
+}
+
+.modif {
+    background-color: turquoise;
+    font-size: 1.2em;
+    border-top-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    padding: 0.3em 1.5em;
+    margin: 0 1em;
+}
+
+.suppr {
+    background-color: red;
+    font-size: 1.2em;
+    border-top-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    padding: 0.3em 1.5em;
+    margin: 0 1em;
+}
+
+.text {
+    font-size: 1.4em;
+    margin: 1em 1em;
+    font-style: italic;
+}
+
+.btn:hover {
+    background: linear-gradient(#1b1b1b, #7a7a7a);
+    font-size: 1.2em;
+    border-radius: 0.4em;
+    /* padding: 0.5em 1.7em; */
+}
