@@ -1,0 +1,42 @@
+body {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+#carre {
+    width: 5em;
+    height: 5em;
+    background-color: red;
+    position: absolute;
+    top : 2em;
+    left : 1em;
+}
+
+div {
+    flex : 1;
+    display: flex;
+}
+
+.colonne {
+    flex-direction: column;
+}
+
+.calculette {
+    max-width: 20vw;
+}
+
+.bouton {
+    align-items: center;
+    justify-content: center;
+    border : 1px solid black;
+    margin: 0.1em;
+    padding: 0.5em;
+}
+
+#affichage {
+    padding : 0.5em;
+    font-size: 1.2em;
+    border: 1px solid black;
+    margin: 0 0.1em;
+    min-height : 1.15em;
+}
