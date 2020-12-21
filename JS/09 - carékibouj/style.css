@@ -12,11 +12,35 @@ body {
     left : 1em;
 }
 
-.obstacle {
+#obstacle {
+    top : 10em;
+    left : 20em;
+}
+#obstacle2 {
+    top : 20em;
+    left : 40em;
+}
+.obstacles 
+{
     width: 5em;
     height: 5em;
     background-color: green;
     position: absolute;
+}
+
+#obstacle3 {
+    top : 25em;
+    left : 25em;
+}
+#obstacle4 {
+    top : 15em;
+    left : 35em;
+}
+#obstacle5 {
+    top : 50em;
+    left : 10em;
+}
+#obstacle6 {
     top : 10em;
-    left : 20em;
+    left : 40em;
 }

@@ -1,0 +1,169 @@
+body {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+#carre {
+  width: 2.5em;
+  height: 2.5em;
+  background-color: red;
+  position: absolute;
+  top: 1.5em;
+  left: 1.5em;
+}
+
+.obstacles {
+  width: 5em;
+  height: 0.5em;
+  background-color: green;
+  position: absolute;
+}
+
+#obstacle {
+  top: 5em;
+  left: 1em;
+  width: 80em;
+}
+#obstacle2 {
+  top: 1em;
+  left: 90em;
+  height: 24.5em;
+  width: 0.5em;
+}
+
+#obstacle3 {
+  top: 5em;
+  left: 25em; /* obstacle vertical */
+  height: 40em;
+  width: 0.5em;
+}
+#obstacle4 {
+  top: 5em;
+  left: 50em; /* obstacle vertical */
+  height: 20em;
+  width: 0.5em;
+}
+#obstacle5 {
+  top: 12.5em;
+  left: 40em; /* obstacle vertical */
+  height: 20em;
+  width: 0.5em;
+}
+#obstacle6 {
+  top: 10em;
+  left: 75em;
+  width: 15em;
+}
+#obstacle7 {
+  top: 10em;
+  left: 50em;
+  width: 15em;
+}
+#obstacle8 {
+  top: 15em;
+  left: 63em;
+  width: 20em;
+}
+#obstacle9 {
+  top: 15em;
+  left: 70em; /* obstacle vertical */
+  height: 17em;
+  width: 0.5em;
+}
+#obstacle10 {
+  top: 32em;
+  left: 40.5em;
+  width: 30em;
+}
+#obstacle11 {
+  top: 45em;
+  left: 25em;
+  width: 80em;
+}
+#obstacle12 {
+  top: 5.5em;
+  left: 105em; /* obstacle vertical */
+  height: 40em;
+  width: 0.5em;
+}
+#obstacle13 {
+  top: 10em;
+  left: 1em;
+  width: 15em;
+}
+#obstacle14 {
+  top: 10em;
+  left: 15.5em; /* obstacle vertical */
+  height: 30em;
+  width: 0.5em;
+}
+#obstacle15 {
+  top: 10em;
+  left: 75em; /* obstacle vertical */
+  height: 5em;
+  width: 0.5em;
+}
+
+#obstacle16 {
+  top: 25em;
+  left: 75em;
+  width: 15em;
+}
+#top {
+  top: 0em;
+  left: 0em;
+  width: 100vw;
+  height: 1em;
+  background-color: green;
+  position: absolute;
+}
+#right {
+  top: 0em;
+  left: 99.15vw;
+  width: 1em;
+  height: 100vh;
+  background-color: green;
+  position: absolute;
+}
+#left {
+  top: 0em;
+  left: 0;
+  width: 1em;
+  height: 99vh;
+  background-color: green;
+  position: absolute;
+}
+#bottom {
+  left: 0;
+  top: 98.3vh;
+  width: 198vh;
+  height: 1em;
+  background-color: green;
+  position: absolute;
+}
+
+button {
+  display: none;
+}
+#fin {
+  width: 2.5em;
+  height: 2.5em;
+  background-color: yellow;
+  position: absolute;
+  top: 6.5em;
+  left: 1.5em;
+}
+
+.cheat {
+  width: 5em;
+  height: 0.5em;
+  background-color: green;
+  position: absolute;
+}
+
+#divtime {
+  position: absolute;
+  left: 107em;
+  top : 1.5em;
+  color: black;
+}
