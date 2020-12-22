@@ -10,6 +10,7 @@ body {
   position: absolute;
   top: 1.5em;
   left: 1.5em;
+  z-index: 1;
 }
 
 .obstacles {
@@ -163,7 +164,26 @@ button {
 
 #divtime {
   position: absolute;
-  left: 107em;
-  top : 1.5em;
+  left: 10em;
+  top : 18em;
   color: black;
+  font-size: 3em;
+}
+
+#fail 
+{
+  position: absolute;
+  left: 15em;
+  top : 18em;
+  color: black;
+  font-size: 3em;
+}
+
+#easteregg {
+  width: 2.5em;
+  height: 2.5em;
+  background-color: white;
+  position: absolute;
+  top: 11.5em;
+  left: 76em;
 }

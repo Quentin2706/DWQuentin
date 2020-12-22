@@ -5,7 +5,7 @@ var haut = document.getElementById("h");
 var bas = document.getElementById("b");
 var gauche = document.getElementById("g");
 var droite = document.getElementById("d");
-var pas = 10;
+var pas = 16;
 
 
 function deplace(dLeft, dTop) {
@@ -16,6 +16,7 @@ function deplace(dLeft, dTop) {
     carre.style.top = mouvTop;
 }
 
+var compteurfail = 0;
 var flagtime = false;
 var gg = false;
 document.addEventListener("keydown", (e) => {
@@ -30,11 +31,15 @@ document.addEventListener("keydown", (e) => {
             var temp2 = e.key;
             var active = "";
             cheatOnOff(temp2, active);
+            clearTimeout(t);
         });
     }
+
     var flag = false;
     var fin = document.getElementById("fin");
+    var Eegg = document.getElementById("easteregg");
     var fininfo = { x: fin.offsetLeft, y: fin.offsetTop, width: fin.offsetWidth, height: fin.offsetHeight }
+    var easteregginfo = { x: Eegg.offsetLeft, y: Eegg.offsetTop, width: Eegg.offsetWidth, height: Eegg.offsetHeight }
     switch (temp) {
         case "z":
             {
@@ -48,7 +53,13 @@ document.addEventListener("keydown", (e) => {
                             carreinfo.y - pas < obstacleinfo.y + obstacleinfo.height && // Coté haut
                             carreinfo.height + carreinfo.y > obstacleinfo.y) {  // coté bas
                             // collision détectée !
-                            console.log("Touché !");
+                            compteurfail++;
+                            fail.innerHTML = "Nombre de collisions = " + compteurfail;
+                            if (second>55)
+                            {
+                                secondTemp = second;
+                            }
+                            second +=5;
                             flag = true;
                         }
                         i++;
@@ -60,6 +71,15 @@ document.addEventListener("keydown", (e) => {
                     carreinfo.y - pas < fininfo.y + fininfo.height && // Coté haut
                     carreinfo.height + carreinfo.y > fininfo.y) {
                     alert("gg !");
+                    gg = true;
+                }
+                if (carreinfo.x < easteregginfo.x + easteregginfo.width &&  // coté gauche
+                    carreinfo.x + carreinfo.width > easteregginfo.x && // coté droit
+                    carreinfo.y - pas < easteregginfo.y + easteregginfo.height && // Coté haut
+                    carreinfo.height + carreinfo.y > easteregginfo.y) {
+                        carre.style.top = "6.5em"
+                        carre.style.left = "2em"
+                        alert("gg !");
                     gg = true;
                 }
                 break;
@@ -76,7 +96,13 @@ document.addEventListener("keydown", (e) => {
                             carreinfo.y < obstacleinfo.y + obstacleinfo.height && // Coté haut
                             carreinfo.height + carreinfo.y > obstacleinfo.y) { // coté bas
                             // collision détectée !
-                            console.log("Touché !");
+                            compteurfail++;
+                            fail.innerHTML = "Nombre de collisions = " + compteurfail;
+                            if (second>55)
+                            {
+                                secondTemp = second;
+                            }
+                            second +=5;
                             flag = true;
                         }
                         i++;
@@ -89,7 +115,15 @@ document.addEventListener("keydown", (e) => {
                     carreinfo.height + carreinfo.y > fininfo.y) {
                     alert("gg !");
                     gg = true;
-
+                }
+                if (carreinfo.x < easteregginfo.x + easteregginfo.width &&  // coté gauche
+                    carreinfo.x + carreinfo.width > easteregginfo.x && // coté droit
+                    carreinfo.y - pas < easteregginfo.y + easteregginfo.height && // Coté haut
+                    carreinfo.height + carreinfo.y > easteregginfo.y) {
+                        carre.style.top = "6.5em"
+                        carre.style.left = "2em"
+                        alert("gg !");
+                    gg = true;
                 }
                 break;
             }
@@ -106,7 +140,13 @@ document.addEventListener("keydown", (e) => {
                             carreinfo.y < obstacleinfo.y + obstacleinfo.height &&   // Coté haut
                             carreinfo.height + pas + carreinfo.y > obstacleinfo.y) {   // coté bas
                             // collision détectée !
-                            console.log("Touché !");
+                            compteurfail++;
+                            fail.innerHTML = "Nombre de collisions = " + compteurfail;
+                            if (second>55)
+                            {
+                                secondTemp = second;
+                            }
+                            second +=5;
                             flag = true;
                         }
                         i++;
@@ -119,6 +159,15 @@ document.addEventListener("keydown", (e) => {
                     carreinfo.height + carreinfo.y > fininfo.y) {
                     alert("gg !");
                     gg = true;
+                }
+                if (carreinfo.x < easteregginfo.x + easteregginfo.width &&  // coté gauche
+                    carreinfo.x + carreinfo.width > easteregginfo.x && // coté droit
+                    carreinfo.y - pas < easteregginfo.y + easteregginfo.height && // Coté haut
+                    carreinfo.height + carreinfo.y > easteregginfo.y) {
+                        carre.style.top = "6.5em"
+                        carre.style.left = "2em"
+                        alert("gg !");
+                        gg = true;
                 }
                 break;
             }
@@ -136,7 +185,16 @@ document.addEventListener("keydown", (e) => {
                             carreinfo.y < obstacleinfo.y + obstacleinfo.height &&  // Coté haut
                             carreinfo.height + carreinfo.y > obstacleinfo.y) {  // coté bas
                             // collision détectée !
-                            console.log("Touché !");
+                            compteurfail++;
+                            fail.innerHTML = "Nombre de collisions = " + compteurfail;
+                            if (second>55)
+                            {
+                                secondTemp = second;
+                            }
+                            second +=5;
+                            divtime.style.color="red";
+                            t = setTimeout("timerNoir()", 3000);
+                            timerNoir();
                             flag = true;
                         }
                         i++;
@@ -150,17 +208,30 @@ document.addEventListener("keydown", (e) => {
                     alert("gg !");
                     gg = true;
                 }
+                if (carreinfo.x < easteregginfo.x + easteregginfo.width &&  // coté gauche
+                    carreinfo.x + carreinfo.width > easteregginfo.x && // coté droit
+                    carreinfo.y - pas < easteregginfo.y + easteregginfo.height && // Coté haut
+                    carreinfo.height + carreinfo.y > easteregginfo.y) {
+                        carre.style.top = "6.5em"
+                        carre.style.left = "2em"
+                        alert("gg !");
+                        gg = true;
+                }
                 break;
             }
     }
-    gg == true ? clearTimeout(t) : "";
+    if(gg == true)
+    {
+        clearTimeout(t);
+        carre.style.top =  "1.5em";
+        carre.style.left =  "1.5em";
+    }
 });
 
 function deplaceSouris(e) {
-    if (!collisionObstacles(parseInt(e.clientY) + ecartY, parseInt(e.clientX) + ecartX))
-    {
-    carre.style.top = parseInt(e.clientY) + ecartY + "px";
-    carre.style.left = parseInt(e.clientX) + ecartX + "px";
+    if (!collisionObstacles(parseInt(e.clientY) + ecartY, parseInt(e.clientX) + ecartX)) {
+        carre.style.top = parseInt(e.clientY) + ecartY + "px";
+        carre.style.left = parseInt(e.clientX) + ecartX + "px";
     }
 };
 
@@ -170,7 +241,11 @@ var carre = document.getElementById('carre');
 var flagMouv = false;
 
 carre.addEventListener("mousedown", (e) => {
-    timer();
+
+    if (flagtime == false) {
+        timer();
+        flagtime = true;
+    }
     ecartY = parseInt(window.getComputedStyle(carre).top) - parseInt(e.clientY);
     ecartX = parseInt(window.getComputedStyle(carre).left) - parseInt(e.clientX);
     flagMouv = true;
@@ -179,6 +254,7 @@ carre.addEventListener("mousedown", (e) => {
 document.addEventListener("mousemove", (e) => {
     if (flagMouv == true) {
         deplaceSouris(e);
+        
     }
 });
 
@@ -188,26 +264,22 @@ carre.addEventListener("mouseup", (e) => {
 
 
 // CHEAT CODE 
-
+// Essayé de faire le OFF mais pas encore réussit
 function cheatOnOff(temp2, active) {
     if (temp2 == "y") {
 
         // active = active == true ? false : true;
         if (active == "") {
             var active = true;
-            console.log("active ete vide" + active);
         } else {
             active = active == true ? false : true;
-            console.log("on est dans le else " + active);
         }
         for (let i = obstacles.length - 1; i >= 0; i--) {  ///Boucle qui marche a moitié donc on la fait a l'envers
             if (active == true) {
                 obstacles[i].className = "cheat";
-                console.log("Active est true normalement " + active);
             } else {
                 obstacles[i].className = "obstacles";
                 active = "";
-                console.log("Active est false normalement " + active);
             }
             flagcheat = true;
         }
@@ -217,22 +289,31 @@ function cheatOnOff(temp2, active) {
 divtime = document.getElementById("divtime");
 var minute = 0;
 var second = 0;
-
+var secondTemp = 0;
 function timer() {
     second++;
 
-    if (second == 60) {
+    if (second >= 60) {
+        if(secondTemp != 0 && second> 55)
+        { 
+        secondTemp=second-5-secondTemp;
+        second = secondTemp;
         minute++;
-        second = 0;
+        secondTemp = 0;
+        }else {
+            second = 0
+            minute++;
+            secondTemp = 0;
+        }
     }
     if (minute < 10) {
-        time = "0" + minute;
+        time = "0" + minute + " : ";
     } else {
-        time = minute;
+        time = minute+ " : ";
     }
 
     if (second < 10) {
-        time += " : 0" + second;
+        time += "0" + second;
     } else {
         time += second;
     }
@@ -241,7 +322,10 @@ function timer() {
     t = setTimeout("timer()", 1000);
 }
 
-
+function timerNoir()
+{ 
+    divtime.style.color="black"; 
+}
 //Gestion des collisions
 /**
  * Méthode qui renvoi vrai s'il y a une collision avec l'obstacle
@@ -259,13 +343,15 @@ function collisionUnObstacle(obstacle, posX, posY) {
     var wob = parseInt(styleObstacle.width);
     var hob = parseInt(styleObstacle.height);
     if (posY < lob + wob && posY + w > lob && posX < tob + hob && posX + h > tob) {
-        console.log("collision n°" + compteurCollision + "  " + obstacle.id);
         flagMouv = false;
-        compteurCollision++;
+        clearTimeout(t);
+        carre.style.top =  "1.5em";
+        carre.style.left =  "1.5em";
         return true;
     }
     return false;
 }
+
 /**
  * Méthode qui renvoi vrai s'il y a une collision avec l'un des obstacles
  * @param {*} posX //position en x souhaité
