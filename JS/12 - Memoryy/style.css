@@ -1,0 +1,89 @@
+/* GLOBAL */
+* {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+    background-color: rgb(40, 53, 65);
+    color:whitesmoke;
+}
+
+div,header,img {
+    display: flex;
+    flex: 1;
+}
+
+img {
+    width: 100%;
+}
+
+video {
+    width: 100%;
+}
+
+header {
+    justify-content: center;
+    align-items: center;
+}
+
+.colonne{
+    flex-direction: column;
+}
+
+.espace{
+    flex:3;
+}
+
+.espaceV{
+    min-height: 2vh;
+}
+
+.titrePage {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.img {
+    margin: 1em;
+    border-radius: 0.5em;
+}
+
+.verso {
+    display: none;
+    border-radius: 0.5em;
+}
+
+.versoCorrect {
+    border-radius: 0.5em;
+}
+
+.recto {
+    border-radius: 0.5em;
+}
+
+#joueur {
+    font-size: 1.5em;
+}
+
+#soluce, #restart {
+    border: 2px solid white;
+    padding: 0.5em;
+    margin: 0.5em;
+}
+#soluce:hover, #restart:hover {
+    cursor: pointer;
+}
+.enormeFlex {
+    flex : 50
+}
+
+.centre {
+    justify-content: center;
+    text-align: center;
+}
