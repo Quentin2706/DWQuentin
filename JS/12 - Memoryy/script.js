@@ -9,7 +9,7 @@ var cptPair = document.getElementById("paire");
 var tour = document.getElementById("joueur");
 var prj1div = document.getElementById("prj1div");
 var prj2div = document.getElementById("prj2div");
-if (nbj == false) {
+if (nbj == true) {
     prj1div.style.display = "none";
     prj2div.style.display = "none";
 }

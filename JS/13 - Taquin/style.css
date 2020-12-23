@@ -1,0 +1,54 @@
+/* GLOBAL */
+* {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+    background-color: rgb(40, 53, 65);
+    color:whitesmoke;
+}
+
+div,header,img {
+    display: flex;
+    flex: 1;
+}
+
+img {
+    width: 100%;
+}
+
+video {
+    width: 100%;
+}
+
+header {
+    justify-content: center;
+    align-items: center;
+}
+
+.colonne{
+    flex-direction: column;
+}
+
+.pasvide {
+    border: 1px white solid;
+    padding: 1em;
+}
+.centre {
+    justify-content: center;
+    align-items: center;
+}
+
+.vide {
+    color: #283541;
+    padding: 1em;
+    border: 1px white solid;
+}
+
+.main {
+    margin-top: 20em;
+}
