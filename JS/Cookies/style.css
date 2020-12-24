@@ -1,0 +1,9 @@
+:root {
+    --bcgColorBlack: #252526;
+    --bcgColorlight: whitesmoke;
+}
+
+
+body {
+    background-color: var(--bcgColorBlack);
+}

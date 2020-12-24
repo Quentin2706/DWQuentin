@@ -14,19 +14,20 @@ for (let i = 0; i < nb.length; i++) {
         deplace(e);
     })
 }
+
 console.log(nb[tempi]);
 casepasvide[tempi].setAttribute("class", "vide centre");
 var caseVide = document.getElementsByClassName("vide")[0];
-var caseVidePosX = parseInt(caseVide.getAttribute("posX"));
-var caseVidePosY = parseInt(caseVide.getAttribute("posY"));
+var caseVidePosX = parseInt(caseVide.getAttribute("posx"));
+var caseVidePosY = parseInt(caseVide.getAttribute("posy"));
 
 caseVide.addEventListener("click", function (e) {
     deplace(e);
 })
 
 function deplace(e) {
-    var ciblePosY = parseInt(e.target.getAttribute("posY"));
-    var ciblePosX = parseInt(e.target.getAttribute("posX"));
+    var ciblePosY = parseInt(e.target.getAttribute("posy"));
+    var ciblePosX = parseInt(e.target.getAttribute("posx"));
     if ((Math.abs(caseVidePosY - ciblePosY) == 1 ^ Math.abs(caseVidePosX - ciblePosX) == 1) && (Math.abs(caseVidePosY - ciblePosY) < 2) && (Math.abs(caseVidePosX - ciblePosX) < 2)) {
             caseVide.textContent = e.target.textContent;
             caseVide.style.color = "white";
@@ -39,4 +40,3 @@ function deplace(e) {
             caseVidePosY = ciblePosY;
     }
 }
-
