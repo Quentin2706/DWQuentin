@@ -1,0 +1,101 @@
+
+div, input, select{
+    display : flex;
+    flex : 1;
+}
+form {
+    display : flex;
+    flex : 2;
+    flex-direction: column;
+}
+img {
+    width: 100%;
+}
+.ligne {
+    flex-direction : row;
+}
+.blanc {
+    color : white;
+}
+
+input:required::after {
+    color: red;
+    content: "*"
+}
+
+input {
+    margin: 0.5em;
+    padding: 0.5em;
+    border: 1px solid black;
+}
+
+.label {
+    align-items: center;
+    flex: 1;
+}
+
+input[required] +div::before{
+    content: "*";
+    color: red;
+    display : flex;
+    align-items: center;
+}
+
+.centre {
+    justify-content: center;
+    align-items: center;
+}
+button {
+    font-size: 1.2em;
+}
+.erreur {
+    flex : 3;
+    align-items: center;
+}
+
+fieldset, legend {
+    background-color: #ccc;
+    border: 1px solid black;
+}
+legend {
+    border-bottom: none;
+    border-radius: 0.2em;
+}
+.infobulleNomQuest {
+    position: absolute;
+    left: 50vw;
+    display: none;
+    background-color: #fff;
+    border: 1px solid black;
+    padding: 0.5em;
+    box-shadow: 5px 5px 5px #aaa;
+}
+.nomQuest {
+    display: unset;
+}
+.logoverif {
+    flex : 0.2;
+}
+
+.footerform {
+    margin: 1em 0;
+    justify-content: space-around;
+}
+button {
+    border: 1px solid black;
+    padding: 0.5em 1em;
+}
+.aide {
+    flex: 3;
+}
+.spcarnd {
+    justify-content: space-around;
+}
+.oeil {
+    padding: 0.4em;
+    flex : 0;
+    margin-left : -3.5vw;
+}
+.divoeil {
+    flex: 0;
+}
