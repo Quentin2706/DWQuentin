@@ -44,11 +44,11 @@ champNom.addEventListener("change", function () {
 champPrenom.addEventListener("change", function () {
     if (champPrenom.checkValidity()) {
         erreurPrenom.textContent = "";
-        symbols[0].setAttribute("src", "check.png");
+        symbols[1].setAttribute("src", "check.png");
         tab["champNom"] = 1;
     } else {
-        erreurPrenom.textContent = "le champ \"Nom\" doit comporter que des lettres";
-        symbols[0].setAttribute("src", "cross.png");
+        erreurPrenom.textContent = "le champ \"Prenom\" doit comporter que des lettres";
+        symbols[1].setAttribute("src", "cross.png");
         tab["champPrenom"] = 0;
     }
     verificationEnvoi()
@@ -57,12 +57,12 @@ champMail.addEventListener("change", function () {
     if (champMail.checkValidity()) {
         console.log(champMail.checkValidity());
         erreurMail.textContent = "";
-        symbols[2].setAttribute("src", "check.png");
+        symbols[3].setAttribute("src", "check.png");
         tab["champMail"] = 1;
     } else {
         console.log(champMail.checkValidity());
         erreurMail.textContent = "le champ \"Email\" doit comporter que des lettres avec un @ ... .com /.fr";
-        symbols[2].setAttribute("src", "cross.png");
+        symbols[3].setAttribute("src", "cross.png");
         tab["champMail"] = 0;
     }
     verificationEnvoi()
@@ -70,11 +70,11 @@ champMail.addEventListener("change", function () {
 champCodePostal.addEventListener("change", function () {
     if (champCodePostal.checkValidity()) {
         erreurCodePostal.textContent = "";
-        symbols[4].setAttribute("src", "check.png");
+        symbols[5].setAttribute("src", "check.png");
         tab["champCodePostal"] = 1;
     } else {
         erreurCodePostal.textContent = "le champ \"Code postal\" doit contenir 5 caracteres";
-        symbols[4].setAttribute("src", "cross.png");
+        symbols[5].setAttribute("src", "cross.png");
         tab["champCodePostal"] = 0;
     }
     verificationEnvoi()
@@ -82,11 +82,11 @@ champCodePostal.addEventListener("change", function () {
 champDDN.addEventListener("change", function () {
     if (champDDN.checkValidity()) {
         erreurDdn.textContent = "";
-        symbols[1].setAttribute("src", "check.png");
+        symbols[2].setAttribute("src", "check.png");
         tab["champDDN"] = 1;
     } else {
         erreurDdn.textContent = "le champ \"Date de naissance\" doit etre rempli";
-        symbols[1].setAttribute("src", "cross.png");
+        symbols[2].setAttribute("src", "cross.png");
         tab["champDDN"] = 0;
     }
     verificationEnvoi()
@@ -94,11 +94,11 @@ champDDN.addEventListener("change", function () {
 champPwd.addEventListener("input", function () {
     if (champPwd.checkValidity()) {
         erreurPwd.textContent = "";
-        symbols[5].setAttribute("src", "check.png");
+        symbols[6].setAttribute("src", "check.png");
         tab["champPwd"] = 1;
     } else {
-        erreurPwd.textContent ="il doit être écrit de la même façon que le champ \"Mot de passe\".";
-        symbols[5].setAttribute("src", "cross.png");
+        erreurPwd.textContent ="1 lettre majuscule 1 minuscule, 1caratere spécial et 1 chiffre.";
+        symbols[6].setAttribute("src", "cross.png");
         tab["champPwd"] = 0;
     }
     verificationEnvoi()
@@ -111,11 +111,11 @@ champTel.addEventListener("input", function () {
     } else {
         if (champTel.checkValidity()) {
             erreurTel.textContent = "";
-            symbols[3].setAttribute("src", "check.png");
+            symbols[4].setAttribute("src", "check.png");
             tab["champTel"] = 1;
         } else {
             erreurTel.textContent = "le champ \"Tel\" doit que des chiffres 10 de préférence ";
-            symbols[3].setAttribute("src", "cross.png");
+            symbols[4].setAttribute("src", "cross.png");
             tab["champTel"] = 0;
         }
     }
@@ -124,18 +124,17 @@ champTel.addEventListener("input", function () {
 champConfPwd.addEventListener("input", function () {
     if (champConfPwd.value == champPwd.value) {
         erreurConfPwd.textContent = "";
-        symbols[6].setAttribute("src", "check.png");
+        symbols[7].setAttribute("src", "check.png");
         tab["champConfPwd"] = 1;
     } else {
         erreurConfPwd.textContent = "le champ \"Confirmation Mot de passe\" doit que des chiffres 10 de préférence ";
-        symbols[6].setAttribute("src", "cross.png");
+        symbols[7].setAttribute("src", "cross.png");
         tab["champConfPwd"] = 0;
     }
     verificationEnvoi()
 })
-champConfPwd.addEventListener("paste", function (e) {
-    annule(e);
-})
+champConfPwd.addEventListener("paste", annule);
+
 oeil.addEventListener("click", function () {
     if (miniflag == false) {
         champPwd.setAttribute("type", "")
