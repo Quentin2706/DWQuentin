@@ -67,6 +67,7 @@ function afficheDetail(e) {
 
 }
 
+
 //on envoi la requête
 req.open('GET', 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=vlille-realtime&q=&lang=fr&rows=50&facet=nom&facet=commune&facet=etat&facet=type', true);
 req.send(null);

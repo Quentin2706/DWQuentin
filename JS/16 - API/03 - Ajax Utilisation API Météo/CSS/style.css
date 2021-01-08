@@ -1,0 +1,64 @@
+﻿html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+div,
+header,
+footer,
+nav,
+article,
+img {
+  display: flex;
+  flex: 1;
+}
+
+img,
+video {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.colonne {
+  flex-direction: column;
+}
+header {
+  background-color: cornflowerblue;
+}
+
+.titre {
+  color: white;
+  font-family: "Lobster", cursive;
+  font-size: 4em;
+  flex: 3;
+}
+.centre {
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  padding: 1em;
+}
+#imgmeteo {
+  padding: 2em;
+  padding-left: 0;
+}
+.infosmeteo {
+  font-size: 3em;
+  margin: 1em;
+}
+.black {
+  color: black;
+}
+.pasmargelat {
+  margin: 1em 0;
+}
+
+.flex2 {
+  flex: 2;
+}
