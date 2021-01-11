@@ -65,28 +65,6 @@ req.onreadystatechange = function (event) {
     }
 };
 
-function afficheDetail(e) {
-    emplacementClique = (e.target).parentNode;
-    emplacementClique.removeEventListener("click", afficheDetail);
-    detail = document.createElement("div");
-    detail.setAttribute("class", "detail");
-    adresse = document.createElement("div");
-    adresse.setAttribute("class", "adresse");
-    detail.appendChild(adresse);
-    nbVeloDispo = document.createElement("div");
-    nbVeloDispo.setAttribute("class", "nbVeloDispo");
-    detail.appendChild(nbVeloDispo);
-    nbPlaceDispo = document.createElement("div");
-    nbPlaceDispo.setAttribute("class", "nbPlaceDispo");
-    detail.appendChild(nbPlaceDispo);
-    adresse.textContent = enregs[emplacementClique.id].fields.adresse;
-    nbVeloDispo.textContent = "  nb velos dispos " + enregs[emplacementClique.id].fields.nbvelosdispo;
-    nbPlaceDispo.textContent= "  nb places dispos " + enregs[emplacementClique.id].fields.nbplacesdispo;
-    contenu.insertBefore(detail, emplacementClique.nextSibling);
-
-}
-
-
 //on envoi la requête
 req.open('GET', 'http://api.openweathermap.org/data/2.5/weather?q=Dunkerque,fr&appid=4f00f8b80c9b221ffd12e64353e31667&units=metric&lang=fr', true);
 req.send(null);
