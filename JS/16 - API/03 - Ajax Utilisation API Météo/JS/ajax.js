@@ -88,5 +88,5 @@ function afficheDetail(e) {
 
 
 //on envoi la requête
-req.open('GET', 'http://api.openweathermap.org/data/2.5/weather?q=Bangkok,th&appid=4f00f8b80c9b221ffd12e64353e31667&units=metric&lang=fr', true);
+req.open('GET', 'http://api.openweathermap.org/data/2.5/weather?q=Dunkerque,fr&appid=4f00f8b80c9b221ffd12e64353e31667&units=metric&lang=fr', true);
 req.send(null);

@@ -12,7 +12,7 @@ req.onreadystatechange = function (event) {
             reponse = JSON.parse(this.responseText);
             console.log(this.responseText);
             console.log(reponse);
-            enregs = reponse.records;
+            enregs = reponse.records.sort(Tri);
             for (let i = 0; i < enregs.length; i++) {
                 // on crée la ligne et les div internes
                 ligne = document.createElement("div");
@@ -67,7 +67,34 @@ function afficheDetail(e) {
 
 }
 
-
+//fonction de tri du tableau
+function tri(a, b) {
+    if (a.fields.commune<b.fields.commune)
+    {
+       return -1;
+    }
+    else{
+        if (a.fields.commune > b.fields.commune)
+        {
+            return 1;
+        }
+        else{
+            if (a.fields.nom<b.fields.nom)
+            {
+                return -1;
+            }
+            else{
+                if (a.fields.nom>b.fields.nom)
+                {
+                    return 1;
+                }
+                else{
+                    return 0;
+                }
+            }
+        }
+    }
+  }
 //on envoi la requête
 req.open('GET', 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=vlille-realtime&q=&lang=fr&rows=50&facet=nom&facet=commune&facet=etat&facet=type', true);
 req.send(null);

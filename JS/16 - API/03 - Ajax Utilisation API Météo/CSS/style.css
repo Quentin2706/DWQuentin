@@ -49,7 +49,7 @@ header {
   padding-left: 0;
 }
 .infosmeteo {
-  font-size: 3em;
+  font-size: 1.5em;
   margin: 1em;
 }
 .black {
@@ -61,4 +61,12 @@ header {
 
 .flex2 {
   flex: 2;
+}
+
+#main {
+  background-color: cornflowerblue;
+  margin-bottom: 1em;
+}
+#ville {
+  font-size: 2.5em;
 }

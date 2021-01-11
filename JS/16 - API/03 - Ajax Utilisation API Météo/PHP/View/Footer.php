@@ -5,8 +5,6 @@
 <div class="espaceHorizon"></div>
 <div class="espaceHorizon"></div>
 <div class="espaceHorizon"></div>
-Réalisé par MP<br>
-
 </div>
 </div>
 </div>

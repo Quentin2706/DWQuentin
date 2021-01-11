@@ -1,10 +1,27 @@
 ﻿<div>
         <div></div>
-        <div class="colonne flex2">
+        <div class="colonne flex2" id="main">
             <div id="ville" class="centre titre black"></div>
 			<div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
 		<div id="weather" class="infosmeteo centre titre black pasmargelat"></div>
 		<div><img src="" alt="" id="imgmeteo"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
 </div>
         <div id="temp" class="infosmeteo centre titre black"></div>
         <div id="tempmin" class="infosmeteo centre titre black"></div>
