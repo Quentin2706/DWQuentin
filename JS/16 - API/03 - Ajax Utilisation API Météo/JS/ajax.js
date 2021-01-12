@@ -11,7 +11,11 @@ var humidity = document.getElementById("humidity");
 var windspeed = document.getElementById("windspeed");
 var sunrise = document.getElementById("sunrise");
 var sunset = document.getElementById("sunset");
-
+var inputVille = document.getElementById("inputVille");
+inputVille.addEventListener("change", function(){
+    req.open('GET', 'http://api.openweathermap.org/data/2.5/weather?q='+inputVille.value+',fr&appid=4f00f8b80c9b221ffd12e64353e31667&units=metric&lang=fr', true);
+    req.send(null);
+})
 // on définit une requete
 const req = new XMLHttpRequest();
 //on vérifie les changements d'états de la requête
@@ -26,38 +30,15 @@ req.onreadystatechange = function (event) {
             var dateSunset = new Date(unixSunset * 1000);
             ville.innerHTML = "<u>"+reponse.name+"</u>";
             weather.textContent = reponse.weather[0].description.charAt(0).toUpperCase()+reponse.weather[0].description.slice(1);
-            temp.textContent = "Température actuelle : " + reponse.main.temp + " °C";
-            tempmin.textContent = "Température minimale : " + reponse.main.temp_min +" °C";
-            tempmax.textContent = "Température maximale : " + reponse.main.temp_max +" °C";
+            temp.textContent = "Température actuelle : " + Math.round(reponse.main.temp) + " °C";
+            tempmin.textContent = "Température minimale : " + Math.round(reponse.main.temp_min) +" °C";
+            tempmax.textContent = "Température maximale : " + Math.round(reponse.main.temp_max) +" °C";
             humidity.textContent = "Taux d'humidité : " + reponse.main.humidity +" %";
             windspeed.textContent = "Vitesse du vent : " + Math.round(reponse.wind.speed*3.6) + " km/h"
-            if (dateSunrise.getHours() < 10)
-            {
-                var heureSunrise = "0"+dateSunrise.getHours();
-            } else {
-                var heureSunrise = dateSunrise.getHours();
-            }
-            if (dateSunrise.getMinutes() < 10)
-            {
-                var minutesSunrise = "0"+dateSunrise.getMinutes();
-            } else {
-                var minutesSunrise = dateSunrise.getMinutes();
-            }
-
-            if (dateSunset.getHours() < 10)
-            {
-                var heureSunset = "0"+dateSunset.getHours();
-            } else {
-                var heureSunset = dateSunset.getHours();
-            }
-            if (dateSunset.getMinutes() < 10)
-            {
-                var minutesSunset = "0"+dateSunset.getMinutes();
-            } else {
-                var minutesSunset = dateSunset.getMinutes();
-            }
-            sunrise.textContent = "Levé du Soleil à "+heureSunrise +" : " +minutesSunrise + " - UTC+01";
-            sunset.textContent = "Couché du Soleil à "+heureSunset +" : " +minutesSunset + "  - UTC+01";
+            var tab = heureminute(dateSunrise);
+            sunrise.textContent = "Levé du Soleil à "+tab[0] +" : " +tab[1] + " - UTC+01";
+            var tab1 = heureminute(dateSunset);
+            sunset.textContent = "Couché du Soleil à "+tab1[0] +" : " +tab1[1] + "  - UTC+01";
             console.log("Réponse reçue: %s", this.responseText);
         } else {
             console.log("Status de la réponse: %d (%s)", this.status, this.statusText);
@@ -65,6 +46,25 @@ req.onreadystatechange = function (event) {
     }
 };
 
+function heureminute(date)
+{
+    var tab = [];
+    if (date.getHours() < 10)
+    {
+        var heures = "0"+date.getHours();
+    } else {
+        var heures = date.getHours();
+    }
+    tab.push(heures);
+    if (date.getMinutes() < 10)
+    {
+        var minutes = "0"+date.getMinutes();
+    } else {
+        var minutes = date.getMinutes();
+    }
+    tab.push(minutes);
+    return tab;
+}
 //on envoi la requête
 req.open('GET', 'http://api.openweathermap.org/data/2.5/weather?q=Dunkerque,fr&appid=4f00f8b80c9b221ffd12e64353e31667&units=metric&lang=fr', true);
 req.send(null);
