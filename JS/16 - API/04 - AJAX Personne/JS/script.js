@@ -55,12 +55,10 @@ requ2.onreadystatechange = function(event) {
                 supprimer.setAttribute("class", "crudBtn crudBtnSuppr");
                 boutonCRUD.appendChild(supprimer);
                 supprimer.textContent = "Supprimer";
-                
+
                 nom.textContent = reponse[i].nom;
                 prenom.textContent = reponse[i].prenom;
             }
-            
-            
         } else {
             console.log("Status de la réponse: %d (%s)", this.status, this.statusText);
         }
