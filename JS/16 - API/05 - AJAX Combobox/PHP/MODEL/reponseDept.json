@@ -1,0 +1,27 @@
+[
+    {
+        "idDepartement": "2",
+        "LibelleDepartement": "AISNE",
+        "IdRegion": "32"
+    },
+    {
+        "idDepartement": "60",
+        "LibelleDepartement": "NORD",
+        "IdRegion": "32"
+    },
+    {
+        "idDepartement": "61",
+        "LibelleDepartement": "OISE",
+        "IdRegion": "32"
+    },
+    {
+        "idDepartement": "63",
+        "LibelleDepartement": "PAS-DE-CALAIS",
+        "IdRegion": "32"
+    },
+    {
+        "idDepartement": "81",
+        "LibelleDepartement": "SOMME",
+        "IdRegion": "32"
+    }
+]

@@ -1,0 +1,74 @@
+[
+    {
+        "idRegion": "1",
+        "LibelleRegion": "GUADELOUPE"
+    },
+    {
+        "idRegion": "2",
+        "LibelleRegion": "MARTINIQUE"
+    },
+    {
+        "idRegion": "3",
+        "LibelleRegion": "GUYANE"
+    },
+    {
+        "idRegion": "4",
+        "LibelleRegion": "LA REUNION"
+    },
+    {
+        "idRegion": "6",
+        "LibelleRegion": "MAYOTTE"
+    },
+    {
+        "idRegion": "11",
+        "LibelleRegion": "ILE-DE-FRANCE"
+    },
+    {
+        "idRegion": "24",
+        "LibelleRegion": "CENTRE-VAL DE LOIRE"
+    },
+    {
+        "idRegion": "27",
+        "LibelleRegion": "BOURGOGNE-FRANCHE-COMTE"
+    },
+    {
+        "idRegion": "28",
+        "LibelleRegion": "NORMANDIE"
+    },
+    {
+        "idRegion": "32",
+        "LibelleRegion": "HAUTS-DE-FRANCE"
+    },
+    {
+        "idRegion": "44",
+        "LibelleRegion": "GRAND EST"
+    },
+    {
+        "idRegion": "52",
+        "LibelleRegion": "PAYS DE LA LOIRE"
+    },
+    {
+        "idRegion": "53",
+        "LibelleRegion": "BRETAGNE"
+    },
+    {
+        "idRegion": "75",
+        "LibelleRegion": "NOUVELLE-AQUITAINE"
+    },
+    {
+        "idRegion": "76",
+        "LibelleRegion": "OCCITANIE"
+    },
+    {
+        "idRegion": "84",
+        "LibelleRegion": "AUVERGNE-RHONE-ALPES"
+    },
+    {
+        "idRegion": "93",
+        "LibelleRegion": "PROVENCE-ALPES-COTE D AZUR"
+    },
+    {
+        "idRegion": "94",
+        "LibelleRegion": "CORSE"
+    }
+]
