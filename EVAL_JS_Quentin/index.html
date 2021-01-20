@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Crédit App'</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div></div>
+        <div class="titre centrer">Calcul du Taux d'intérêt</div>
+        <div></div>
+    </header>
+    <div class="colonne">
+        <div>
+            <div></div>
+        <div class="colonne box fois3">
+            <div>
+                <div>Capital Emprunté</div>
+                <div><input type="text" pattern = "[0-9]+"></div>
+                <div class="foisQuart">€</div>
+                <div class="error foisDemi">Format incorrect</div>
+            </div>
+            <div>
+                <div>Taux Nominal Annuel</div>
+                <div><input type="text" pattern = "[0-9]?[0-9]"></div>
+                <div class="foisQuart">%</div>
+                <div class="error foisDemi">Format incorrect</div>
+            </div>
+            <div>
+                <div>Durée d'emprunt</div>
+                <div><input type="text" pattern = "[0-9][0-9]?"></div>
+                <div class="foisQuart">Ans</div>
+                <div class="error foisDemi">Format incorrect</div>
+            </div>
+        </div>
+        <div></div>
+        </div>
+        <div>
+            <div></div>
+        <div class="colonne box fois3">
+            <div>
+                <div>Mensualité</div>
+                <div><input type="text" disabled=""></div>
+                <div class="foisQuart">€</div>
+                <div class="foisDemi"></div>
+            </div>
+            <div>
+                <div>Coût Total</div>
+                <div><input type="text" disabled=""></div>
+                <div class="foisQuart">€</div>
+                <div class="foisDemi"></div>
+    
+            </div>
+        </div>
+        <div></div>
+        </div>
+        <div >
+            <div></div>
+            <div class="spaceAround">
+            <button>Calculer</button>
+            <button>Nouveau Calcul</button>
+        </div>
+        <div></div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

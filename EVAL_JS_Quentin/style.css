@@ -1,0 +1,67 @@
+/****  GENERAL ****/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: wheat;
+}
+
+div, a, header, footer, nav, article {
+    display: flex;
+    flex: 1;
+}
+
+img, video {
+    width: 100%;
+}
+
+.colonne {
+    flex-direction: column;
+    padding-bottom:  2em;
+}
+
+.centrer {
+    justify-content: center;
+    align-items: center;
+}
+
+.titre {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+header {
+    margin-top: 2em;
+}
+
+.box {
+    border: 1px gray solid;
+}
+.fois3 {
+    flex: 3;
+}
+
+input {
+    width: 100%;
+}
+
+div {
+    margin: 0.5em;
+}
+
+.spaceAround {
+    justify-content: space-around;
+}
+
+.foisDemi {
+    flex: 0.5;
+}
+.foisQuart {
+    flex: 0.25;
+}
+
+.error {
+    font-weight: bolder;
+    color: red;
+    visibility: hidden;
+}
