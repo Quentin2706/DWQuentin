@@ -13,7 +13,7 @@ buttons[1].addEventListener("click", function (){
     }
 })
 // je pose un event listener sur tous les inputs au début pour etre tranquille enfin je pose sur seulement les 3 premiers
-for (let i = 0; inputs.length - 2; i++) {
+for (let i = 0; i<inputs.length - 2; i++) {
     inputs[i].addEventListener("input", check);
 }
 
@@ -39,11 +39,10 @@ function goCalcul()
 {
     if (inputs[0].value !="" && inputs[1].value !="" && inputs[2].value !="")
     {
-        console.log(inputs[2].value);
         var mensualite = (parseInt(inputs[0].value)*((parseInt(inputs[1].value)/100)/12)) / (1 - Math.pow(1+((parseInt(inputs[1].value)/100)/12), - (parseInt(inputs[2].value)*12)))
 
         inputs[3].value = mensualite.toFixed(2);
-        inputs[4].value = (mensualite*12).toFixed(2);
+        inputs[4].value = (mensualite*12*parseInt(inputs[2].value)).toFixed(2);
     } else {
         inputs[3].value = "";
         inputs[4].value ="";
