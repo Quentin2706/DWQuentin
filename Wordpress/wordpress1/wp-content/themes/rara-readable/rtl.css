@@ -1,0 +1,338 @@
+/*
+Theme Name: Rara Readable
+
+Adding support for languages written in a Right To Left (RTL) direction is easy -
+it's just a matter of overwriting all the horizontal positioning attributes
+of your CSS stylesheet in a separate stylesheet file named rtl.css.
+
+https://codex.wordpress.org/Right-to-Left_Language_Support
+
+*/
+
+body {
+    direction: rtl;
+    unicode-bidi: embed;
+}
+
+.main-header .header-social {
+    text-align: left;
+}
+
+ul.social-icons li {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+nav.main-navigation {
+    float: right;
+}
+
+.header-t-search {
+    float: left;
+}
+
+.main-navigation ul li ul {
+    left: auto;
+    right: 0;
+}
+
+.main-navigation ul li ul ul {
+    left: auto;
+    right: 100%;
+}
+
+.header-t-search form.search-form {
+    border-left: 0;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+form.search-form input.search-field {
+    float: right;
+}
+
+.widget ul li {
+    padding-left: 0;
+    padding-right: 13px;
+}
+
+.widget ul li::before {
+    left: auto;
+    right: 0;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+article.post .article-content,
+.grid-with-feat-post .featured-post article.post .article-content {
+    text-align: right;
+}
+
+.entry-meta>span .fa,
+.entry-meta>span.category span {
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+.entry-meta>span {
+    margin-right: 0;
+    margin-left: 40px;
+}
+
+.entry-meta>span.byline img {
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+a.bttn {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+.article-share ul.social-icons li:first-child {
+    margin-right: 0;
+}
+
+.article-share span.fa.fa-share {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.article-share ul.social-icons {
+    left: auto;
+    right: 0;
+}
+
+.article-share ul.social-icons {
+    transform-origin: right;
+    -webkit-transform: rotateY(80deg);
+    -moz-transform: rotateY(80deg);
+    transform: rotateY(80deg);
+}
+
+.article-share ul.social-icons li {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.to_top {
+    left: 20px;
+    right: auto;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+    float: right;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+    float: left;
+    text-align: left;
+}
+
+.posts-navigation div[class*="nav-"]>a {
+    padding: 12px 37px 12px 25px;
+}
+
+.posts-navigation div[class*="nav-"]>a::before {
+    left: auto;
+    right: 24px;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.posts-navigation div.nav-next>a::before {
+    left: 24px;
+    right: auto;
+}
+
+.posts-navigation div.nav-next>a {
+    padding: 12px 25px 12px 37px;
+}
+
+.single .article-share {
+    padding-right: 0;
+    padding-left: 20px;
+}
+
+#crumbs a {
+    display: inline-block;
+}
+
+.post-navigation a::before {
+    left: auto;
+    right: 0;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.post-navigation .nav-next a::before {
+    left: 0;
+    right: auto;
+}
+
+.post-navigation a {
+    padding: 10px 20px 10px 10px;
+}
+
+.post-navigation .nav-next a {
+    padding: 10px 10px 10px 20px;
+}
+
+.article-author .author-info {
+    padding-left: 0;
+    padding-right: 20px;
+}
+
+.related-posts .related-post-block {
+    margin-right: 0;
+    margin-left: 4%;
+}
+
+.related-posts .related-post-block:nth-child(3n-2) {
+    margin-left: 0;
+}
+
+.footer-author {
+    text-align: left;
+}
+
+.error404 .page-content {
+    padding-left: 0;
+    padding-right: 77px;
+}
+
+.list-view article.post .article-content,
+.search-results article .article-content {
+    padding-left: 0;
+    padding-right: 55px;
+}
+
+.list-view .entry-meta>span,
+.search-results .entry-meta>span {
+    margin-right: 0;
+    margin-left: 25px;
+}
+
+li>ul,
+li>ol {
+    margin-left: 0;
+    margin-right: 1.5em;
+}
+
+.entry-meta>span:last-child {
+    margin-left: 0;
+}
+
+.comment-list article.comment-body {
+    padding-left: 0;
+    padding-right: 75px;
+}
+
+.comment-author img {
+    left: auto;
+    right: 0;
+}
+
+.comment-list .reply {
+    left: 0;
+    right: auto;
+}
+
+.comment-list .comment-metadata::before {
+    margin-right: 0;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+.comment-list .reply a.comment-reply-link::before {
+    margin-right: 0;
+    margin-left: 5px;
+    display: inline-block;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.comments-area ol.children {
+    margin-left: 0;
+    margin-right: 75px;
+}
+
+.comment-respond p.comment-form-author,
+.comment-respond p.comment-form-email,
+.comment-respond p.comment-form-url {
+    margin-left: 1%;
+    margin-right: 0;
+}
+
+.grid-view .entry-meta>span,
+.grid-with-feat-post .entry-meta>span {
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+.grid-view article.post,
+.grid-with-feat-post article.post {
+    float: right;
+    margin-left: 4%;
+    margin-right: 0;
+}
+
+.grid-view article.post:nth-child(2n),
+.grid-with-feat-post article.post:nth-child(2n+1) {
+    margin-left: 0;
+}
+
+.three-col-grid article.post:nth-child(2n),
+.three-col-grid.grid-with-feat-post article.post:nth-child(2n+1),
+.three-col-grid.grid-with-feat-post article.post:nth-child(3n) {
+    margin-right: 0;
+    margin-left: 4%;
+    ;
+}
+
+.three-col-grid article.post:nth-child(3n),
+.three-col-grid.grid-with-feat-post article.post:nth-child(3n+1) {
+    margin-left: 0;
+}
+
+.related-posts .related-post-block {
+    float: right;
+}
+
+.related-posts .related-post-title {
+    text-align: right;
+}
+
+.related-posts .related-post-block:nth-child(3n) {
+    margin-left: 0;
+}
+
+.related-posts .related-post-block:nth-child(3n-2) {
+    margin-left: 4%;
+}
+
+nav.pagination .page-numbers .fa {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+@media screen and (max-width: 800px) {
+    .main-navigation ul li.menu-item-has-children .fa{
+        right: auto;
+        left: 10px;
+    }
+
+    .header-t-search form.search-form{
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
